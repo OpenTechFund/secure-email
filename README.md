@@ -64,7 +64,7 @@ Mailvelope
 
 [mailvelope.com](http://mailvelope.com)
 
-Mailvelope is a browser extension that allows you to use OpenPGP email with traditional web-mail providers like Gmail, Yahoo, and Outlook.com. The private key is generate for you, password protected, and stored in the browser's local storage (along with public keys). In the future, the plan is to support automatic discovery and validation of public keys using OpenPGP keyservers and message footers.
+Mailvelope is a browser extension that allows you to use OpenPGP email with traditional web-mail providers like Gmail, Yahoo, and Outlook.com. The private key is generated for you, password protected, and stored in the browser's local storage (along with public keys). In the future, the plan is to support automatic discovery and validation of public keys using OpenPGP keyservers and message footers.
 
 Because of an inherent limitation in the way Mailvelop can interface with web-mail, it is not able to send OpenPGP/MIME (although it can read it fine).
 
