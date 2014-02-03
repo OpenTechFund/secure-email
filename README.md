@@ -276,7 +276,7 @@ Advantages:
 
 * Very high security: forward secrecy, metadata protection, likely traffic analysis.
 * Pond hybrid federated and peer-to-peer approach is cool and holds a lot of promise.
-* Written in Go, and thus probably has many fewer security flaws than programs written in C or C++.
+* Written in Go, and thus probably has much less security flaws than programs written in C or C++.
 * Pond is written by Adam Langley, an extremely well respected crypto-engineer.
 
 Disadvantages:
