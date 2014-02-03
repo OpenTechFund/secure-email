@@ -10,7 +10,7 @@ First, because the web application is loaded from the web server each time you u
 1. App Store: Most web browsers support special extensions in the form of "Browser Applications". These are loaded from some kind of app store and installed on the user's device. In this case, the third party that provides the application is the app store. Therefore, the user is then relying on the app store to furnish them with a secure version of the app. For example, this is the approach taken by [cryptocat](https://crypto.cat).
 2. Third Party: There are two advanced mechanisms to allow a web application to be loaded from one website and allow it to access data from another website. One is called CORS ([Cross-origin resource sharing](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)) and the other is HTML5's [window.postMessage command](https://developer.mozilla.org/en-US/docs/Web/API/window.postMessage). With either method, anyone can be the third party furnishing the application, or it can be self hosted. For example, this is the approach taken by [Unhosted](https://unhosted.org).
 
-Second, even if the application is loaded from a trusted third party, web browsers are not an ideal environment for sensitive data: there are many ways for an in-browser application to leak data and web browsers are notoriously prone to security holes (it is a very difficult problem to be able to run untrusted code locally in a secure sandbox). To their credit, the browser developers are often vigilant about fixes these holes (depending on who you ask), but the browser environment is far from a secure computing environment. It continues to be, however, the most convenient environment.
+Second, even if the application is loaded from a trusted third party, web browsers are not an ideal environment for sensitive data: there are many ways for an in-browser application to leak data and web browsers are notoriously prone to security holes (it is a very difficult problem to be able to run untrusted code locally in a secure sandbox). To their credit, the browser developers are often vigilant about fixing these holes (depending on who you ask), but the browser environment is far from a secure computing environment. It continues to be, however, the most convenient environment.
 
 Third, developers of web-based secure email face an additional challenge when dealing with offline data or data caching. Modern HTML5 apps typically store a lot of data locally on the user's device using the localStorage facility. Currently, however, no browser stores this encrypted. A secure web-based email application must either choose to not support any local storage, of develop a scheme for individually encrypting each object put in localStorage, a process which is very inefficient. Even storing keys temporarily in short lived session storage is problematic, since these can be easily read from disk later.
 
@@ -24,18 +24,18 @@ The relaunch of Mega has featured client-side encryption via a javascript applic
 PrivateSky
 --------------------------------------------
 
-PrivateSky was a secure web-based email service that chose to shut down because their design was not compatible with UK law. Many in the press have [said GCHQ forced the closure](http://www.ibtimes.co.uk/articles/529392/20131211/gchq-forced-privatesky-secure-email-service-offline.htm), which the [company refuses](http://www.certivox.com/blog/bid/359788/The-real-story-on-the-PrivateSky-takedown).
+PrivateSky was a secure web-based email service that chose to shut down because their design was not compatible with UK law. Many in the press have [said GCHQ forced the closure](http://www.ibtimes.co.uk/articles/529392/20131211/gchq-forced-privatesky-secure-email-service-offline.htm), which the [company refutes](http://www.certivox.com/blog/bid/359788/The-real-story-on-the-PrivateSky-takedown).
 
 Scramble
 --------------------------------------------
 
 [scramble.io](https://scramble.io)
 
-Scramble is a OpenPGP email application that can be loaded from a website (with plans to add app store support). Additionally, you can get sign up for email service from scramble.io.
+Scramble is a OpenPGP email application that can be loaded from a website (with plans to add app store support). Additionally, you can sign up for email service from scramble.io.
 
 **Keys:** Private keys are generated in the browser app, encrypted with the user's passphrase, and then stored on the server. The server never sees the user's passphrase (password is hashed using scrypt before sent to the server during account creation and authentication). The master storage secret (symmetric key) used to encrypt keys is stored in the browser's sessionStorage, which is erased when the user logs out. Keys are validated using notaries.
 
-**Infrastructure:** Scramble uses a system of network perspective to discover and validate public keys. The client will come with a list of pre-blessed notaries that can be used to query for public keys. If the notaries agree, the client will consider the key to be validated.
+**Infrastructure:** Scramble uses a system of network perspectives to discover and validate public keys. The client will come with a list of pre-blessed notaries that can be used to query for public keys. If the notaries agree, the client will consider the key to be validated.
 
 **Application:** Currently, Scramble is a traditional HTML5 javascript application loaded from the website. In the future, Scramble will also be an installable browser app.
 
@@ -59,14 +59,14 @@ Whiteout is a commercial service featuring an HTML5-based OpenPGP email client t
 Browser Extensions
 ============================================
 
-Mailvelop
+Mailvelope
 --------------------------------------------
 
-[mailvelop.com](http://mailvelope.com)
+[mailvelope.com](http://mailvelope.com)
 
-Mailvelop is a browser extension that allows you to use OpenPGP email with traditional web-mail providers like Gmail, Yahoo, and Outlook.com. The private key is generate for you, password protected, and stored in the browser's local storage (along with public keys). In the future, the plan is to support automatic discovery and validation of public keys using OpenPGP keyservers and message footers.
+Mailvelope is a browser extension that allows you to use OpenPGP email with traditional web-mail providers like Gmail, Yahoo, and Outlook.com. The private key is generated for you, password protected, and stored in the browser's local storage (along with public keys). In the future, the plan is to support automatic discovery and validation of public keys using OpenPGP keyservers and message footers.
 
-Because of an inherent limitation in the way Mailvelop can interface with web-mail, it is not able to send OpenPGP/MIME (although it can read it fine).
+Because of an inherent limitation in the way Mailvelope can interface with web-mail, it is not able to send OpenPGP/MIME (although it can read it fine).
 
 * Contact: info@mailvelope.com
 * Written in: Javascript
@@ -79,7 +79,7 @@ Because of an inherent limitation in the way Mailvelop can interface with web-ma
 Mail Clients
 ============================================
 
-An email client, or MUA (Mail User Agent), provides a user interface to access email from any service provider. Traditional examples of email clients include Thunderbird or Microsoft Outlook (although both these application include a lot of other functionality as well). Nearly all email clients communicate the email service provider using IMAP and SMTP, although some also support local mailboxes in mbox or Maildir format.
+An email client, or MUA (Mail User Agent), provides a user interface to access email from any service provider. Traditional examples of email clients include Thunderbird or Microsoft Outlook (although both these application include a lot of other functionality as well). Nearly all email clients communicate with the email service provider using IMAP and SMTP, although some also support local mailboxes in mbox or Maildir format.
 
 Bitmail
 --------------------------------------------
