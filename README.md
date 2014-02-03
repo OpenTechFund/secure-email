@@ -133,7 +133,7 @@ Parley is a desktop mail client with a UI written using HTML5 and Javascript, wi
 
 **Infrastructure:** All users of the Parley client also sign up for the Parley service, but they use their existing email account. The Parley server acts as a proxy that uses [context.io](http://context.io) for email storage (context.io is a commercial service that provides a REST API for a traditional IMAP account). The Parley server also handles key discovery, validation, and backup. Both the client and server are released as free software.
 
-**Application:** Parley is currently bundles into an executable using [Appcelerator](http://www.appcelerator.com/). The Parley client does not speak IMAP or SMTP directly. Rather, uses the email REST API of context.io.
+**Application:** Parley is currently bundled into an executable using [Appcelerator](http://www.appcelerator.com/). The Parley client does not speak IMAP or SMTP directly. Rather, uses the email REST API of context.io.
 
 * Written in: Python, Javascript
 * Source code: https://github.com/blackchair/parley
