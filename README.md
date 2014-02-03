@@ -12,7 +12,7 @@ First, because the web application is loaded from the web server each time you u
 
 Second, even if the application is loaded from a trusted third party, web browsers are not an ideal environment for sensitive data: there are many ways for an in-browser application to leak data and web browsers are notoriously prone to security holes (it is a very difficult problem to be able to run untrusted code locally in a secure sandbox). To their credit, the browser developers are often vigilant about fixing these holes (depending on who you ask), but the browser environment is far from a secure computing environment. It continues to be, however, the most convenient environment.
 
-Third, developers of web-based secure email face an additional challenge when dealing with offline data or data caching. Modern HTML5 apps typically store a lot of data locally on the user's device using the localStorage facility. Currently, however, no browser stores this encrypted. A secure web-based email application must either choose to not support any local storage, of develop a scheme for individually encrypting each object put in localStorage, a process which is very inefficient. Even storing keys temporarily in short lived session storage is problematic, since these can be easily read from disk later.
+Third, developers of web-based secure email face an additional challenge when dealing with offline data or data caching. Modern HTML5 apps typically store a lot of data locally on the user's device using the localStorage facility. Currently, however, no browser stores this encrypted. A secure web-based email application must either choose to not support any local storage, or develop a scheme for individually encrypting each object put in localStorage, a process which is very inefficient. Even storing keys temporarily in short lived session storage is problematic, since these can be easily read from disk later.
 
 Mega
 --------------------------------------------
@@ -79,7 +79,7 @@ Because of an inherent limitation in the way Mailvelope can interface with web-m
 Mail Clients
 ============================================
 
-An email client, or MUA (Mail User Agent), provides a user interface to access email from any service provider. Traditional examples of email clients include Thunderbird or Microsoft Outlook (although both these application include a lot of other functionality as well). Nearly all email clients communicate with the email service provider using IMAP and SMTP, although some also support local mailboxes in mbox or Maildir format.
+An email client, or MUA (Mail User Agent), provides a user interface to access email from any service provider. Traditional examples of email clients include Thunderbird or Microsoft Outlook (although both these application include a lot of other functionality as well). Nearly all email clients communicate with the email service provider using IMAP or POP and SMTP, although some also support local mailboxes in mbox or Maildir format.
 
 Bitmail
 --------------------------------------------
@@ -133,7 +133,7 @@ Parley is a desktop mail client with a UI written using HTML5 and Javascript, wi
 
 **Infrastructure:** All users of the Parley client also sign up for the Parley service, but they use their existing email account. The Parley server acts as a proxy that uses [context.io](http://context.io) for email storage (context.io is a commercial service that provides a REST API for a traditional IMAP account). The Parley server also handles key discovery, validation, and backup. Both the client and server are released as free software.
 
-**Application:** Parley is currently bundles into an executable using [Appcelerator](http://www.appcelerator.com/). The Parley client does not speak IMAP or SMTP directly. Rather, uses the email REST API of context.io.
+**Application:** Parley is currently bundled into an executable using [Appcelerator](http://www.appcelerator.com/). The Parley client does not speak IMAP or SMTP directly. Rather, uses the email REST API of context.io.
 
 * Written in: Python, Javascript
 * Source code: https://github.com/blackchair/parley
@@ -276,7 +276,7 @@ Advantages:
 
 * Very high security: forward secrecy, metadata protection, likely traffic analysis.
 * Pond hybrid federated and peer-to-peer approach is cool and holds a lot of promise.
-* Written in Go, and thus probably has much less security flaws than programs written in C or C++.
+* Written in Go, and thus probably has many fewer security flaws than programs written in C or C++.
 * Pond is written by Adam Langley, an extremely well respected crypto-engineer.
 
 Disadvantages:
