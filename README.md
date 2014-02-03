@@ -31,7 +31,7 @@ Scramble
 
 [scramble.io](https://scramble.io)
 
-Scramble is a OpenPGP email application that can be loaded from a website (with plans to add app store support). Additionally, you can get sign up for email service from scramble.io.
+Scramble is a OpenPGP email application that can be loaded from a website (with plans to add app store support). Additionally, you can sign up for email service from scramble.io.
 
 **Keys:** Private keys are generated in the browser app, encrypted with the user's passphrase, and then stored on the server. The server never sees the user's passphrase (password is hashed using scrypt before sent to the server during account creation and authentication). The master storage secret (symmetric key) used to encrypt keys is stored in the browser's sessionStorage, which is erased when the user logs out. Keys are validated using notaries.
 
