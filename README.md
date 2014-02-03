@@ -79,7 +79,7 @@ Because of an inherent limitation in the way Mailvelop can interface with web-ma
 Mail Clients
 ============================================
 
-An email client, or MUA (Mail User Agent), provides a user interface to access email from any service provider. Traditional examples of email clients include Thunderbird or Microsoft Outlook (although both these application include a lot of other functionality as well). Nearly all email clients communicate the email service provider using IMAP and SMTP, although some also support local mailboxes in mbox or Maildir format.
+An email client, or MUA (Mail User Agent), provides a user interface to access email from any service provider. Traditional examples of email clients include Thunderbird or Microsoft Outlook (although both these application include a lot of other functionality as well). Nearly all email clients communicate the email service provider using IMAP or POP and SMTP, although some also support local mailboxes in mbox or Maildir format.
 
 Bitmail
 --------------------------------------------
