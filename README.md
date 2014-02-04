@@ -1,7 +1,37 @@
-There are an increasing number of projects working on next generation secure email or email-like communication. This is an initial draft report highlighting the projects and comparing the approaches. Please help us fill in the missing details and correct any inaccuracies. To contribute to this document, please fork this repository and issue a pull request.
+There are an increasing number of projects working on next generation secure email or email-like communication. This is an initial draft report highlighting the projects and comparing the approaches. Please help us fill in the missing details and correct any inaccuracies. To contribute to this document, fork this repository and issue a pull request.
 
-Web Services
-============================================
+Contents:
+
+1. [Web Mail](#web-mail)
+  1. [Mega](#mega)
+  1. [PrivateSky](#privatesky)
+  1. [Scramble](#scramble)
+  1. [Whiteout](#whiteout)
+1. [Browser Extensions](#browser-extensions)
+  1. [Mailvelope](#mailvelope)
+1. [Mail Clients](#mail-clients)
+  1. [Bitmail](#bitmail)
+  1. [Mailpile](#mailpile)
+  1. [Parley](#parley)
+1. [Self-Hosted Email](#self-hosted-email)
+  1. [FreedomBox](#freedombox)
+  1. [Mailpile](#self-hosted-mailpile)
+1. [Email Infrastructure](#email-infrastructure)
+  1. [Dark Mail Alliance](#dark-mail-alliance)
+  1. [LEAP Encryption Access Project](#leap)
+1. [Post-email alternatives](#post-email-alternatives)
+  1. [Bitmessage](#bitmessage)
+  1. [Cables](#cables)
+  1. [Dark Mail Alliance](#p2p-dark-mail-alliance)
+  1. [FlowingMail](#flowingmail)
+  1. [Goldbug](#goldbug)
+  1. [Pond](#pond)
+1. [Unclassified](#unclassified)
+  1. [Startmail](#startmail)
+1. [Related Works](#related-works)
+
+<a name="web-mail"></a>Web Mail
+===========================================================
 
 Most users are familiar with web-based email and the incredible convenience it offers: you can access your email from any device, and you don't need to worry about data synchronization. Developers of web-based email faces several difficult challenges when attempting to make a truly secure application. These challenges can be overcome, but not easily.
 
@@ -14,20 +44,20 @@ Second, even if the application is loaded from a trusted third party, web browse
 
 Third, developers of web-based secure email face an additional challenge when dealing with offline data or data caching. Modern HTML5 apps typically store a lot of data locally on the user's device using the localStorage facility. Currently, however, no browser stores this encrypted. A secure web-based email application must either choose to not support any local storage, or develop a scheme for individually encrypting each object put in localStorage, a process which is very inefficient. Even storing keys temporarily in short lived session storage is problematic, since these can be easily read from disk later.
 
-Mega
---------------------------------------------
+<a name="mega"></a>Mega
+-----------------------------------------------------------
 
 [mega.co.nz](https://mega.co.nz)
 
 The relaunch of Mega has featured client-side encryption via a javascript application running in the browser. Mega has announced plans to extend their offerings to include email service with a similar design. No details are yet forthcoming. In interviews, Mega has said the javascript running in the browser will be open source, but the server component will be proprietary.
 
-PrivateSky
---------------------------------------------
+<a name="privatesky"></a>PrivateSky
+-----------------------------------------------------------
 
 PrivateSky was a secure web-based email service that chose to shut down because their design was not compatible with UK law. Many in the press have [said GCHQ forced the closure](http://www.ibtimes.co.uk/articles/529392/20131211/gchq-forced-privatesky-secure-email-service-offline.htm), which the [company refutes](http://www.certivox.com/blog/bid/359788/The-real-story-on-the-PrivateSky-takedown).
 
-Scramble
---------------------------------------------
+<a name="scramble"></a>Scramble
+-----------------------------------------------------------
 
 [scramble.io](https://scramble.io)
 
@@ -45,8 +75,8 @@ Scramble is a OpenPGP email application that can be loaded from a website (with 
 * License: LGPL
 * Platforms: Windows, Mac, Linux (with Android planned).
 
-Whiteout
---------------------------------------------
+<a name="whiteout"></a>Whiteout
+-----------------------------------------------------------
 
 [whiteout.io](https://whiteout.io)
 
@@ -56,11 +86,11 @@ Whiteout is a commercial service featuring an HTML5-based OpenPGP email client t
 * Source code: https://github.com/whiteout-io/mail-html5
 * License: proprietary, but the code is available for inspection.
 
-Browser Extensions
-============================================
+<a name="browser-extensions"></a>Browser Extensions
+===========================================================
 
-Mailvelope
---------------------------------------------
+<a name="mailvelope"></a>Mailvelope
+-----------------------------------------------------------
 
 [mailvelope.com](http://mailvelope.com)
 
@@ -75,14 +105,13 @@ Because of an inherent limitation in the way Mailvelope can interface with web-m
 * License: AGPL
 * Platforms: Windows, Mac, Linux (with Android planned).
 
-
-Mail Clients
-============================================
+<a name="mail-clients"></a>Mail Clients
+===========================================================
 
 An email client, or MUA (Mail User Agent), provides a user interface to access email from any service provider. Traditional examples of email clients include Thunderbird or Microsoft Outlook (although both these application include a lot of other functionality as well). Nearly all email clients communicate with the email service provider using IMAP or POP and SMTP, although some also support local mailboxes in mbox or Maildir format.
 
-Bitmail
---------------------------------------------
+<a name="bitmail"></a>Bitmail
+-----------------------------------------------------------
 
 [bitmail.sf.net](http://bitmail.sf.net)
 
@@ -104,8 +133,8 @@ There are also plans to include a Bitmail MUA extension.
 
 Note: I am unclear which of the previous features are planned and which are currently working.
 
-Mailpile
----------------------------------------------
+<a name="mailpile"></a>Mailpile
+-----------------------------------------------------------
 
 [mailpile.is](http://mailpile.is)
 
@@ -122,8 +151,8 @@ Mailpile is an email client designed to quickly handle large amounts of email an
 * Platforms: Windows, Mac, Linux (with Android and iOS planned).
 * Contact: team@mailpile.is
 
-Parley
---------------------------------------------
+<a name="parley"></a>Parley
+-----------------------------------------------------------
 
 [parley.co](https://parley.co)
 
@@ -141,27 +170,27 @@ Parley is a desktop mail client with a UI written using HTML5 and Javascript, wi
 * License: BSD
 * Platforms: Windows, Mac, Linux (with Android and iOS planned).
 
-Self-Hosted Email
-============================================
+<a name="self-hosted-email"></a>Self-Hosted Email
+===========================================================
 
-FreedomBox
---------------------------------------------
+<a name="freedombox"></a>FreedomBox
+-----------------------------------------------------------
 
 [freedomboxfoundation.org](https://freedomboxfoundation.org)
 
 From its early conception, part of FreedomBox was "email and telecommunications that protects privacy and resists eavesdropping". Email, however, is not currently being worked on as part of FreedomBox (as far as I can tell).
 
-Mailpile
---------------------------------------------
+<a name="self-hosted-mailpile"></a>Mailpile
+-----------------------------------------------------------
 
 Although Mailpile is primarily a mail client, the background Python component can read the Maildir format for email. This means you could install Mailpile on your own server running a Mail Transfer Agent (MTA) like postfix or qmail. You would then access your mail remotely by connecting to your server via a web browser.
 
 
-Email Infrastructure
-============================================
+<a name="email-infrastructure"></a>Email Infrastructure
+===========================================================
 
-Dark Mail Alliance
---------------------------------------------
+<a name="dark-mail-alliance"></a>Dark Mail Alliance
+-----------------------------------------------------------
 
 [darkmail.info](https://darkmail.info)
 
@@ -182,8 +211,8 @@ The Dark Mail Alliance includes both a client application and server software. T
 * Platforms: initially Android and iOS, followed by Windows, OS X, Linux, and Windows Phone.
 * Contact: press@darkmail.info
 
-LEAP Encryption Access Project
---------------------------------------------
+<a name="leap"></a>LEAP Encryption Access Project
+-----------------------------------------------------------
 
 [leap.se](https://leap.se)
 
@@ -200,18 +229,8 @@ LEAP includes both a client application and turn-key system to automate the proc
 * Design documentation: https://leap.se/docs
 * License: mostly GPL v3, some MIT and AGPL.
 
-Unclassified
-============================================
-
-Startmail
---------------------------------------------
-
-[startmail.com](http://startmail.com)
-
-The makers of the secure search engine [startpage.com](https://startpage.com) have announced they will be providing secure email service. No details are available yet, other than the service will be compatible with OpenPGP email.
-
-Post-email alternatives
-================================
+<a name="post-email-alternatives"></a>Post-email alternatives
+===========================================================
 
 There are several projects to create alternatives to email that are more secure yet still email-like.
 
@@ -225,8 +244,8 @@ Except for Pond, all these alternatives take a pure peer-to-peer approach. As su
 
 On the other hand, these post-email alternatives are not vulnerable to a compromised or nefarious service provider.
 
-Bitmessage
---------------------------------------------
+<a name="bitmessage"></a>Bitmessage
+-----------------------------------------------------------
 
 [Bitmessage](https://bitmessage.org)
 
@@ -246,20 +265,36 @@ Disadvantages:
 * because there is no forward secrecy, it is especially problematic that anyone can grab an encrypted copy of any message in the system. This means if the private key is ever compromised, then all the past messages can be decrypted easily by anyone using the system.
 * relies on proof of work for spam prevention, which is probably not actually that preventative (spammers often steal CPU anyway).
 
-Dark Mail Alliance
---------------------------------------------
+<a name="cables"></a>Cables
+-----------------------------------------------------------
+
+https://github.com/mkdesu/cables
+
+* Written in: C, Bash
+* License: GPL v2
+
+<a name="p2p-dark-mail-alliance"></a>Dark Mail Alliance
+-----------------------------------------------------------
 
 The Dark Mail Alliance plans to incorporate traditional email, a federated email alternative, and a second email alternative that is pure peer-to-peer. Details are not yet forthwith.
 
-FlowingMail
---------------------------------------------
+<a name="flowingmail"></a>FlowingMail
+-----------------------------------------------------------
 
 [FlowingMail](http://flowingmail.com)
 
 P2P secure, encrypted email system.
 
-Pond
---------------------------------------------
+<a name="goldbug"></a>Goldbug
+-----------------------------------------------------------
+
+http://goldbug.sf.net
+
+* Written in: C++, Qt
+* License: BSD
+
+<a name="pond"></a>Pond
+-----------------------------------------------------------
 
 [pond.imperialviolet.org](https://pond.imperialviolet.org/)
 
@@ -285,24 +320,18 @@ Disadvantages:
 * Requires that you set up contacts in advance before you can communicate with them (via a Short Authentication String).
 * Pond is still very difficult to install and use.
 
-Goldbug
---------------------------------------------
+<a name="unclassified"></a>Unclassified
+===========================================================
 
-http://goldbug.sf.net
+<a name="startmail"></a>Startmail
+-----------------------------------------------------------
 
-* Written in: C++, Qt
-* License: BSD
+[startmail.com](http://startmail.com)
 
-Cables
---------------------------------------------
+The makers of the secure search engine [startpage.com](https://startpage.com) have announced they will be providing secure email service. No details are available yet, other than the service will be compatible with OpenPGP email.
 
-https://github.com/mkdesu/cables
-
-* Written in: C, Bash
-* License: GPL v2
-
-Related Systems
-============================================
+<a name="related-works"></a>Related Works
+===========================================================
 
 There are many technologies that don't belong in this document because they either (a) are not trying to make encrypted email-like communication easier, (b) use some kind of weird proprietary escrow system, or (c) we just don't know enough about them yet. Here is a place to store links to such projects.
 
