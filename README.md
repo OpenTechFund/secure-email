@@ -14,6 +14,7 @@ Contents:
   1. [Mailpile](#mailpile)
   1. [Parley](#parley)
 1. [Self-Hosted Email](#self-hosted-email)
+  1. [Dark Mail Alliance](#self-hosted-dark-mail)
   1. [FreedomBox](#freedombox)
   1. [Mailpile](#self-hosted-mailpile)
 1. [Email Infrastructure](#email-infrastructure)
@@ -88,6 +89,8 @@ Whiteout is a commercial service featuring an HTML5-based OpenPGP email client t
 
 <a name="browser-extensions"></a>Browser Extensions
 ===========================================================
+
+A browser extension modifies the behavior of the web browser (not to be confused with a browser application, which has far fewer permissions and consists of a self-contained application). Browser extensions are able to modify how the users interacts with a variety of websites. Browser extensions share many of the same advantages and disadvantages of [web mail approaches](#webmail).
 
 <a name="mailvelope"></a>Mailvelope
 -----------------------------------------------------------
@@ -173,6 +176,24 @@ Parley is a desktop mail client with a UI written using HTML5 and Javascript, wi
 <a name="self-hosted-email"></a>Self-Hosted Email
 ===========================================================
 
+Traditionally, email is a federated protocol: when you send an email it travels from your computer, to the server of your email provider, to the server of the recipient's provider, and finally to the recipient's computer. The key idea with self-hosted email is to cut out the middleman and run your own email server.
+
+In the United States, much of the interest in self-hosted email is driven by the Supreme Court's current (and particularly odd) interpretation of the 4th amendment called the ["Third-Party Doctrine"](https://en.wikipedia.org/wiki/Third-Party_Doctrine). Essentially, you have much weaker privacy protections in the US if you entrust any of your data to a third party. Additionally, the Court has so far afforded much greater protections to items physically inside your home. "Aha!" say the hackers and the lawyers, "we will just put email in the home."
+
+Unfortunately, it is not so simple. There are some major challenges to putting email servers in everyone's home:
+
+* **Delegated reputation**: The current email infrastructure is essentially a system of delegated reputation. In order to be able to send mail to most providers and not have a large percentage of it marked as Spam, a service provider must gradually build up a good reputation. Users are able to send mail because their provider has cultivated this reputation and maintained it by closing abusive accounts. It is certainly possible to run an email provider with a single user, but it is much harder to build up a good reputation. Also, many email providers block all relay attempts from IP addresses that have been flagged as "home" addresses, on the (probable) assumption that the message is coming from a virus and not a legitimate email server.
+* **Servers are on a hostile network**: Because a server needs to have open ports that are publicly accessible from the internet at all times, running one is much trickier than a simple desktop computer. It is much more critical to make sure security upgrades are applied in a timely manner, and that you are able to respond to external attacks, such as "Spam Bombs". Any publicly addressable IP that is put on the open internet will be continually probed for vulnerabilities. Self-hosting will probably work great for a protocol like Pond, where there are strict restrictions on who may deliver incoming messages. Email, however, is a protocol that is wide open and prone to abuse.
+* **Sysadmins are not robots**: No one has yet figured out how to make self-healing servers that don't require a skilled sysadmin to keep them healthy. Once someone does, a lot of sysadmins will be out of work, but they are presently not very worried. There are many things that commonly go wrong with servers, such as upgrades failing, drives filling up, daemons crashing, memory leaks, and so on.
+* **Does not address the important problems**: Moving the physical location of a device does nothing to solve the hard problems associated with easy-to-use email security (such as data availability and key validation). Some of the approaches to these problems rely on service provider infrastructure that would be infeasible to self host.
+
+Ultimately, self-hosted email is an intriguing "legal hack", albeit one that has not been tested in the courts and faces many technical challenges.
+
+<a name="self-hosted-dark-mail"></a>Dark Mail Alliance
+-----------------------------------------------------------
+
+The Dark Mail Alliance has said they want to support self-hosting for the server component of the system. No details yet.
+
 <a name="freedombox"></a>FreedomBox
 -----------------------------------------------------------
 
@@ -184,7 +205,6 @@ From its early conception, part of FreedomBox was "email and telecommunications 
 -----------------------------------------------------------
 
 Although Mailpile is primarily a mail client, the background Python component can read the Maildir format for email. This means you could install Mailpile on your own server running a Mail Transfer Agent (MTA) like postfix or qmail. You would then access your mail remotely by connecting to your server via a web browser.
-
 
 <a name="email-infrastructure"></a>Email Infrastructure
 ===========================================================
