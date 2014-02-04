@@ -97,9 +97,13 @@ A browser extension modifies the behavior of the web browser (not to be confused
 
 [mailvelope.com](http://mailvelope.com)
 
-Mailvelope is a browser extension that allows you to use OpenPGP email with traditional web-mail providers like Gmail, Yahoo, and Outlook.com. The private key is generated for you, password protected, and stored in the browser's local storage (along with public keys). In the future, the plan is to support automatic discovery and validation of public keys using OpenPGP keyservers and message footers.
+Mailvelope is a browser extension that allows you to use OpenPGP email with traditional web-mail providers like Gmail, Yahoo, and Outlook.com.
 
-Because of an inherent limitation in the way Mailvelope can interface with web-mail, it is not able to send OpenPGP/MIME (although it can read it fine).
+**Keys:** The private key is generated for you, password protected, and stored in the browser's local storage (along with public keys). In the future, the plan is to support automatic discovery and validation of public keys using OpenPGP keyservers and message footers.
+
+**Application:** When the extension detects you have opened a web page from a supported web-mail provider such as Gmail, it offers the user the opportunity to encrypt what you type in the compose window and decrypt messages you receive.
+
+**Limitations:** Because of an inherent limitation in the way Mailvelope can interface with web-mail, it is not able to send OpenPGP/MIME (although it can read it fine). As mentioned elsewhere, browser storage is not a particular ideal place to be storing keys. When a web-mail provider changes their UI (or API if they happen to have one), the extension must be updated to handle the new format.
 
 * Contact: info@mailvelope.com
 * Written in: Javascript
@@ -147,6 +151,8 @@ Mailpile is an email client designed to quickly handle large amounts of email an
 
 **Application:** Mailpile UI is written using HTML5 and Javascript, running against a self-hosted Python application (that typically lives locally on the device, but might be running on your own server).
 
+**Limitations:** Mailpile does not currently have a scheme for recovery if your device is destroyed or a method for securely synchronizing keys among devices. The search index of email stores words as hashes, but the domain of words in written language is small enough that this likely will not afford proper protection should an attacker gain access to the disk.
+
 * Written in: Python, Javascript
 * Source code: http://github.com/pagekite/mailpile
 * Design documentation: http://github.com/pagekite/mailpile
@@ -167,6 +173,8 @@ Parley is a desktop mail client with a UI written using HTML5 and Javascript, wi
 
 **Application:** Parley is currently bundled into an executable using [Appcelerator](http://www.appcelerator.com/). The Parley client does not speak IMAP or SMTP directly. Rather, uses the email REST API of context.io.
 
+**Limitations:** All user email is stored by context.io, albeit in OpenPGP format. Metadata is exposed to context.io, however (in addition to your service provider).
+
 * Written in: Python, Javascript
 * Source code: https://github.com/blackchair/parley
 * Design documentation: https://parley.co/#how-it-works
@@ -184,10 +192,10 @@ Unfortunately, it is not so simple. There are some major challenges to putting e
 
 * **Delegated reputation**: The current email infrastructure is essentially a system of delegated reputation. In order to be able to send mail to most providers and not have a large percentage of it marked as Spam, a service provider must gradually build up a good reputation. Users are able to send mail because their provider has cultivated this reputation and maintained it by closing abusive accounts. It is certainly possible to run an email provider with a single user, but it is much harder to build up a good reputation. Also, many email providers block all relay attempts from IP addresses that have been flagged as "home" addresses, on the (probable) assumption that the message is coming from a virus and not a legitimate email server.
 * **Servers are on a hostile network**: Because a server needs to have open ports that are publicly accessible from the internet at all times, running one is much trickier than a simple desktop computer. It is much more critical to make sure security upgrades are applied in a timely manner, and that you are able to respond to external attacks, such as "Spam Bombs". Any publicly addressable IP that is put on the open internet will be continually probed for vulnerabilities. Self-hosting will probably work great for a protocol like Pond, where there are strict restrictions on who may deliver incoming messages. Email, however, is a protocol that is wide open and prone to abuse.
-* **Sysadmins are not robots**: No one has yet figured out how to make self-healing servers that don't require a skilled sysadmin to keep them healthy. Once someone does, a lot of sysadmins will be out of work, but they are presently not very worried. There are many things that commonly go wrong with servers, such as upgrades failing, drives filling up, daemons crashing, memory leaks, and so on.
+* **Sysadmins are not robots**: No one has yet figured out how to make self-healing servers that don't require a skilled sysadmin to keep them healthy. Once someone does, a lot of sysadmins will be out of work, but they are presently not very worried. There are many things that commonly go wrong with servers, such as upgrades failing, drives filling up, daemons crashing, memory leaks, hardware failures, and so on.
 * **Does not address the important problems**: Moving the physical location of a device does nothing to solve the hard problems associated with easy-to-use email security (such as data availability and key validation). Some of the approaches to these problems rely on service provider infrastructure that would be infeasible to self host.
 
-Ultimately, self-hosted email is an intriguing "legal hack", albeit one that has not been tested in the courts and faces many technical challenges.
+Self-hosted email is an intriguing "legal hack", albeit one that has not been tested in the courts and faces many technical challenges.
 
 <a name="self-hosted-dark-mail"></a>Dark Mail Alliance
 -----------------------------------------------------------
@@ -199,7 +207,7 @@ The Dark Mail Alliance has said they want to support self-hosting for the server
 
 [freedomboxfoundation.org](https://freedomboxfoundation.org)
 
-From its early conception, part of FreedomBox was "email and telecommunications that protects privacy and resists eavesdropping". Email, however, is not currently being worked on as part of FreedomBox (as far as I can tell).
+From its early conception, part of FreedomBox was "email and telecommunications that protects privacy and resists eavesdropping". Email, however, is not currently being worked on as part of FreedomBox. (as far as I can tell).
 
 <a name="self-hosted-mailpile"></a>Mailpile
 -----------------------------------------------------------
@@ -209,20 +217,38 @@ Although Mailpile is primarily a mail client, the background Python component ca
 <a name="email-infrastructure"></a>Email Infrastructure
 ===========================================================
 
+The "infrastructure" projects give a service provider the opportunity to offer secure email accounts to end-users. By modifying how both email clients and email servers work, these projects have the potential to deploy greater security measures than are possible with a client-only approach. For example:
+
+* Encrypted relay: A secure email provider is able to support, and enforce, encrypted transport when relaying mail to other providers. This is an important mechanism for preventing mass surveillance of metadata (which is otherwise not protected by OpenPGP client-side encryption of message contents).
+* Easier key management: A secure email provider can endorse the public keys of its users, and provide assistance to various schemes for automatic validation. Additionally, a secure email provider, coupled with a custom client, can make it easy to securely manage and back up the essential private keys which are otherwise cumbersome for most users to manage.
+* Invisible upgrade to better protocols: A secure email provider has the potential to support multiple protocols bound to a single user@domain address, allowing automatic and invisible upgrades to more secure post-email protocols when both parties detect the capability.
+* A return to federation: The recent concentration of email to a few giant providers greatly reduces the health and resiliency of email as an open protocol, since now only a few players essentially monopolize the medium. Projects that seek to make it easier to offer secure email as a service have the potential to reverse this trend.
+* Secure DNS: A secure provider can support DNSSEC and DANE, while most other email providers are unlikely to anytime soon. This is very important, because it is easy to hijack the MX records of a domain without DNSSEC.
+
+The goal of both projects in this category is to build systems where the service provider is untrusted and cannot compromise the security of its users.
+
+Despite the potential of this approach, there are several unknown factors that might limit its appeal:
+
+* In order to benefit from a more secure provider, a user will need to switch their email account and email address, a very high barrier to adoption.
+* Where once there were many ISPs that offered email service, it is no longer clear if there is either the demand to sustain many email providers or the supply of providers interested in offering email as a service.
+* Users must download and install a custom application.
+
 <a name="dark-mail-alliance"></a>Dark Mail Alliance
 -----------------------------------------------------------
 
 [darkmail.info](https://darkmail.info)
 
-The Dark Mail Alliance includes both a client application and server software. The plan is to support OpenPGP, S/MIME, and some new email-like protocol adapted from SilentCircle's instant message protocol (SCIMP). Both the client and server will be made available as free software.
+The Dark Mail Alliance will include both a client application and server software. The plan is to support traditional encrypted email (both OpenPGP and S/MIME), a new federated email-like protocol adapted from SilentCircle's instant message protocol (SCIMP), and a pure peer-to-peer messaging protocol. Both the client and server will be made available as free software.
 
-**Keys:** Key pairs are generated on the user's device and uploaded to their service provider. [Certificate Transparency](http://certificate-transparency.org) will be used to automatically validate the service provider's endorsement of these public keys. Dark Mail additionally plans to support fingerprint confirmation, short authentication strings, and shared secret for manual key validation. Dark Mail plans to support discovery of public keys through DNS, HTTPS, and attached to messages.
+**Keys:** Key pairs will be generated on the user's device and uploaded to the service provider. [Certificate Transparency](http://certificate-transparency.org) will be used to automatically validate the service provider's endorsement of these public keys. Dark Mail additionally plans to support fingerprint confirmation, short authentication strings, and shared secret for manual key validation. Automatic discovery of public keys will happen using DNS, HTTPS, and via the messages themselves.
 
-**Routing:** The post-email messaging protocol promises to have forward secrecy and protection from metadata analysis (details have not yet been posted, and SCIMP does not currently support meta-data protection). Dark Mail Alliance plans to additionally support pure peer-to-peer messaging using a key fingerprint as the user identifier (supporting both Tor .onion and i2p routing addresses).
+**Routing:** The post-email messaging protocol promises to have forward secrecy and protection from metadata analysis (details have not yet been posted, and SCIMP does not currently support meta-data protection). Dark Mail Alliance plans to additionally support pure peer-to-peer messaging using a key fingerprint as the user identifier.
 
-**Infrastructure:** Dark Mail plans to support traditional client/server architecture, self-hosted architecture, and pure peer-to-peer architecture.
+**Infrastructure:** Dark Mail plans to support three types of architectures: traditional client/server, self-hosted, and pure peer-to-peer. No details yet on how these will work.
 
 **Application:** The client application will work with any existing MUA by exposing a local IMAP/SMTP server that the MUA can connect to.
+
+**Limitations:** Dark Mail has not yet released any code or design documents. However, they certainly have the resources to carry out their plans.
 
 * Written in: C
 * Source code: none yet
@@ -238,13 +264,15 @@ The Dark Mail Alliance includes both a client application and server software. T
 
 LEAP includes both a client application and turn-key system to automate the process of running a secure service provider. Currently, this includes user registration and management, help tickets, billing, VPN service, and secure email service. The secure email service is based on OpenPGP.
 
-**Keys:** Key pairs are generated on the user's device. Private keys, and discovered public keys, are stored in an encrypted database that is synchronized among the user's devices and backed up to the service provider. Keys are automatically validated using a combination of provider endorsement, and network perspective (coming soon). Keys are discovered via the OpenPGP keyservers, the OpenPGP header, email footers, and a custom HTTP based discovery protocol.
+**Keys:** Key pairs are generated on the user's device. Keys, and all user data, are stored in a client-encrypted database that is synchronized among the user's devices and backed up to the service provider. Keys are automatically validated using a combination of provider endorsement and network perspective (coming soon). Keys are discovered via the OpenPGP keyservers, the OpenPGP header, email footers, and a custom HTTP-based discovery protocol.
 
-**Infrastructure:** LEAP follows a traditional federated client/server architecture. The client is designed to work with any LEAP-compatible service provider. Users are encouraged to get the application from LEAP and not their service provider.
+**Infrastructure:** LEAP follows a traditional federated client/server architecture. The client is designed to work with any LEAP-compatible service provider (with plans to support legacy IMAP providers in the future). For security reasons, users are encouraged to get the application from LEAP and not their service provider.
 
 **Application:** The client application works with any existing MUA by exposing a local IMAP/SMTP server that the MUA can connect to. There is a Thunderbird extension to automate configuration of the account in Thunderbird. The client application communicates with the service provider using a custom protocol for synchronizing encrypted databases. The application is a very small C program that launches the Python code. The user interface is written using Qt.
 
-* Written in: Python, C
+**Limitations:** In the current implementation, security properties of forward secrecy and metadata production are not end-to-end. Instead, the client relies on the service provider to ensure these properties. This limitation is due to some inherent limitations in the existing protocols for secure email. As with many of the other projects, LEAP's plan is to invisibly upgrade to a post-email protocol when possible in order to overcome these limitations.
+
+* Written in: Python
 * Source code: https://leap.se/source
 * Design documentation: https://leap.se/docs
 * License: mostly GPL v3, some MIT and AGPL.
@@ -270,7 +298,6 @@ On the other hand, these post-email alternatives are not vulnerable to a comprom
 [Bitmessage](https://bitmessage.org)
 
 Bitmessage is a peer-to-peer email-like communication protocol. It is totally decentralized and places no trust on any organization for services or validation.
-
 
 Advantages:
 
@@ -320,8 +347,9 @@ http://goldbug.sf.net
 
 Pond is an email-like messaging application with several unique architectural and cryptographic features that make it stand out in the field.
 
-* Pond uses Axolotl for asynchronous forward secret messages where the key is frequently ratcheted (akin to OTR, but more robust).
-* Pond uses a unique architecture where every user relies on a service provider for receiving messages, but sent messages are delivered directly to the recipient's server (over Tor). This allows for strong metadata protection, but does not suffer from the other problems that peer-to-peer systems typically do. In order to prevent excessive spam under this scheme, Pond uses a clever system of group signatures to allow the server to check if a sender is authorized to deliver to a particular user without leaking any information to the server.
+* Pond uses [Axolotl](https://github.com/trevp/axolotl/wiki) for asynchronous forward secret messages where the key is frequently ratcheted (akin to OTR, but more robust).
+* Pond uses Panda, a system for secure peer validation using short authentication strings.
+* Pond uses a unique architecture where every user relies on a service provider for receiving messages, but sent messages are delivered directly to the recipient's server (over Tor). This allows for strong metadata protection, but does not suffer from the other problems that peer-to-peer systems typically do. In order to prevent excessive Spam under this scheme, Pond uses a clever system of group signatures to allow the server to check if a sender is authorized to deliver to a particular user without leaking any information to the server.
 
 * Written in: Go
 * License: BSD
@@ -329,7 +357,7 @@ Pond is an email-like messaging application with several unique architectural an
 
 Advantages:
 
-* Very high security: forward secrecy, metadata protection, likely traffic analysis.
+* Very high security: forward secrecy, metadata protection, resistant to traffic analysis.
 * Pond hybrid federated and peer-to-peer approach is cool and holds a lot of promise.
 * Written in Go, and thus probably has many fewer security flaws than programs written in C or C++.
 * Pond is written by Adam Langley, an extremely well respected crypto-engineer.
