@@ -2,6 +2,7 @@ There are an increasing number of projects working on next generation secure ema
 
 Contents:
 
+1. [Common Problems](#common-problems)
 1. [Web Mail](#web-mail)
   1. [Mega](#mega)
   1. [PrivateSky](#privatesky)
@@ -30,6 +31,59 @@ Contents:
 1. [Unclassified](#unclassified)
   1. [Startmail](#startmail)
 1. [Related Works](#related-works)
+
+<a name="common-problems"></a>Common Problems
+===========================================================
+
+All of the technologies listed here face a common set of problems when trying to make secure email (or email-like communication) secure and easy to use. These problems are hard, and have defied easy solutions, because there are no quick technological fixes: at issue is the complex interaction between user experience, real world infrastructure, and security. Although no consensus has yet emerged on how best to tackle any of these problems, the diversity of projects listed in this report reflect an surge of interest in this area and an encouraging spirit of experimentation.
+
+## Problem 1 -- Key Management
+
+All the projects in this report use public-key encryption to allow a user to send a confidential message to the intendant recipient, and for the recipient to verify the authorship of the message. Unfortunately, public-key encryption is notoriously difficult to use properly, even for advanced users. The very concepts are confusing for most users: public key versus private key, key signing, key revocation, signing keys versus encryption keys, bit length, and so on.
+
+Traditionally, public key cryptography for email has relied on either the X.509 Certificate Authority (CA) system or a decentralized "Web of Trust" (WoT) for key validation (authenticating that a particular person owns a particular key). Recently, both schemes have come under intense criticism. Repeated security lapses at many of the Certificate Authorities have revealed serious flaws in the CA system. On the other hand, in an age where we better understand the power of social network analysis and the sensitivity of the social graph, the exposure of metadata by a "Web of Trust" is no longer acceptable from a security standpoint.
+
+This is where we are now: we have public key technology that is excessively difficult for the common user, and our only methods of key validation have fallen into disrepute. The projects listed here have plunged into this void, attempting to simplify the usage of public-key cryptography. These efforts have four elements:
+
+* Key discovery: There is no commonly used standard for discovering the public key attached to a particular email address. All the projects here that use OpenPGP intend to initially use, as a stop-gap measure, the OpenPGP keyservers for key discovery, although the keyserver infrastructure was not designed to be used in this way.
+* Key validation: If not Certificate Authorities or Web of Trust, what then? Nearly every project here uses Trust On First Use (TOFU) in one way or another. With TOFU, a key is assumed to be the right key the first time it is used. TOFU works well for people who are not being targeted for attack, but is highly vulnerable otherwise.
+* Key availability: Almost every attempt to solve the key validation problem turns into a key availability problem, because once you have validated a public key, you need to make sure that this validation is available to the user on all the possible devices they might want to send or receive messages on.
+* Key revocation: What happens when a private key is lost, and a user want to issue a new public key? None of the projects in this report have an answer for how to deal with this in a post-CA and post-WoT world.
+
+## Problem 2 -- Metadata Protection
+
+Traditional schemes for secure email have left metadata exposed. We now know that metadata is often more sensitive than message content: metadata is structured data, easily stored forever, and subject to powerful techniques of social network analysis that can can be incredibly revealing.
+
+Metadata protection, however, is **hard**. In order to protect metadata, the message routing protocol must hide the sender and recipient from all the intermediaries responsible for relaying the message. This is not possible with the traditional protocol for email transport, although it will probably be possible to piggyback additional (non-backward compatible) protocols on top of traditional email transport in order to achieve metadata protection.
+
+Alternately, some projects reject traditional email transport entirely. These decentralized peer-to-peer approaches to metadata protection generally fall into three camps: (1) directly relay the message from sender's device to recipients device; (2) relay messages through a network of friends; (3) broadcast messages to everyone. The first two approaches protect metadata, but at the expense of increasing vulnerability to traffic analysis that could reveal the same metadata. The third solution faces serious problems of scalability. (Pond uses a forth method, discussed below).
+
+All schemes for metadata protection face the prospect of increasing Spam (since one of the primary methods used to prevent Spam is analysis of metadata). This is why some schemes with strong metadata protection make it impossible to send or receive messages to anyone you are not already in contact with. This works brilliantly for reducing Spam, but is unlikely to be a viable long term strategy for replacing for the role of email in society.
+
+## Problem 3 -- Forward Secrecy
+
+Forward secrecy is a security property that prevents an attacker from saving messages today and then later decrypting these messages once they have captured the user's private key. Without forward secrecy, an attacker might also be able to capture messages today and simply wait for computers to become powerful enough to crack the encryption by brute force. Traditional email encryption offers no forward secrecy.
+
+All methods for forward secrecy involve a process where two parties negotiate an ephemeral key that is used for a short period of time to secure their communication. In many cases, the ephemeral key is generated anew for every single message. Traditional schemes for forward secrecy are incompatible with the asynchronous nature of email communication, since with email you still need to be able to send someone a message even if they are not online and ephemeral key generation requires a back and forth exchange between both parties.
+
+There are several new experimental (and tricky) protocols that attempt to achieve both forward secrecy and support for asynchronous communication, but none have yet emerged as a standard. Another possible approach is to use traditional encryption with no support for forward secrecy but instead rely on a scheme for automatic key discovery and validation in order to frequently rotate keys. This way, a user could throw away their private key every few days, achieving a very crude form of forward secrecy.
+
+## Problem 4 -- Data Availability
+
+Users today demand data availability: they want to be able to access their messages and send messages from any device they choose, wherever they choose, and whenever they choose. Most importantly, they don't want the lose of any particular device to result in a loss of all their data. For insecure communication, achieving data availability is dead simple: simply store everything in the cloud. For secure communication, however, we have no proven solutions to this problem. As noted above, the key management problem is also really a data availability problem.
+
+Most of the projects here have postponed dealing with the data availability problem. A few have used IMAP to synchronize data or developed their own secure synchronization protocol.
+
+## Problem 5 -- Secure Authentication
+
+For those projects that make use of a service provider, one of the key problems is how to authenticate securely with the service provider without revealing the password (since the password is probably also used to encrypt the private key and other secure storage, so it is important that the service provider does not have cleartext access as with typical password authentication schemes). The possible schemes include:
+
+* Separate passwords. The application can use one password for authentication and a separate password for securing secrets.
+* Pre-hash the password on the client before sending it to the server. This method can work, although it does not also authenticate the server (an impostor server can always reply with a success message), and is still vulnerable to brute force dictionary attacks.
+* Use Secure Remote Password (SRP), a type of cryptographic zero-knowledge proof designed for password authentication in which the client and server mutually authenticate. SRP has been around a while, and is fairly well analyzed, but it is still vulnerable to brute force dictionary attacks (albeit much less than traditionally password schemes).
+* Sign a challenge from the server with the user's private key. This has the advantage of being nearly impossible to brute force attack, but is vulnerable to impostor server providers and requires that the user's device has the private key.
+
+No consensus or standard has yet emerged, although SRP has been around a while.
 
 <a name="web-mail"></a>Web Mail
 ===========================================================
