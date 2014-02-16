@@ -35,7 +35,7 @@ Contents:
 <a name="common-problems"></a>Common Problems
 ===========================================================
 
-All of the technologies listed here face a common set of problems when trying to make secure email (or email-like communication) secure and easy to use. These problems are hard, and have defied easy solutions, because there are no quick technological fixes: at issue is the complex interaction between user experience, real world infrastructure, and security. Although no consensus has yet emerged on how best to tackle any of these problems, the diversity of projects listed in this report reflect an surge of interest in this area and an encouraging spirit of experimentation.
+All of the technologies listed here face a common set of problems when trying to make email (or email-like communication) secure and easy to use. These problems are hard, and have defied easy solutions, because there are no quick technological fixes: at issue is the complex interaction between user experience, real world infrastructure, and security. Although no consensus has yet emerged on how best to tackle any of these problems, the diversity of projects listed in this report reflect an surge of interest in this area and an encouraging spirit of experimentation.
 
 ## Problem 1 -- Key Management
 
@@ -171,6 +171,18 @@ Mailvelope is a browser extension that allows you to use OpenPGP email with trad
 
 An email client, or MUA (Mail User Agent), provides a user interface to access email from any service provider. Traditional examples of email clients include Thunderbird or Microsoft Outlook (although both these application include a lot of other functionality as well). Nearly all email clients communicate with the email service provider using IMAP or POP and SMTP, although some also support local mailboxes in mbox or Maildir format.
 
+There are two primary advantages to the mail client approach:
+
+1. Existing accounts: By using a custom secure mail client, a user can continue to use their existing email accounts.
+1. Tailored UI: A custom client has the potential to rethink the email user experience in order to better convey security related details to the user.
+
+The mail client approach, however, also has several disadvantages:
+
+1. Insecure service providers: A mail client cannot address many of the core problems with email security when used with a traditional email provider. For example, metadata will not be protected in storage or transit, and the provider cannot aid in key discovery or validation. Most importantly, many existing mail providers are highly vulnerable, since few rely on DNSSEC for their MX records or validate their StartTLS connections for mail relay (when they even bother to enable StartTLS). A traditional email provider also requires authentication via password that is seen by the provider in clear text, and might be recorded by them.
+1. Install a new app: As with many of the other approaches, the custom mail client approach requires that users download and install a specialized application on their device before they can use it.
+
+Ultimately, the custom mail client approach is probably not a good strategy for secure email, but may be an excellent strategy for weening users away from email and to a different and more secure protocol. Most of the projects in this section see email support as a gateway to ease the transition to something that can replace email.
+
 <a name="bitmail"></a>Bitmail
 -----------------------------------------------------------
 
@@ -248,6 +260,7 @@ Unfortunately, it is not so simple. There are some major challenges to putting e
 * **Servers are on a hostile network**: Because a server needs to have open ports that are publicly accessible from the internet at all times, running one is much trickier than a simple desktop computer. It is much more critical to make sure security upgrades are applied in a timely manner, and that you are able to respond to external attacks, such as "Spam Bombs". Any publicly addressable IP that is put on the open internet will be continually probed for vulnerabilities. Self-hosting will probably work great for a protocol like Pond, where there are strict restrictions on who may deliver incoming messages. Email, however, is a protocol that is wide open and prone to abuse.
 * **Sysadmins are not robots**: No one has yet figured out how to make self-healing servers that don't require a skilled sysadmin to keep them healthy. Once someone does, a lot of sysadmins will be out of work, but they are presently not very worried. There are many things that commonly go wrong with servers, such as upgrades failing, drives filling up, daemons crashing, memory leaks, hardware failures, and so on.
 * **Does not address the important problems**: Moving the physical location of a device does nothing to solve the hard problems associated with easy-to-use email security (such as data availability and key validation). Some of the approaches to these problems rely on service provider infrastructure that would be infeasible to self host.
+* **DNS is hard**: One of the important security problems with traditional email is the vulnerability MX DNS records. Doing DNS correctly is hard, and not something that can be expected of the common user.
 
 Self-hosted email is an intriguing "legal hack", albeit one that has not been tested in the courts and faces many technical challenges.
 
@@ -336,15 +349,22 @@ LEAP includes both a client application and turn-key system to automate the proc
 
 There are several projects to create alternatives to email that are more secure yet still email-like.
 
-These approaches share many similarities:
+These projects share some common advantages:
 
-* They all use fingerprints as unique identifiers.
-* Most use some form of a Distribute Hash Table for routing.
-* All have a design goal of trusting no one.
+1. **Trust no one:** These projects share an approach that treats the network, and all parties on the network, as potentially hostile and not to be trusted. With this approach, a user's security can only be betrayed if their own device is compromised or the software is flawed or tampered with, but the user is protected from attacks against any service provider (because there typically is not one).
+1. **Fingerprint as identifier:** All these projects also use the fingerprint of the user's public key as the unique routing identifier for a user, allowing for decentralized and unique names. This neatly solves the problem of validating public keys, because every identifier basically *is* a key, so there is no need to establish a mapping from an identifier to a key.
 
-Except for Pond, all these alternatives take a pure peer-to-peer approach. As such, they face particular challenges regarding traffic analysis, Sybil attacks, and performance in mobile situations. Since these projects use fingerprints as identifiers, they also may face increased barriers to user adoption.
+Except for Pond, all these alternatives take a pure peer-to-peer approach. As such, they face particular challenges:
 
-On the other hand, these post-email alternatives are not vulnerable to a compromised or nefarious service provider.
+1. **The "Natural" Network**: Many advocates of peer-to-peer networking advance the notion that decentralized networks are the most efficient networks and are found everywhere in nature (in the neurons in our brain, in how mold grows, in how insects communicate, etc). This notion is only partially true. Networks are found in nature, but these network are not radically decentralized. Instead, natural networks tend to follow a power law distribution (aka "[scale free networks](https://en.wikipedia.org/wiki/Scale-free_network)"), where there is a high degree of partial centralization that balances "brokerage" (ability to communicate far in the network) with "closure" (ability to communicate close in the network). Thus, in practice, digital networks rely on "super hubs" that process most of the traffic. These hubs need to be maintained and hosted by someone, often at great expense (and making the network much more vulnerable to Sybil attacks).
+1. **The Internet:** Sadly, the physical internet infrastructure is actually very polycentric rather than decentralized (more akin to a tree than a spider's web). One reason for the rise of cloud computing is that resources are much cheaper near the core of the internet than near the periphery. Technical strategies that attempt to leverage the periphery will always be disadvantaged from an efficiency standpoint.
+1. **Traffic Analysis:** Most of the peer-to-peer approaches directly relay messages from sender's device to recipient's device, or route messages through the participant's contacts. Such an approach to message routing makes it potentially very easy for a network observer to map the network of associations, even if the message protocol otherwise offers very strong metadata protection.
+1. **Sybil Attacks:** By their nature, peer-to-peer networks do not have a method of blocking participation in the network. This makes them potentially very vulnerable to [Sybil attacks](https://en.wikipedia.org/wiki/Sybil_attack), where an attacker creates a very large number of fake participants in order to control the network or reveal the identity of other network participants.
+1. **Mobile:** Peer-to-peer networks are resource intensive, typically with every node in the network responsible for continually relaying traffic and keeping the network healthy. Unfortunately, this kind of thing is murder on the battery life of a mobile device, and requires a lot of extra network traffic.
+1. **Identifiers**: Using key fingerprints as unique identifiers has some advantages, but it also makes user identifiers impossible to remember. There is a lot of utility in the convenience of memorable username handles, as evidence in the use of email addresses and twitter handles.
+1. **Data Availability**: Unless also paired with a cloud component, peer-to-peer networks have much lower data availability than other approaches. For example, it takes much longer to update message deliveries from a peer network than from a server, particularly when the device has been offline for a while. Also, if a device is lost or destroyed, generally the user loses all their data.
+
+Most of these challenges have possible technological solutions that might make peer-to-peer approaches the most attractive option in the long run. For this reason, it is important that research continue in this area. However, [in the long run we are all dead](https://en.wikiquote.org/wiki/John_Maynard_Keynes) and peer-to-peer approaches face serious hurdles before they can achieve the kind of user experience demanded today.
 
 <a name="bitmessage"></a>Bitmessage
 -----------------------------------------------------------
@@ -401,26 +421,33 @@ http://goldbug.sf.net
 
 Pond is an email-like messaging application with several unique architectural and cryptographic features that make it stand out in the field.
 
-* Pond uses [Axolotl](https://github.com/trevp/axolotl/wiki) for asynchronous forward secret messages where the key is frequently ratcheted (akin to OTR, but more robust).
-* Pond uses Panda, a system for secure peer validation using short authentication strings.
-* Pond uses a unique architecture where every user relies on a service provider for receiving messages, but sent messages are delivered directly to the recipient's server (over Tor). This allows for strong metadata protection, but does not suffer from the other problems that peer-to-peer systems typically do. In order to prevent excessive Spam under this scheme, Pond uses a clever system of group signatures to allow the server to check if a sender is authorized to deliver to a particular user without leaking any information to the server.
+**Message Encryption**: Pond uses [Axolotl](https://github.com/trevp/axolotl/wiki) for asynchronous forward secret messages where the key is frequently ratcheted (akin to OTR, but more robust).
 
-* Written in: Go
-* License: BSD
-* Source code: https://github.com/agl/pond
+**Routing**: Pond uses a unique architecture where every user relies on a service provider for receiving messages, but sent messages are delivered directly to the recipient's server (over Tor). This allows for strong metadata protection, but does not suffer from the other problems that peer-to-peer systems typically do. In order to prevent excessive Spam under this scheme, Pond uses a clever system of group signatures to allow the server to check if a sender is authorized to deliver to a particular user without leaking any information to the server.
 
-Advantages:
+**Keys**: Pond uses Panda, a system for secure peer validation using short authentication strings.
+
+Pond's advantages include:
 
 * Very high security: forward secrecy, metadata protection, resistant to traffic analysis.
 * Pond hybrid federated and peer-to-peer approach is cool and holds a lot of promise.
 * Written in Go, and thus probably has many fewer security flaws than programs written in C or C++.
 * Pond is written by Adam Langley, an extremely well respected crypto-engineer.
 
-Disadvantages:
+Pond's disadvantages include:
 
-* Uses non-human memorial unique identifiers, although this is not a necessary element of the design. Because there are service providers, it could be made to work with username@domain.org identifiers.
-* Requires that you set up contacts in advance before you can communicate with them (via a Short Authentication String).
+* Uses non-human memorial unique identifiers, although this is not a necessary element of the design.
+* Requires that you set up contacts in advance before you can communicate with them (via a Short Authentication String or full public key exchange).
 * Pond is still very difficult to install and use.
+
+Pond is an exciting experiment in how you could build a very secure post-email protocol. Although Pond currently uses non-human identifiers, Pond could be easily modified to use traditional email username@domain.org identifiers (because it relies on service providers for message reception). The requirement in Pond that both parties pre-exchange keys could also be modified to allow users to set up addresses that could receive messages from anyone, albeit at the cost of likely Spam. Currently, Pond uses Tor to anonymize message routing, but the Tor network was designed for low-latency. Pond could potentially use a more secure anonymization network that was designed for higher-latency asynchronous messages.
+
+Ultimately, Pond's unique design makes it a very strong candidate for incorporation into a messaging application that could automatically upgrade from email to Pond should it detect that both parties support it.
+
+* Written in: Go
+* Source code: https://github.com/agl/pond
+* License: BSD
+* Platforms: anything you can compile Go on (for command line interface) or anything you can compile Go + Gtk (for GUI interface).
 
 <a name="unclassified"></a>Unclassified
 ===========================================================
