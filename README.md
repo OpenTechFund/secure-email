@@ -3,6 +3,11 @@ There are an increasing number of projects working on next generation secure ema
 Contents:
 
 1. [Common Problems](#common-problems)
+  1. [Key Management](#key-management)
+  1. [Metadata Protection](#metadata-protection)
+  1. [Forward Secrecy](#forward-secrecy)
+  1. [Data Availability](#data-availability)
+  1. [Secure Authentication](#secure-authentication)
 1. [Web Mail](#web-mail)
   1. [Mega](#mega)
   1. [PrivateSky](#privatesky)
@@ -37,7 +42,8 @@ Contents:
 
 All of the technologies listed here face a common set of problems when trying to make email (or email-like communication) secure and easy to use. These problems are hard, and have defied easy solutions, because there are no quick technological fixes: at issue is the complex interaction between user experience, real world infrastructure, and security. Although no consensus has yet emerged on how best to tackle any of these problems, the diversity of projects listed in this report reflect an surge of interest in this area and an encouraging spirit of experimentation.
 
-## Problem 1 -- Key Management
+<a name="key-management"></a>Key Management
+-----------------------------------------------------------
 
 All the projects in this report use public-key encryption to allow a user to send a confidential message to the intendant recipient, and for the recipient to verify the authorship of the message. Unfortunately, public-key encryption is notoriously difficult to use properly, even for advanced users. The very concepts are confusing for most users: public key versus private key, key signing, key revocation, signing keys versus encryption keys, bit length, and so on.
 
@@ -50,7 +56,8 @@ This is where we are now: we have public key technology that is excessively diff
 * Key availability: Almost every attempt to solve the key validation problem turns into a key availability problem, because once you have validated a public key, you need to make sure that this validation is available to the user on all the possible devices they might want to send or receive messages on.
 * Key revocation: What happens when a private key is lost, and a user want to issue a new public key? None of the projects in this report have an answer for how to deal with this in a post-CA and post-WoT world.
 
-## Problem 2 -- Metadata Protection
+<a name="metadata-protection"></a>Metadata Protection
+-----------------------------------------------------------
 
 Traditional schemes for secure email have left metadata exposed. We now know that metadata is often more sensitive than message content: metadata is structured data, easily stored forever, and subject to powerful techniques of social network analysis that can can be incredibly revealing.
 
@@ -60,7 +67,8 @@ Alternately, some projects reject traditional email transport entirely. These de
 
 All schemes for metadata protection face the prospect of increasing Spam (since one of the primary methods used to prevent Spam is analysis of metadata). This is why some schemes with strong metadata protection make it impossible to send or receive messages to anyone you are not already in contact with. This works brilliantly for reducing Spam, but is unlikely to be a viable long term strategy for replacing for the role of email in society.
 
-## Problem 3 -- Forward Secrecy
+<a name="forward-secrecy"></a>Forward Secrecy
+-----------------------------------------------------------
 
 Forward secrecy is a security property that prevents an attacker from saving messages today and then later decrypting these messages once they have captured the user's private key. Without forward secrecy, an attacker might also be able to capture messages today and simply wait for computers to become powerful enough to crack the encryption by brute force. Traditional email encryption offers no forward secrecy.
 
@@ -68,13 +76,15 @@ All methods for forward secrecy involve a process where two parties negotiate an
 
 There are several new experimental (and tricky) protocols that attempt to achieve both forward secrecy and support for asynchronous communication, but none have yet emerged as a standard. Another possible approach is to use traditional encryption with no support for forward secrecy but instead rely on a scheme for automatic key discovery and validation in order to frequently rotate keys. This way, a user could throw away their private key every few days, achieving a very crude form of forward secrecy.
 
-## Problem 4 -- Data Availability
+<a name="data-availability"></a>Data Availability
+-----------------------------------------------------------
 
 Users today demand data availability: they want to be able to access their messages and send messages from any device they choose, wherever they choose, and whenever they choose. Most importantly, they don't want the lose of any particular device to result in a loss of all their data. For insecure communication, achieving data availability is dead simple: simply store everything in the cloud. For secure communication, however, we have no proven solutions to this problem. As noted above, the key management problem is also really a data availability problem.
 
 Most of the projects here have postponed dealing with the data availability problem. A few have used IMAP to synchronize data or developed their own secure synchronization protocol.
 
-## Problem 5 -- Secure Authentication
+<a name="secure-authentication"></a>Secure Authentication
+-----------------------------------------------------------
 
 For those projects that make use of a service provider, one of the key problems is how to authenticate securely with the service provider without revealing the password (since the password is probably also used to encrypt the private key and other secure storage, so it is important that the service provider does not have cleartext access as with typical password authentication schemes). The possible schemes include:
 
