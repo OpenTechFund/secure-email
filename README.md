@@ -63,9 +63,9 @@ Traditional schemes for secure email have left metadata exposed. We now know tha
 
 Metadata protection, however, is **hard**. In order to protect metadata, the message routing protocol must hide the sender and recipient from all the intermediaries responsible for relaying the message. This is not possible with the traditional protocol for email transport, although it will probably be possible to piggyback additional (non-backward compatible) protocols on top of traditional email transport in order to achieve metadata protection.
 
-Alternately, some projects reject traditional email transport entirely. These decentralized peer-to-peer approaches to metadata protection generally fall into three camps: (1) directly relay the message from sender's device to recipients device; (2) relay messages through a network of friends; (3) broadcast messages to everyone. The first two approaches protect metadata, but at the expense of increasing vulnerability to traffic analysis that could reveal the same metadata. The third solution faces serious problems of scalability. (Pond uses a forth method, discussed below).
+Alternately, some projects reject traditional email transport entirely. These decentralized peer-to-peer approaches to metadata protection generally fall into four camps: (1) directly relay the message from sender's device to recipients device; (2) relay messages through a network of friends; (3) broadcast messages to everyone; (4) relay messages through an anonymization network such as Tor. The first two approaches protect metadata, but at the expense of increasing vulnerability to traffic analysis that could reveal the same metadata. The third solution faces serious problems of scalability. Pond uses the forth method, discussed below.
 
-All schemes for metadata protection face the prospect of increasing Spam (since one of the primary methods used to prevent Spam is analysis of metadata). This is why some schemes with strong metadata protection make it impossible to send or receive messages to anyone you are not already in contact with. This works brilliantly for reducing Spam, but is unlikely to be a viable long term strategy for replacing for the role of email in society.
+All schemes for metadata protection face the prospect of increasing Spam (since one of the primary methods used to prevent Spam is analysis of metadata). This is why some schemes with strong metadata protection make it impossible to send or receive messages to anyone you are not already in contact with. This works brilliantly for reducing Spam, but is unlikely to be a viable long term strategy for entirely replacing the utility of email.
 
 <a name="forward-secrecy"></a>Forward Secrecy
 -----------------------------------------------------------
@@ -188,10 +188,10 @@ There are two primary advantages to the mail client approach:
 
 The mail client approach, however, also has several disadvantages:
 
-1. Insecure service providers: A mail client cannot address many of the core problems with email security when used with a traditional email provider. For example, metadata will not be protected in storage or transit, and the provider cannot aid in key discovery or validation. Most importantly, many existing mail providers are highly vulnerable, since few rely on DNSSEC for their MX records or validate their StartTLS connections for mail relay (when they even bother to enable StartTLS). A traditional email provider also requires authentication via password that is seen by the provider in clear text, and might be recorded by them.
+1. Insecure service providers: A mail client cannot address many of the core problems with email security when used with a traditional email provider. For example, metadata will not be protected in storage or transit, and the provider cannot aid in key discovery or validation. Most importantly, many existing mail providers are highly vulnerable, since few rely on DNSSEC for their MX records or validate their StartTLS connections for mail relay (when they even bother to enable StartTLS). A traditional email provider also requires authentication via password that is seen by the provider in clear text, and might be recorded by them. Finally, most service providers retain significant personally identifiable information, such as IP address of clients.
 1. Install a new app: As with many of the other approaches, the custom mail client approach requires that users download and install a specialized application on their device before they can use it.
 
-Ultimately, the custom mail client approach is probably not a good strategy for secure email, but may be an excellent strategy for weening users away from email and to a different and more secure protocol. Most of the projects in this section see email support as a gateway to ease the transition to something that can replace email.
+Ultimately, the level of email security that is possible with the custom mail client approach will always be limited. However, custom email clients may be an excellent strategy for gradually weening users away from email and to a different and more secure protocol. Most of the projects in this section see email support as a gateway to ease the transition to something that can replace email.
 
 <a name="bitmail"></a>Bitmail
 -----------------------------------------------------------
@@ -221,13 +221,13 @@ Note: I am unclear which of the previous features are planned and which are curr
 
 [mailpile.is](http://mailpile.is)
 
-Mailpile is an email client designed to quickly handle large amounts of email and also support user-friendly encryption. The initial focus is on email, with plans to eventually support post-email protocols like bitmessage, flowingmail, or darkmail. Also, the developers hope to add support for XMPP-based chat in the future.
+Mailpile is an email client designed to quickly handle large amounts of email and also support user-friendly encryption. The initial focus is on email, with plans to eventually support post-email protocols like bitmessage, flowingmail, or darkmail. Also, the developers hope to add support for XMPP-based chat in the future. Since the Mozilla foundation has not committed the resources necessary to keep Thunderbird contemporary, the Mailpile initiative holds a lot of promise as a cross-platform mail client that seeks to redesign how we interact with email.
 
 **Keys:** Mailpile email encryption is based on OpenPGP (it uses your GPG keyring). Key discovery will be handled using OpenPGP keyservers and including public keys as attachments to outgoing email. Public keys are trusted on first use, with plans for validation via DANE and manual fingerprint verification (future support for a p2p protocol might include additional methods, such as Certificate Transparency or Short Authentication Strings). Currently, keys are not backed up.
 
 **Application:** Mailpile UI is written using HTML5 and Javascript, running against a self-hosted Python application (that typically lives locally on the device, but might be running on your own server).
 
-**Limitations:** Mailpile does not currently have a scheme for recovery if your device is destroyed or a method for securely synchronizing keys among devices. The search index of email stores words as hashes, but the domain of words in written language is small enough that this likely will not afford proper protection should an attacker gain access to the disk.
+**Limitations:** Mailpile does not currently have a scheme for recovery if your device is destroyed or a method for securely synchronizing keys among devices. Although the search index is stored encrypted on disk (if the user already has GPG installed and a key pair generated), it is encrypted in a way that requires the index to be loaded entirely into memory. Mailpile is under very active development, so these and other issues may change in the near future.
 
 * Written in: Python, Javascript
 * Source code: http://github.com/pagekite/mailpile
@@ -272,7 +272,7 @@ Unfortunately, it is not so simple. There are some major challenges to putting e
 * **Does not address the important problems**: Moving the physical location of a device does nothing to solve the hard problems associated with easy-to-use email security (such as data availability and key validation). Some of the approaches to these problems rely on service provider infrastructure that would be infeasible to self host.
 * **DNS is hard**: One of the important security problems with traditional email is the vulnerability MX DNS records. Doing DNS correctly is hard, and not something that can be expected of the common user.
 
-Self-hosted email is an intriguing "legal hack", albeit one that has not been tested in the courts and faces many technical challenges.
+Self-hosted email is an intriguing "legal hack", albeit one that faces many technical challenges.
 
 <a name="self-hosted-dark-mail"></a>Dark Mail Alliance
 -----------------------------------------------------------
@@ -301,6 +301,7 @@ The "infrastructure" projects give a service provider the opportunity to offer s
 * Invisible upgrade to better protocols: A secure email provider has the potential to support multiple protocols bound to a single user@domain address, allowing automatic and invisible upgrades to more secure post-email protocols when both parties detect the capability.
 * A return to federation: The recent concentration of email to a few giant providers greatly reduces the health and resiliency of email as an open protocol, since now only a few players essentially monopolize the medium. Projects that seek to make it easier to offer secure email as a service have the potential to reverse this trend.
 * Secure DNS: A secure provider can support DNSSEC and DANE, while most other email providers are unlikely to anytime soon. This is very important, because it is easy to hijack the MX records of a domain without DNSSEC.
+* Minimal data retention: A service provider that follows "best practices" will choose to retain less personally identifiable information on their users, such as their home IP addresses.
 
 The goal of both projects in this category is to build systems where the service provider is untrusted and cannot compromise the security of its users.
 
@@ -374,7 +375,7 @@ Except for Pond, all these alternatives take a pure peer-to-peer approach. As su
 1. **Identifiers**: Using key fingerprints as unique identifiers has some advantages, but it also makes user identifiers impossible to remember. There is a lot of utility in the convenience of memorable username handles, as evidence in the use of email addresses and twitter handles.
 1. **Data Availability**: Unless also paired with a cloud component, peer-to-peer networks have much lower data availability than other approaches. For example, it takes much longer to update message deliveries from a peer network than from a server, particularly when the device has been offline for a while. Also, if a device is lost or destroyed, generally the user loses all their data.
 
-Most of these challenges have possible technological solutions that might make peer-to-peer approaches the most attractive option in the long run. For this reason, it is important that research continue in this area. However, [in the long run we are all dead](https://en.wikiquote.org/wiki/John_Maynard_Keynes) and peer-to-peer approaches face serious hurdles before they can achieve the kind of user experience demanded today.
+Most of these challenges have possible technological solutions that might make peer-to-peer approaches the most attractive option in the long run. For example, researchers may discover ways to make p2p networks less battery intensive. For this reason, it is important that research continue in this area. However, [in the long run we are all dead](https://en.wikiquote.org/wiki/John_Maynard_Keynes) and peer-to-peer approaches face serious hurdles before they can achieve the kind of user experience demanded today.
 
 <a name="bitmessage"></a>Bitmessage
 -----------------------------------------------------------
