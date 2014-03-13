@@ -23,6 +23,7 @@ Contents:
   1. [Dark Mail Alliance](#self-hosted-dark-mail)
   1. [FreedomBox](#freedombox)
   1. [Mailpile](#self-hosted-mailpile)
+  1. [kinko](#kinko)
 1. [Email Infrastructure](#email-infrastructure)
   1. [Dark Mail Alliance](#dark-mail-alliance)
   1. [LEAP Encryption Access Project](#leap)
@@ -290,6 +291,17 @@ From its early conception, part of FreedomBox was "email and telecommunications 
 -----------------------------------------------------------
 
 Although Mailpile is primarily a mail client, the background Python component can read the Maildir format for email. This means you could install Mailpile on your own server running a Mail Transfer Agent (MTA) like postfix or qmail. You would then access your mail remotely by connecting to your server via a web browser.
+
+<a name="kinko"></a>kinko
+-----------------------------------------------------------
+
+[kinko](https://kinko.me) implements an en/decrypting SMTP- and IMAP-proxy on ARM-class hardware, the kinko box. Emails are synced from the users' email accounts via IMAP to the box and are stored in plaintext in a secure storage area on the box. The kinko box also includes a webmailer to be able to use email with the browser.
+
+Connections to the kinko box are secured by TLS using a private key only known to the box itself. Furthermore, the kinko box is tunnelled to a public internet location. Consequently, users can access secure email from everywhere, using IMAP compatible email clients and/or browsers, including mobile clients.
+
+kinko uses GnuPG for encryption, with the addition of encrypting the email subject. Further additions should allow "Post-email alternatives" (a la bitmessage) to be used with the email clients that users are using today already. Other, privacy-related additions are planned as well.
+
+Both the kinko box software and the routing service's software are open sourced.
 
 <a name="email-infrastructure"></a>Email Infrastructure
 ===========================================================
