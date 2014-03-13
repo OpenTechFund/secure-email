@@ -301,7 +301,20 @@ Connections to the kinko box are secured by TLS using a private key only known t
 
 kinko uses GnuPG for encryption, with the addition of encrypting the email subject. Further additions should allow "Post-email alternatives" (a la bitmessage) to be used with the email clients that users are using today already. Other, privacy-related additions are planned as well.
 
-Both the kinko box software and the routing service's software are open sourced.
+**Key discovery and validation:** Users can upload existing PGP keyrings. PGP keys are discovered via email
+addresses, email content, and PGP key servers. Keys are trusted on first use (but this policy can be changed 
+to explicit fingerprint validation.) 
+
+**Project status:** An alpha prototype exists. We are preparing for the release of a beta package in Q2/2014.
+
+**Languages:** The kinko base system is implemented in ruby and shell, with minor portions in native code.
+Applications can be implemented in more or less any language. 
+
+**Webmail:** The currently included webmail application is roundcube webmail. That might change in the future. 
+
+**Licenses:** All portions of the kinko system will be released under the AGPL license. (Included 3rd party
+applications will use their respective open source licenses). The hardware is open sourced as 
+per [olimex](https://www.olimex.com/wiki/A10-OLinuXino-LIME).
 
 <a name="email-infrastructure"></a>Email Infrastructure
 ===========================================================
