@@ -478,3 +478,4 @@ There are many technologies that don't belong in this document because they eith
 * [Virtru](https://www.virtru.com) has a secure email product that relies on a centralized key escrow. For details, see [here](http://www.theregister.co.uk/Print/2014/01/24/ex_nsa_cloud_guru_email_privacy_startup) and [here](https://www.virtru.com/how-virtru-works).
 * [OpenCom](http://opencom.io) is a secure email and email-like communication in the planning stages.
 * [Ubiquitous Encrypted Email](https://github.com/tomrittervg/uee) is a protocol draft for standards that could lead to universal adoption of encrypted email.
+* [Redecentralize](https://github.com/redecentralize/alternative-internet) has a list of decentralized networks, such as Tor.
