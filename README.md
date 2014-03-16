@@ -79,7 +79,7 @@ There are several new experimental (and tricky) protocols that attempt to achiev
 <a name="data-availability"></a>Data Availability
 -----------------------------------------------------------
 
-Users today demand data availability: they want to be able to access their messages and send messages from any device they choose, wherever they choose, and whenever they choose. Most importantly, they don't want the lose of any particular device to result in a loss of all their data. For insecure communication, achieving data availability is dead simple: simply store everything in the cloud. For secure communication, however, we have no proven solutions to this problem. As noted above, the key management problem is also really a data availability problem.
+Users today demand data availability: they want to be able to access their messages and send messages from any device they choose, wherever they choose, and whenever they choose. Most importantly, they don't want the loss of any particular device to result in a loss of all their data. For insecure communication, achieving data availability is dead simple: simply store everything in the cloud. For secure communication, however, we have no proven solutions to this problem. As noted above, the key management problem is also really a data availability problem.
 
 Most of the projects here have postponed dealing with the data availability problem. A few have used IMAP to synchronize data or developed their own secure synchronization protocol.
 
@@ -154,7 +154,7 @@ Whiteout is a commercial service featuring an HTML5-based OpenPGP email client t
 <a name="browser-extensions"></a>Browser Extensions
 ===========================================================
 
-A browser extension modifies the behavior of the web browser (not to be confused with a browser application, which has far fewer permissions and consists of a self-contained application). Browser extensions are able to modify how the users interacts with a variety of websites. Browser extensions share many of the same advantages and disadvantages of [web mail approaches](#webmail).
+A browser extension modifies the behavior of the web browser (not to be confused with a browser application, which has far fewer permissions and consists of a self-contained application). Browser extensions are able to modify how the user interacts with a variety of websites. Browser extensions share many of the same advantages and disadvantages of [web mail approaches](#webmail).
 
 <a name="mailvelope"></a>Mailvelope
 -----------------------------------------------------------
