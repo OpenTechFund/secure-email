@@ -154,7 +154,7 @@ Whiteout is a commercial service featuring an HTML5-based OpenPGP email client t
 <a name="browser-extensions"></a>Browser Extensions
 ===========================================================
 
-A browser extension modifies the behavior of the web browser (not to be confused with a browser application, which has far fewer permissions and consists of a self-contained application). Browser extensions are able to modify how the users interacts with a variety of websites. Browser extensions share many of the same advantages and disadvantages of [web mail approaches](#webmail).
+A browser extension modifies the behavior of the web browser (not to be confused with a browser application, which has far fewer permissions and consists of a self-contained application). Browser extensions are able to modify how the user interacts with a variety of websites. Browser extensions share many of the same advantages and disadvantages of [web mail approaches](#webmail).
 
 <a name="mailvelope"></a>Mailvelope
 -----------------------------------------------------------
