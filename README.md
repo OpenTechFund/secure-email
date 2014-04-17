@@ -12,6 +12,7 @@ Contents:
   1. [Mega](#mega)
   1. [PrivateSky](#privatesky)
   1. [Scramble](#scramble)
+  1. [Startmail](#startmail)
   1. [Whiteout](#whiteout)
 1. [Browser Extensions](#browser-extensions)
   1. [Mailvelope](#mailvelope)
@@ -121,6 +122,17 @@ The relaunch of Mega has featured client-side encryption via a javascript applic
 -----------------------------------------------------------
 
 PrivateSky was a secure web-based email service that chose to shut down because their design was not compatible with UK law. Many in the press have [said GCHQ forced the closure](http://www.ibtimes.co.uk/articles/529392/20131211/gchq-forced-privatesky-secure-email-service-offline.htm), which the [company refutes](http://www.certivox.com/blog/bid/359788/The-real-story-on-the-PrivateSky-takedown).
+
+<a name="startmail"></a>StartMail
+-----------------------------------------------------------
+
+[startmail.com](http://startmail.com)
+
+The makers of the secure search engine [startpage.com](https://startpage.com) have announced they will be providing secure email service.
+
+Despite the tag line as the "world's most private email," StartMail is remarkably insecure. If offers regular IMAP service and a webmail interface that supports OpenPGP, but the user still must trust StartMail entirely. For example when you authenticate, your password string is sent to StartMail, and new OpenPGP keypairs are generated on the server, not the client. The website also makes some dubious statements, such as claiming to be more secure because their TLS server certificate supports extended validation.
+
+Verdict: oil of snake
 
 <a name="scramble"></a>Scramble
 -----------------------------------------------------------
@@ -302,18 +314,18 @@ Connections to the kinko box are secured by TLS using a private key only known t
 kinko uses GnuPG for encryption, with the addition of encrypting the email subject. Further additions should allow "Post-email alternatives" (a la bitmessage) to be used with the email clients that users are using today already. Other, privacy-related additions are planned as well.
 
 **Key discovery and validation:** Users can upload existing PGP keyrings. PGP keys are discovered via email
-addresses, email content, and PGP key servers. Keys are trusted on first use (but this policy can be changed 
-to explicit fingerprint validation.) 
+addresses, email content, and PGP key servers. Keys are trusted on first use (but this policy can be changed
+to explicit fingerprint validation.)
 
 **Project status:** An alpha prototype exists. We are preparing for the release of a beta package in Q2/2014.
 
 **Languages:** The kinko base system is implemented in ruby and shell, with minor portions in native code.
-Applications can be implemented in more or less any language. 
+Applications can be implemented in more or less any language.
 
-**Webmail:** The currently included webmail application is roundcube webmail. That might change in the future. 
+**Webmail:** The currently included webmail application is roundcube webmail. That might change in the future.
 
 **Licenses:** All portions of the kinko system will be released under the AGPL license. (Included 3rd party
-applications will use their respective open source licenses). The hardware is open sourced as 
+applications will use their respective open source licenses). The hardware is open sourced as
 per [olimex](https://www.olimex.com/wiki/A10-OLinuXino-LIME).
 
 <a name="email-infrastructure"></a>Email Infrastructure
@@ -484,16 +496,6 @@ Ultimately, Pond's unique design makes it a very strong candidate for incorporat
 * Source code: https://github.com/agl/pond
 * License: BSD
 * Platforms: anything you can compile Go on (for command line interface) or anything you can compile Go + Gtk (for GUI interface).
-
-<a name="unclassified"></a>Unclassified
-===========================================================
-
-<a name="startmail"></a>Startmail
------------------------------------------------------------
-
-[startmail.com](http://startmail.com)
-
-The makers of the secure search engine [startpage.com](https://startpage.com) have announced they will be providing secure email service. No details are available yet, other than the service will be compatible with OpenPGP email.
 
 <a name="related-works"></a>Related Works
 ===========================================================
