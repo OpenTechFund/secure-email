@@ -9,6 +9,7 @@ Contents:
   1. [Data Availability](#data-availability)
   1. [Secure Authentication](#secure-authentication)
 1. [Web Mail](#web-mail)
+  1. [Lavaboom](#lavaboom)
   1. [Mega](#mega)
   1. [PrivateSky](#privatesky)
   1. [Scramble](#scramble)
@@ -32,6 +33,7 @@ Contents:
   1. [Bitmessage](#bitmessage)
   1. [Cables](#cables)
   1. [Dark Mail Alliance](#p2p-dark-mail-alliance)
+  1. [Enigmabox](#enigmabox)
   1. [FlowingMail](#flowingmail)
   1. [Goldbug](#goldbug)
   1. [Pond](#pond)
@@ -110,6 +112,15 @@ First, because the web application is loaded from the web server each time you u
 Second, even if the application is loaded from a trusted third party, web browsers are not an ideal environment for sensitive data: there are many ways for an in-browser application to leak data and web browsers are notoriously prone to security holes (it is a very difficult problem to be able to run untrusted code locally in a secure sandbox). To their credit, the browser developers are often vigilant about fixing these holes (depending on who you ask), but the browser environment is far from a secure computing environment. It continues to be, however, the most convenient environment.
 
 Third, developers of web-based secure email face an additional challenge when dealing with offline data or data caching. Modern HTML5 apps typically store a lot of data locally on the user's device using the localStorage facility. Currently, however, no browser stores this encrypted. A secure web-based email application must either choose to not support any local storage, or develop a scheme for individually encrypting each object put in localStorage, a process which is very inefficient. Even storing keys temporarily in short lived session storage is problematic, since these can be easily read from disk later.
+
+<a name="lavaboom"></a>Lavaboom
+-----------------------------------------------------------
+
+[lavaboom.com](https://www.lavaboom.com)
+
+Lavaboom is a new web-based mail provider from Germany using client-side encryption in the browser. No further details are available at this time.
+
+Lavaboom's name is a tribute to the shuttered Lavabit service, although Lavaboom has no affiliation or people in common with Lavabit.
 
 <a name="mega"></a>Mega
 -----------------------------------------------------------
@@ -447,10 +458,21 @@ https://github.com/mkdesu/cables
 
 The Dark Mail Alliance plans to incorporate traditional email, a federated email alternative, and a second email alternative that is pure peer-to-peer. Details are not yet forthwith.
 
+<a name="enigmabox"></a>Enigmabox
+-----------------------------------------------------------
+
+[enigmabox.net](https://enigmabox.net)
+
+Enigmabox is a device that you install on your local network between your computer and the internet. It acts as secure proxy, providing VPN, and communication services analogous to email and VoIP. In order to communicate with another user, they must also have an enigmabox.
+
+Data is routed peer-to-peer directly from one enigmabox to another using cjdns, a system of virtual mesh networking in which IP addresses are derived from public keys. End to end encryption of messages is provided entirely by the cjdns transport layer.
+
+With this scheme, message are forward secret, but not entirely asynchronous. At some point, both the sender and recipient must have their enigmaboxes online at the same time.
+
 <a name="flowingmail"></a>FlowingMail
 -----------------------------------------------------------
 
-[FlowingMail](http://flowingmail.com)
+[flowingmail.com](http://flowingmail.com)
 
 P2P secure, encrypted email system.
 
