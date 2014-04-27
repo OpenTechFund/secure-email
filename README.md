@@ -60,6 +60,15 @@ This is where we are now: we have public key technology that is excessively diff
 * Key availability: Almost every attempt to solve the key validation problem turns into a key availability problem, because once you have validated a public key, you need to make sure that this validation is available to the user on all the possible devices they might want to send or receive messages on.
 * Key revocation: What happens when a private key is lost, and a user want to issue a new public key? None of the projects in this report have an answer for how to deal with this in a post-CA and post-WoT world.
 
+Some of the major experimental approaches to solving the problem of public key discovery and validation include:
+
+1. Inline: Many of the projects here plan to simply include the user's public key as an attachment to every outgoing email (or in a footer or SMTP header).
+1. DNS: Key distributed via DNSSEC, where a service provider adds a DNS entry for each user containing the user's public key or fingerprint.
+1. Append-only log: Proposal to modify Certificate Transparency to handle user accounts, where audits are performed against append-only logs.
+1. Network perspective: Validation by key endorsement (third party signatures), with audits performed via network perspective.
+1. Introductions: Discovery and validation of keys through acquaintance introduction.
+1. Mobile: Although too lengthy to manually transcribe, an app on a mobile device can be used to easily exchange keys in person (for example, via a QR code or bluetooth connection).
+
 <a name="metadata-protection"></a>Metadata Protection
 -----------------------------------------------------------
 
@@ -113,6 +122,8 @@ Second, even if the application is loaded from a trusted third party, web browse
 
 Third, developers of web-based secure email face an additional challenge when dealing with offline data or data caching. Modern HTML5 apps typically store a lot of data locally on the user's device using the localStorage facility. Currently, however, no browser stores this encrypted. A secure web-based email application must either choose to not support any local storage, or develop a scheme for individually encrypting each object put in localStorage, a process which is very inefficient. Even storing keys temporarily in short lived session storage is problematic, since these can be easily read from disk later.
 
+These challenges to do apply to downloaded mail clients that happen to use HTML5 as their interface (Mailpile, for example).
+
 <a name="lavaboom"></a>Lavaboom
 -----------------------------------------------------------
 
@@ -150,7 +161,7 @@ Verdict: oil of snake
 
 [scramble.io](https://scramble.io)
 
-Scramble is a OpenPGP email application that can be loaded from a website (with plans to add app store support). Additionally, you can sign up for email service from scramble.io.
+Scramble is an OpenPGP email application that can be loaded from a website (with plans to add app store support). Additionally, you can sign up for email service from scramble.io.
 
 **Keys:** Private keys are generated in the browser app, encrypted with the user's passphrase, and then stored on the server. The server never sees the user's passphrase (password is hashed using scrypt before sent to the server during account creation and authentication). The master storage secret (symmetric key) used to encrypt keys is stored in the browser's sessionStorage, which is erased when the user logs out. Keys are validated using notaries.
 
@@ -226,7 +237,7 @@ Bitmail is a desktop application that provides a user interface for traditional 
 
 **Keys:** Keys are validated using a shared secret or fingerprint validation. Public keys are discovered over the P2P network. Keys are stored locally in an encrypted database.
 
-**Routing:** Bitmail uses an "echo protocol" for P2P message routing, where every message is sent to every neighbor.
+**Routing:** Bitmail uses an opportunistic message distribution model where every message is sent to every neighbor. It is called "Echo" and it is very similar to the protocols used by Retroshare and Briar.
 
 **Application:** Bitmail uses the Qt library for cross platform UI.
 
