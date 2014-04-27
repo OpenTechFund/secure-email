@@ -224,9 +224,9 @@ Ultimately, the level of email security that is possible with the custom mail cl
 
 Bitmail is a desktop application that provides a user interface for traditional IMAP-based mail, but also supports a custom peer-to-peer protocol for relaying email through a network of friends. Bitmail will support both OpenPGP and S/MIME.
 
-**Keys:** Keys are validated using a shared secret or fingerprint validation. Public keys are discovered over the p2p network. Keys are stored locally in an encrypted database.
+**Keys:** Keys are validated using a shared secret or fingerprint validation. Public keys are discovered over the P2P network. Keys are stored locally in an encrypted database.
 
-**Routing:** Bitmail uses an "echo protocol" for p2p message routing, where every message is sent to every neighbor.
+**Routing:** Bitmail uses an "echo protocol" for P2P message routing, where every message is sent to every neighbor.
 
 **Application:** Bitmail uses the Qt library for cross platform UI.
 
@@ -247,7 +247,7 @@ Note: I am unclear which of the previous features are planned and which are curr
 
 Mailpile is an email client designed to quickly handle large amounts of email and also support user-friendly encryption. The initial focus is on email, with plans to eventually support post-email protocols like bitmessage, flowingmail, or darkmail. Also, the developers hope to add support for XMPP-based chat in the future. Since the Mozilla foundation has not committed the resources necessary to keep Thunderbird contemporary, the Mailpile initiative holds a lot of promise as a cross-platform mail client that seeks to redesign how we interact with email.
 
-**Keys:** Mailpile email encryption is based on OpenPGP (it uses your GPG keyring). Key discovery will be handled using OpenPGP keyservers and including public keys as attachments to outgoing email. Public keys are trusted on first use, with plans for validation via DANE and manual fingerprint verification (future support for a p2p protocol might include additional methods, such as Certificate Transparency or Short Authentication Strings). Currently, keys are not backed up.
+**Keys:** Mailpile email encryption is based on OpenPGP (it uses your GPG keyring). Key discovery will be handled using OpenPGP keyservers and including public keys as attachments to outgoing email. Public keys are trusted on first use, with plans for validation via DANE and manual fingerprint verification (future support for a P2P protocol might include additional methods, such as Certificate Transparency or Short Authentication Strings). Currently, keys are not backed up.
 
 **Application:** Mailpile UI is written using HTML5 and Javascript, running against a self-hosted Python application (that typically lives locally on the device, but might be running on your own server).
 
@@ -423,7 +423,7 @@ Except for Pond, all these alternatives take a pure peer-to-peer approach. As su
 1. **Identifiers**: Using key fingerprints as unique identifiers has some advantages, but it also makes user identifiers impossible to remember. There is a lot of utility in the convenience of memorable username handles, as evidence in the use of email addresses and twitter handles.
 1. **Data Availability**: Unless also paired with a cloud component, peer-to-peer networks have much lower data availability than other approaches. For example, it takes much longer to update message deliveries from a peer network than from a server, particularly when the device has been offline for a while. Also, if a device is lost or destroyed, generally the user loses all their data.
 
-Most of these challenges have possible technological solutions that might make peer-to-peer approaches the most attractive option in the long run. For example, researchers may discover ways to make p2p networks less battery intensive. For this reason, it is important that research continue in this area. However, [in the long run we are all dead](https://en.wikiquote.org/wiki/John_Maynard_Keynes) and peer-to-peer approaches face serious hurdles before they can achieve the kind of user experience demanded today.
+Most of these challenges have possible technological solutions that might make peer-to-peer approaches the most attractive option in the long run. For example, researchers may discover ways to make P2P networks less battery intensive. For this reason, it is important that research continue in this area. However, [in the long run we are all dead](https://en.wikiquote.org/wiki/John_Maynard_Keynes) and peer-to-peer approaches face serious hurdles before they can achieve the kind of user experience demanded today.
 
 <a name="bitmessage"></a>Bitmessage
 -----------------------------------------------------------
