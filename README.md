@@ -122,7 +122,7 @@ Second, even if the application is loaded from a trusted third party, web browse
 
 Third, developers of web-based secure email face an additional challenge when dealing with offline data or data caching. Modern HTML5 apps typically store a lot of data locally on the user's device using the localStorage facility. Currently, however, no browser stores this encrypted. A secure web-based email application must either choose to not support any local storage, or develop a scheme for individually encrypting each object put in localStorage, a process which is very inefficient. Even storing keys temporarily in short lived session storage is problematic, since these can be easily read from disk later.
 
-These challenges to do apply to downloaded mail clients that happen to use HTML5 as their interface (Mailpile, for example).
+These challenges to do not apply to downloaded mail clients that happen to use HTML5 as their interface (Mailpile, for example).
 
 <a name="lavaboom"></a>Lavaboom
 -----------------------------------------------------------
