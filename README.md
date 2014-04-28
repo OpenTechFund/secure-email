@@ -38,8 +38,6 @@ Contents:
    1. [FlowingMail](#flowingmail)
    1. [Goldbug](#goldbug)
    1. [Pond](#pond)
-1. [Unclassified](#unclassified)
-   1. [Startmail](#startmail)
 1. [Related Works](#related-works)
 
 <a name="common-problems"></a>Common Problems
