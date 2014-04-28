@@ -32,6 +32,7 @@ Contents:
    1. [LEAP Encryption Access Project](#leap)
 1. [Post-email alternatives](#post-email-alternatives)
    1. [Bitmessage](#bitmessage)
+   1. [Bote mail](#bote-mail)
    1. [Cables](#cables)
    1. [Dark Mail Alliance](#p2p-dark-mail-alliance)
    1. [Enigmabox](#enigmabox)
@@ -469,6 +470,20 @@ Disadvantages:
 * unsolved scaling issues: all messages are broadcast to everyone
 * because there is no forward secrecy, it is especially problematic that anyone can grab an encrypted copy of any message in the system. This means if the private key is ever compromised, then all the past messages can be decrypted easily by anyone using the system.
 * relies on proof of work for spam prevention, which is probably not actually that preventative (spammers often steal CPU anyway).
+
+<a name="bote-mail"></a>Bote mail
+-----------------------------------------------------------
+
+[http://i2pbote.i2p.us](http://i2pbote.i2p.us) (or [http://i2pbote.i2p](http://i2pbote.i2p) if using i2p)
+
+Bote mail (aka [IMail](https://en.wikipedia.org/wiki/IMail)) is an email-like communication protocol that uses the anonymizing network I2p for transport. Bote mail stores messages in a global distribute hash table for up to 100 days, during which time the client has an opportunity to download and store the message.
+
+**Keys**: Bote mail uses public-key based addresses. You can create as many identities as you want, each identity corresponding to a ECDSA or NTRU key-pair.
+
+**Application**: Users interact with the user interface through a webmail interface, although the client is running locally.
+
+* Written in: Java
+* License: GPLv3
 
 <a name="cables"></a>Cables
 -----------------------------------------------------------
