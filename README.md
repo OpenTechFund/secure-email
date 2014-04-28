@@ -338,6 +338,10 @@ Mail-in-a-box helps people set up self-hosted email for linux hobbyists and emai
 
 **Limitations:** Setting up an email server is the easy part, maintaining the service over time is the tricky part. Without any automation recipes using something like Puppet, Chef, Salt, or CFEngine, mail-in-a-box is unlikely to be useful to anyone but the curious hobbyist.
 
+* Written in: Bash
+* Source code: https://github.com/JoshData/mailinabox
+* License: CC0 1.0 Universal
+
 <a name="kinko"></a>kinko
 -----------------------------------------------------------
 
