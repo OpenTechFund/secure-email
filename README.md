@@ -334,9 +334,9 @@ Although Mailpile is primarily a mail client, the background Python component ca
 
 Mail-in-a-box helps people set up self-hosted email for linux hobbyists and email developers. It will install and configure the necessary Debian packages required to turn a machine running Ubuntu into a self-hosted email server. It provides a fairly straightforward, standard email server with IMAP, SMTP, greylisting, DKIM and SPF. It also includes a command line tool for adding and removing accounts.
 
-Advantages: something quick for anyone with some linux skill who wants to experiment with email.
+**Advantages:** Something quick for anyone with some linux skill who wants to experiment with email.
 
-Limitations: setting email an email server is the easy part, maintaining the service over time is the tricky part. Without any automation recipes using something like Puppet, Chef, Salt, or CFEngine, mail-in-a-box is unlikely to be useful to anyone but the curious hobbyist.
+**Limitations:** Setting up an email server is the easy part, maintaining the service over time is the tricky part. Without any automation recipes using something like Puppet, Chef, Salt, or CFEngine, mail-in-a-box is unlikely to be useful to anyone but the curious hobbyist.
 
 <a name="kinko"></a>kinko
 -----------------------------------------------------------
