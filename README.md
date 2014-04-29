@@ -60,6 +60,8 @@ This is where we are now: we have public key technology that is excessively diff
 * Key availability: Almost every attempt to solve the key validation problem turns into a key availability problem, because once you have validated a public key, you need to make sure that this validation is available to the user on all the possible devices they might want to send or receive messages on.
 * Key revocation: What happens when a private key is lost, and a user want to issue a new public key? None of the projects in this report have an answer for how to deal with this in a post-CA and post-WoT world.
 
+The projects that use a public key as a unique identifier do not have the key validation problem, because they do no need to try to bind a human memorable identifier to a long non-memorable public key: they simply enforce the use of the public key as the user's address. For example, rather than `alice@example.org` as the identifier, these systems might use `8b3b2213ff00e5fb684b003d005ed2fb`. In place of the key validation problem, this approach raises the key exchange problem: how do two parties initially exchange long public keys with one another? This approach is taken by all the P2P projects listed here (although there do exist some P2P application that don't use public key identifiers).
+
 Some of the major experimental approaches to solving the problem of public key discovery and validation include:
 
 1. Inline: Many of the projects here plan to simply include the user's public key as an attachment to every outgoing email (or in a footer or SMTP header).
@@ -83,11 +85,13 @@ All schemes for metadata protection face the prospect of increasing Spam (since 
 <a name="forward-secrecy"></a>Forward Secrecy
 -----------------------------------------------------------
 
-Forward secrecy is a security property that prevents an attacker from saving messages today and then later decrypting these messages once they have captured the user's private key. Without forward secrecy, an attacker might also be able to capture messages today and simply wait for computers to become powerful enough to crack the encryption by brute force. Traditional email encryption offers no forward secrecy.
+Forward secrecy is a security property that prevents an attacker from saving messages today and then later decrypting these messages once they have captured the user's private key. Without forward secrecy, an attacker is more likely to be able to capture messages today and simply wait for computers to become powerful enough to crack the encryption by brute force. Traditional email encryption offers no forward secrecy.
 
 All methods for forward secrecy involve a process where two parties negotiate an ephemeral key that is used for a short period of time to secure their communication. In many cases, the ephemeral key is generated anew for every single message. Traditional schemes for forward secrecy are incompatible with the asynchronous nature of email communication, since with email you still need to be able to send someone a message even if they are not online and ephemeral key generation requires a back and forth exchange between both parties.
 
-There are several new experimental (and tricky) protocols that attempt to achieve both forward secrecy and support for asynchronous communication, but none have yet emerged as a standard. Another possible approach is to use traditional encryption with no support for forward secrecy but instead rely on a scheme for automatic key discovery and validation in order to frequently rotate keys. This way, a user could throw away their private key every few days, achieving a very crude form of forward secrecy.
+There are several new experimental (and tricky) protocols that attempt to achieve both forward secrecy and support for asynchronous communication, but none have yet emerged as a standard. These protocols either (1) require an initial bootstrap message that is not forward secret, (2) require an initial synchronous exchange to start the process, or (3) rely on a pool of pre-generated ephemeral key pairs that can be used on first contact. When the continually changing ephemeral key for a conversation is lost by either party, then the initialization stage is performed again.
+
+Another possible approach is to use traditional encryption with no support for forward secrecy but instead rely on a scheme for automatic key discovery and validation in order to frequently rotate keys. This way, a user could throw away their private key every few days, achieving a very crude form of forward secrecy.
 
 <a name="data-availability"></a>Data Availability
 -----------------------------------------------------------
@@ -152,7 +156,7 @@ PrivateSky was a secure web-based email service that chose to shut down because 
 
 The makers of the secure search engine [startpage.com](https://startpage.com) have announced they will be providing secure email service.
 
-Despite the tag line as the "world's most private email," StartMail is remarkably insecure. If offers regular IMAP service and a webmail interface that supports OpenPGP, but the user still must trust StartMail entirely. For example when you authenticate, your password string is sent to StartMail, and new OpenPGP keypairs are generated on the server, not the client. The website also makes some dubious statements, such as claiming to be more secure because their TLS server certificate supports extended validation.
+Despite the tag line as the "world's most private email," StartMail is remarkably insecure. It offers regular IMAP service and a webmail interface that supports OpenPGP, but the user still must trust StartMail entirely. For example when you authenticate, your password string is sent to StartMail, and new OpenPGP keypairs are generated on the server, not the client. The website also makes some dubious statements, such as claiming to be more secure because their TLS server certificate supports extended validation.
 
 Verdict: oil of snake
 
@@ -474,7 +478,7 @@ Disadvantages:
 <a name="bote-mail"></a>Bote mail
 -----------------------------------------------------------
 
-[http://i2pbote.i2p.us](http://i2pbote.i2p.us) (or [http://i2pbote.i2p](http://i2pbote.i2p) if using i2p)
+[i2pbote.i2p.us](http://i2pbote.i2p.us) (or [i2pbote.i2p](http://i2pbote.i2p) if using i2p)
 
 Bote mail (aka [IMail](https://en.wikipedia.org/wiki/IMail)) is an email-like communication protocol that uses the anonymizing network I2p for transport. Bote mail stores messages in a global distribute hash table for up to 100 days, during which time the client has an opportunity to download and store the message.
 
@@ -488,7 +492,7 @@ Bote mail (aka [IMail](https://en.wikipedia.org/wiki/IMail)) is an email-like co
 <a name="cables"></a>Cables
 -----------------------------------------------------------
 
-https://github.com/mkdesu/cables
+[github.com/mkdesu/cables](https://github.com/mkdesu/cables)
 
 * Written in: C, Bash
 * License: GPL v2
@@ -519,7 +523,7 @@ P2P secure, encrypted email system.
 <a name="goldbug"></a>Goldbug
 -----------------------------------------------------------
 
-http://goldbug.sf.net
+[goldbug.sf.net](http://goldbug.sf.net)
 
 * Written in: C++, Qt
 * License: BSD
