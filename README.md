@@ -98,7 +98,7 @@ Another possible approach is to use traditional encryption with no support for f
 
 Users today demand data availability: they want to be able to access their messages and send messages from any device they choose, wherever they choose, and whenever they choose. Most importantly, they don't want the loss of any particular device to result in a loss of all their data. For insecure communication, achieving data availability is dead simple: simply store everything in the cloud. For secure communication, however, we have no proven solutions to this problem. As noted above, the key management problem is also really a data availability problem.
 
-Most of the projects here have postponed dealing with the data availability problem. A few have used IMAP to synchronize data or developed their own secure synchronization protocol.
+Most of the email projects here have postponed dealing with the data availability problem. A few have used IMAP to synchronize data or developed their own secure synchronization protocol. Several of the email-like P2P approaches rely on a P2P network for data availability.
 
 <a name="secure-authentication"></a>Secure Authentication
 -----------------------------------------------------------
