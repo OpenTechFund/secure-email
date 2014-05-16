@@ -12,6 +12,7 @@ Contents:
    1. [Lavaboom](#lavaboom)
    1. [Mega](#mega)
    1. [PrivateSky](#privatesky)
+   1. [ProtonMail](#protonmail)
    1. [Scramble](#scramble)
    1. [Startmail](#startmail)
    1. [Whiteout](#whiteout)
@@ -128,6 +129,8 @@ Third, developers of web-based secure email face an additional challenge when de
 
 These challenges to do not apply to downloaded mail clients that happen to use HTML5 as their interface (Mailpile, for example).
 
+Currently, all the applications listed here load the data and javascript code from the same origin. This means that the user is entirely trusting the server for their security, which is in many ways not that much different than what users already do with gmail or hotmail. The difference is that the window of attack is narrowed (the user must login in order for the service to gain cleartext access). For those services that allow sending compatible OpenPGP or S/MIME emails to other users outside the service, there is an arguable benefit for being able to conveniently communicate with other users of secure email, albeit at the cost of trusting the provider.
+
 <a name="lavaboom"></a>Lavaboom
 -----------------------------------------------------------
 
@@ -149,6 +152,19 @@ The relaunch of Mega has featured client-side encryption via a javascript applic
 
 PrivateSky was a secure web-based email service that chose to shut down because their design was not compatible with UK law. Many in the press have [said GCHQ forced the closure](http://www.ibtimes.co.uk/articles/529392/20131211/gchq-forced-privatesky-secure-email-service-offline.htm), which the [company refutes](http://www.certivox.com/blog/bid/359788/The-real-story-on-the-PrivateSky-takedown).
 
+* License: proprietary
+
+<a name="protonmail"></a>ProtonMail
+-----------------------------------------------------------
+
+[protonmail.ch](https://protonmail.ch)
+
+ProtonMail is a web-based mail provider from Switzerland using client-side encryption in the browser. It uses two separate passwords: one to authenticate and one to unlock encryption secrets. Emails sent to and from other ProtonMail users are end to end encrypted. You can encrypt emails to other users using a custom symmetric encryption scheme that requires the recipient to visit the ProtonMail website and to know a shared secret.
+
+The way ProtonMail describes itself on the website raises some concerns: they promote the service as being secure because of its location and because the people behind it have worked at MIT and CERN. These are typical strategies used to promote snake oil products, although there is no evidence that ProtonMail is snake oil.
+
+* License: proprietary
+
 <a name="startmail"></a>StartMail
 -----------------------------------------------------------
 
@@ -159,6 +175,8 @@ The makers of the secure search engine [startpage.com](https://startpage.com) ha
 Despite the tag line as the "world's most private email," StartMail is remarkably insecure. It offers regular IMAP service and a webmail interface that supports OpenPGP, but the user still must trust StartMail entirely. For example when you authenticate, your password string is sent to StartMail, and new OpenPGP keypairs are generated on the server, not the client. The website also makes some dubious statements, such as claiming to be more secure because their TLS server certificate supports extended validation.
 
 Verdict: oil of snake
+
+* License: proprietary
 
 <a name="scramble"></a>Scramble
 -----------------------------------------------------------
