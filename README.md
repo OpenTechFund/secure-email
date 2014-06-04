@@ -18,6 +18,7 @@ Contents:
    1. [Whiteout](#whiteout)
 1. [Browser Extensions](#browser-extensions)
    1. [Mailvelope](#mailvelope)
+   2. [End-to-End](#end-to-end)
 1. [Mail Clients](#mail-clients)
    1. [Bitmail](#bitmail)
    1. [Mailpile](#mailpile)
@@ -232,6 +233,20 @@ Mailvelope is a browser extension that allows you to use OpenPGP email with trad
 * Design documentation: http://www.mailvelope.com/help
 * License: AGPL
 * Platforms: Windows, Mac, Linux (with Android planned).
+
+<a name="end-to-end"></a>End-to-End
+-----------------------------------------------------------
+
+[code.google.com/p/end-to-end](https://code.google.com/p/end-to-end/)
+
+End-to-End is a Chrome extension from Google that is currently in an alpha stage. Google is solliciting feedback, and security bugs are eligible for Google’s Vulnerability Rewards Program. More background about the browser extension is available in [Google's blog post announcing End-to-End](http://googleonlinesecurity.blogspot.com/2014/06/making-end-to-end-encryption-easier-to.html).
+
+* Contact: end-to-end@google.com
+* Written in: JavaScript
+* Source code: https://code.google.com/p/end-to-end/source/browse/javascript/crypto/e2e
+* Design documentation: https://code.google.com/p/end-to-end/
+* License: Apache License Version 2.0
+* Platforms: Chrome
 
 <a name="mail-clients"></a>Mail Clients
 ===========================================================
