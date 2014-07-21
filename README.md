@@ -12,7 +12,6 @@ Contents:
    1. [Lavaboom](#lavaboom)
    1. [Mega](#mega)
    1. [PrivateSky](#privatesky)
-   1. [ProtonMail](#protonmail)
    1. [Scramble](#scramble)
    1. [Startmail](#startmail)
    1. [Whiteout](#whiteout)
@@ -41,6 +40,9 @@ Contents:
    1. [FlowingMail](#flowingmail)
    1. [Goldbug](#goldbug)
    1. [Pond](#pond)
+1, [Centralized non-email](#centralized-non-email)
+   1. [ProtonMail](#protonmail)
+   1. [ShazzleMail](#shazzlemail)
 1. [Related Works](#related-works)
 
 <a name="common-problems"></a>Common Problems
@@ -152,17 +154,6 @@ The relaunch of Mega has featured client-side encryption via a javascript applic
 -----------------------------------------------------------
 
 PrivateSky was a secure web-based email service that chose to shut down because their design was not compatible with UK law. Many in the press have [said GCHQ forced the closure](http://www.ibtimes.co.uk/articles/529392/20131211/gchq-forced-privatesky-secure-email-service-offline.htm), which the [company refutes](http://www.certivox.com/blog/bid/359788/The-real-story-on-the-PrivateSky-takedown).
-
-* License: proprietary
-
-<a name="protonmail"></a>ProtonMail
------------------------------------------------------------
-
-[protonmail.ch](https://protonmail.ch)
-
-ProtonMail is a web-based mail provider from Switzerland using client-side encryption in the browser. It uses two separate passwords: one to authenticate and one to unlock encryption secrets. Emails sent to and from other ProtonMail users are end to end encrypted. You can encrypt emails to other users using a custom symmetric encryption scheme that requires the recipient to visit the ProtonMail website and to know a shared secret.
-
-The way ProtonMail describes itself on the website raises some concerns: they promote the service as being secure because of its location and because the people behind it have worked at MIT and CERN. These are typical strategies used to promote snake oil products, although there is no evidence that ProtonMail is snake oil.
 
 * License: proprietary
 
@@ -372,7 +363,7 @@ Mail-in-a-box helps people set up self-hosted email for linux hobbyists and emai
 
 **Advantages:** Something quick for anyone with some linux skill who wants to experiment with email.
 
-**Limitations:** Setting up an email server is the easy part, maintaining the service over time is the tricky part. Without any automation recipes using something like Puppet, Chef, Salt, or CFEngine, mail-in-a-box is unlikely to be useful to anyone but the curious hobbyist.
+**Limitations:** Setting up an email server is the easy part, maintaining the service over time is the tricky part. Without any automation recipes using something like Puppet, Chef, Salt, or CFEngine, mail-in-a-box is unlikely to be useful beyond a single server installation.
 
 * Written in: Bash
 * Source code: https://github.com/JoshData/mailinabox
@@ -595,6 +586,40 @@ Ultimately, Pond's unique design makes it a very strong candidate for incorporat
 * Source code: https://github.com/agl/pond
 * License: BSD
 * Platforms: anything you can compile Go on (for command line interface) or anything you can compile Go + Gtk (for GUI interface).
+
+<a name="centralized-non-email"></a>Centralized Non-email
+===========================================================
+
+There are many projects that take the following approach:
+
+* If you send an email to someone else using the same system, it is end-to-end encrypted.
+* If you send an email outside the system, then the recipient gets a URL they can use to view the message.
+
+These systems are not strictly email, even if they look and smell like email, because you cannot actually send a secure message to an email user on another system. You can send them a message that they can read after visiting another site, but this is not really email. Also, there is no way for someone using an external email account to send a secure email to a user of one of these systems.
+
+This approach is able to increase usability by centralizing the problems of key authenticity. Hopefully, these systems will evolve into real secure email solutions over time.
+
+<a name="shazzlemail"></a>ShazzleMail
+-----------------------------------------------------------
+
+[shazzlemail.com](http://shazzlemail.com)
+
+End to end encrypted messaging that uses your mobile phone to directly route a message to the recipient. For routing, it does a lookup in a central registry to discover the recipient's device. A mini IMAP server to allows you to check messages via a desktop MUA.
+
+* Platforms: Android, iOS
+* License: Proprietary
+
+<a name="protonmail"></a>ProtonMail
+-----------------------------------------------------------
+
+[protonmail.ch](https://protonmail.ch)
+
+ProtonMail is a web-based mail provider from Switzerland using client-side encryption in the browser. It uses two separate passwords: one to authenticate and one to unlock encryption secrets. Emails sent to and from other ProtonMail users are end to end encrypted. You can encrypt emails to other users using a custom symmetric encryption scheme that requires the recipient to visit the ProtonMail website and to know a shared secret.
+
+The way ProtonMail describes itself on the website raises some concerns: they promote the service as being secure because of its location and because the people behind it have worked at MIT and CERN. These are typical strategies used to promote snake oil products, although there is no evidence that ProtonMail is snake oil.
+
+* License: proprietary
+
 
 <a name="related-works"></a>Related Works
 ===========================================================
