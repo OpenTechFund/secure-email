@@ -40,7 +40,7 @@ Contents:
    1. [FlowingMail](#flowingmail)
    1. [Goldbug](#goldbug)
    1. [Pond](#pond)
-1, [Centralized non-email](#centralized-non-email)
+1. [Centralized non-email](#centralized-non-email)
    1. [ProtonMail](#protonmail)
    1. [ShazzleMail](#shazzlemail)
 1. [Related Works](#related-works)
