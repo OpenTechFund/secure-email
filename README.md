@@ -41,6 +41,7 @@ Contents:
    1. [Goldbug](#goldbug)
    1. [Pond](#pond)
 1. [Centralized non-email](#centralized-non-email)
+   1. [Enlocked](#enlocked)
    1. [ProtonMail](#protonmail)
    1. [ShazzleMail](#shazzlemail)
 1. [Related Works](#related-works)
@@ -601,14 +602,14 @@ These systems are not strictly email, even if they look and smell like email, be
 
 This approach is able to increase usability by centralizing the problems of key authenticity. Hopefully, these systems will evolve into real secure email solutions over time.
 
-<a name="shazzlemail"></a>ShazzleMail
+<a name="enlocked"></a>Enlocked
 -----------------------------------------------------------
 
-[shazzlemail.com](http://shazzlemail.com)
+[enlocked.com](https://www.enlocked.com)
 
-End to end encrypted messaging that uses your mobile phone to directly route a message to the recipient. For routing, it does a lookup in a central registry to discover the recipient's device. A mini IMAP server to allows you to check messages via a desktop MUA.
+Enlocked uses OpenPGP, but does not use public key cryptography: sent messages are simply included as an attachment that is symmetrically encrypted with a passphrase.
 
-* Platforms: Android, iOS
+* Platforms: Web
 * License: Proprietary
 
 <a name="protonmail"></a>ProtonMail
@@ -622,6 +623,15 @@ The way ProtonMail describes itself on the website raises some concerns: they pr
 
 * License: proprietary
 
+<a name="shazzlemail"></a>ShazzleMail
+-----------------------------------------------------------
+
+[shazzlemail.com](http://shazzlemail.com)
+
+End to end encrypted messaging that uses your mobile phone to directly route a message to the recipient. For routing, it does a lookup in a central registry to discover the recipient's device. A mini IMAP server to allows you to check messages via a desktop MUA.
+
+* Platforms: Android, iOS
+* License: Proprietary
 
 <a name="related-works"></a>Related Works
 ===========================================================
