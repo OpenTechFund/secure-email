@@ -195,11 +195,19 @@ Scramble is an OpenPGP email application that can be loaded from a website (with
 
 [whiteout.io](https://whiteout.io)
 
-Whiteout is a commercial service featuring an HTML5-based OpenPGP email client that is loaded from the web.
+Whiteout is a commercial service featuring an HTML5-based OpenPGP email client. 
+
+Whiteout offers its fully IMAP/SMTP-compatible mail client through multiple distribution channels that address different needs and threat models:
+
+1. App: The installation of an app is the default and most secure mode. We provide official builds for Chrome, Android and iOS (coming soon). There is no need to trust Whiteout when using these apps, as they are installed as signed apps from an App Store and the installed source code can be compared with tagged releases on GitHub.
+2. Self-hosted: In the self-hosted use case, you install Whiteout Mail to your own trusted web server and use it in the browser. Use cases could include your company's server or setting up your own self-hosted solution. Since users are getting the Javascript crypto code from the web server, there will be a trust relationship to that server. But if this is your own trusted server this is ok. The web server enforces CSP (Content Security Policy) and HSTS (HTTP Strict Transport Security) to mitigate cross site scripting and man-in-the-middle attacks.
+3. [Webmail](https://mail.whiteout.io): The third mode of operation is managed hosting by Whiteout. Due to the TLS connection from the browser to the IMAP server, the Whiteout proxy will never see any of your data. But you will be trusting the Whiteout web server to deliver the correct code to your browser in this mode. The threat model for this approach is discussed here and we will do our best to inform users in plain english about the security trade-off they are making.
+
+IMAP/SMTP logic is implemented completely in Javascript on the client. TCP traffic is proxied with the TLS session terminated in the user's browser using [socket.io](http://socket.io/) and a [Javascript TLS impelementation](https://github.com/digitalbazaar/forge). This means that the proxy on the web server will see only encrypted traffic and never any user data like IMAP/SMTP passwords or message contents.
 
 * Written in: Javascript
 * Source code: https://github.com/whiteout-io/mail-html5
-* License: proprietary, but the code is available for inspection.
+* License: MIT
 
 <a name="browser-extensions"></a>Browser Extensions
 ===========================================================
