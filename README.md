@@ -31,6 +31,7 @@ Contents:
 1. [Email Infrastructure](#email-infrastructure)
    1. [Dark Mail Alliance](#dark-mail-alliance)
    1. [LEAP Encryption Access Project](#leap)
+   1. [Pixelated](#pixelated)
 1. [Post-email alternatives](#post-email-alternatives)
    1. [Bitmessage](#bitmessage)
    1. [Bote mail](#bote-mail)
@@ -459,6 +460,39 @@ LEAP includes both a client application and turn-key system to automate the proc
 * Source code: https://leap.se/source
 * Design documentation: https://leap.se/docs
 * License: mostly GPL v3, some MIT and AGPL.
+
+
+<a name="pixelated"></a>Pixelated
+-----------------------------------------------------------
+[pixelated-project.org](https://pixelated-project.org/)
+
+Pixelated is an OpenPGP group email solution based on the <a href="#leap">LEAP Platform.</a>
+
+It consists of: 
+
+* a Mail User Agent facilitating usage and enhancing usability of email encryption via open-pgp
+* a (single node) leap installation on the server side assuring encryption of mail body and metadata at rest
+* a dispatcher to allow for multi-user setups
+
+Pixelated aims at fostering encryption and federation of email services. Its approach is to combine enhanced usability of email encryption for the email user with facilitation of email server set up and maintenance of secure email hosting for system administrators.
+
+The Pixelated MUA can be run either as a web front end on the server or on the client machine. In a group setting, both setups can be run in parallel.
+
+**Keys**: Private keys are generated and stored in the MUA (either on the server or the client machine, depending on where the MUA runs while generating keys) and encrypted with the user's passphrase. Hence, depending on where the MUA lives, the keys are stored either on the server or on the user’s machine.
+
+**Federation**: Pixelated follows the idea of infrastructure as code to facilitate the setup and maintenance of email servers. It builds on [LEAP's nicknym protocol](https://leap.se/en/docs/design/nicknym) to discover and validate public keys.
+
+**Application**: The Pixelated User Agent (MUA) is a HTML5 javascript (FlightJS) application with a python backend. The application can also be installed locally and connected against the Pixelated platform or any leap provider with enabled email support.
+
+**Limitations**: In some set ups of Pixelated, the user's private keys are stored on the server in order to facilitate usability for a broad public (handling of key material). Pixelated assumes some level of trust to the server (e.g. self hosted for a particular organisation) and a high level of federation. 
+In the current implementation, security properties of forward secrecy and metadata production are not end-to-end.
+
+* Written in: Python, FlightJs (Mail User Agent); Python (Dispatcher); Puppet (Pixelated Platform) 
+* Source code: https://github.com/pixelated-project
+* Design documentation: https://github.com/pixelated-project/pixelated-user-agent, https://github.com/pixelated-project/pixelated-dispatcher, https://github.com/pixelated-project/pixelated-platform
+* License: AGPL
+
+
 
 <a name="post-email-alternatives"></a>Post-email alternatives
 ===========================================================
