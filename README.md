@@ -470,8 +470,8 @@ Pixelated is an OpenPGP group email solution based on the <a href="#leap">LEAP P
 
 It consists of: 
 
-* a Mail User Agent facilitating usage and enhancing usability of email encryption via open-pgp
-* a (single node) leap installation on the server side assuring encryption of mail body and metadata at rest
+* a Mail User Agent (MUA) facilitating usage and enhancing usability of email encryption via open-pgp
+* a (single node) LEAP installation on the server side assuring encryption of mail body and metadata at rest
 * a dispatcher to allow for multi-user setups
 
 Pixelated aims at fostering encryption and federation of email services. Its approach is to combine enhanced usability of email encryption for the email user with facilitation of email server set up and maintenance of secure email hosting for system administrators.
@@ -482,7 +482,7 @@ The Pixelated MUA can be run either as a web front end on the server or on the c
 
 **Federation**: Pixelated follows the idea of infrastructure as code to facilitate the setup and maintenance of email servers. It builds on [LEAP's nicknym protocol](https://leap.se/en/docs/design/nicknym) to discover and validate public keys.
 
-**Application**: The Pixelated User Agent (MUA) is a HTML5 javascript (FlightJS) application with a python backend. The application can also be installed locally and connected against the Pixelated platform or any leap provider with enabled email support.
+**Application**: The Pixelated User Agent (MUA) is a HTML5 javascript (FlightJS) application with a python backend. The application can also be installed locally and connected against the Pixelated platform or any LEAP provider with enabled email support.
 
 **Limitations**: In some set ups of Pixelated, the user's private keys are stored on the server in order to facilitate usability for a broad public (handling of key material). Pixelated assumes some level of trust to the server (e.g. self hosted for a particular organisation) and a high level of federation. 
 In the current implementation, security properties of forward secrecy and metadata production are not end-to-end.
