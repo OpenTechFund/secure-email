@@ -485,7 +485,7 @@ The Pixelated MUA can be run either as a web front end on the server or on the c
 **Application**: The Pixelated User Agent (MUA) is a HTML5 javascript (FlightJS) application with a python backend. The application can also be installed locally and connected against the Pixelated platform or any LEAP provider with enabled email support.
 
 **Limitations**: In some set ups of Pixelated, the user's private keys are stored on the server in order to facilitate usability for a broad public (handling of key material). Pixelated assumes some level of trust to the server (e.g. self hosted for a particular organisation) and a high level of federation. 
-In the current implementation, security properties of forward secrecy and metadata production are not end-to-end.
+The same limitions as described for LEAP also apply to Pixelated.
 
 * Written in: Python, FlightJs (Mail User Agent); Python (Dispatcher); Puppet (Pixelated Platform) 
 * Source code: https://github.com/pixelated-project
