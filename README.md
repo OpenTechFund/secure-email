@@ -10,7 +10,6 @@ Contents:
    1. [Secure Authentication](#secure-authentication)
 1. [Web Mail](#web-mail)
    1. [Lavaboom](#lavaboom)
-   2. [Tutanota](#tutanota)
    1. [Mega](#mega)
    1. [PrivateSky](#privatesky)
    1. [Scramble](#scramble)
@@ -46,6 +45,7 @@ Contents:
    1. [Enlocked](#enlocked)
    1. [ProtonMail](#protonmail)
    1. [ShazzleMail](#shazzlemail)
+   1. [Tutanota](#tutanota)
 1. [Related Works](#related-works)
 
 <a name="common-problems"></a>Common Problems
@@ -145,16 +145,6 @@ Currently, all the applications listed here load the data and javascript code fr
 Lavaboom is a new web-based mail provider from Germany using client-side encryption in the browser. No further details are available at this time.
 
 Lavaboom's name is a tribute to the shuttered Lavabit service, although Lavaboom has no affiliation or people in common with Lavabit.
-
-<a name="tutanota"></a>Tutanota
------------------------------------------------------------
-
-[tutanota.de](https://www.tutanota.de)
-
-Tutanota is an installable webclient and browser app from Germany that encrypts the entire email - subject, content, attachments - automatically. The encryption between users takes place with a standardized, hybrid method consisting of a symmetrical and an asymmetrical algorithm. You can encrypt emails to external recipients symmetrically. The recipient needs to visit the Tutanota website and enter a shared password.
-
-Keys: Private keys are generated in the browser app, encrypted with the user's password, and then stored on the server. The server never sees the user's password (password is hashed using bcrypt and SHA256 before being sent to the server during account creation and authentication).
-
 
 <a name="mega"></a>Mega
 -----------------------------------------------------------
@@ -479,7 +469,7 @@ LEAP includes both a client application and turn-key system to automate the proc
 
 Pixelated is an OpenPGP group email solution based on the <a href="#leap">LEAP Platform.</a>
 
-It consists of: 
+It consists of:
 
 * a Mail User Agent (MUA) facilitating usage and enhancing usability of email encryption via open-pgp
 * a (single node) LEAP installation on the server side assuring encryption of mail body and metadata at rest
@@ -495,10 +485,10 @@ The Pixelated MUA can be run either as a web front end on the server or on the c
 
 **Application**: The Pixelated User Agent (MUA) is a HTML5 javascript (FlightJS) application with a python backend. The application can also be installed locally and connected against the Pixelated platform or any LEAP provider with enabled email support.
 
-**Limitations**: In some set ups of Pixelated, the user's private keys are stored on the server in order to facilitate usability for a broad public (handling of key material). Pixelated assumes some level of trust to the server (e.g. self hosted for a particular organisation) and a high level of federation. 
+**Limitations**: In some set ups of Pixelated, the user's private keys are stored on the server in order to facilitate usability for a broad public (handling of key material). Pixelated assumes some level of trust to the server (e.g. self hosted for a particular organisation) and a high level of federation.
 The same limitions as described for LEAP also apply to Pixelated.
 
-* Written in: Python, FlightJs (Mail User Agent); Python (Dispatcher); Puppet (Pixelated Platform) 
+* Written in: Python, FlightJs (Mail User Agent); Python (Dispatcher); Puppet (Pixelated Platform)
 * Source code: https://github.com/pixelated-project
 * Design documentation: https://github.com/pixelated-project/pixelated-user-agent, https://github.com/pixelated-project/pixelated-dispatcher, https://github.com/pixelated-project/pixelated-platform
 * License: AGPL
@@ -641,9 +631,9 @@ Ultimately, Pond's unique design makes it a very strong candidate for incorporat
 There are many projects that take the following approach:
 
 * If you send an email to someone else using the same system, it is end-to-end encrypted.
-* If you send an email outside the system, then the recipient gets a URL they can use to view the message.
+* If you send an email outside the system, then the recipient gets a URL they can use to view the message. Often, the message is symmetrically encrypted using a shared secret.
 
-These systems are not strictly email, even if they look and smell like email, because you cannot actually send a secure message to an email user on another system. You can send them a message that they can read after visiting another site, but this is not really email. Also, there is no way for someone using an external email account to send a secure email to a user of one of these systems.
+These systems are not strictly "secure email," even if they look and smell like email, because you cannot actually send a secure message to an email user on another system. You can send them a message that they can read after visiting another site, but this is not really email. Also, there is no way for someone using an external email account to send a secure email to a user of one of these systems.
 
 This approach is able to increase usability by centralizing the problems of key authenticity. Hopefully, these systems will evolve into real secure email solutions over time.
 
@@ -676,6 +666,18 @@ The way ProtonMail describes itself on the website raises some concerns: they pr
 End to end encrypted messaging that uses your mobile phone to directly route a message to the recipient. For routing, it does a lookup in a central registry to discover the recipient's device. A mini IMAP server to allows you to check messages via a desktop MUA.
 
 * Platforms: Android, iOS
+* License: Proprietary
+
+<a name="tutanota"></a>Tutanota
+-----------------------------------------------------------
+
+[tutanota.de](https://www.tutanota.de)
+
+Tutanota is an installable webclient and browser app. A message to another user on the system uses public-key encryption. Emails to users outside the system are symmetrically encrypted with a pre-shared secret (the message is viewable on the Tutanota website). There are plans to support end-to-end public-key encryption of messages sent to and received from other providers in the future.
+
+Keys: Private keys are generated in the browser app, encrypted with the user's password, and then stored on the server. The server never sees the user's password (password is hashed using bcrypt and SHA256 before being sent to the server during account creation and authentication).
+
+* Platforms: Web Browser
 * License: Proprietary
 
 <a name="related-works"></a>Related Works
