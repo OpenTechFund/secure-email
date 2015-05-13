@@ -10,6 +10,7 @@ Contents:
    1. [Secure Authentication](#secure-authentication)
 1. [Web Mail](#web-mail)
    1. [Lavaboom](#lavaboom)
+   2. [Tutanota](#tutanota)
    1. [Mega](#mega)
    1. [PrivateSky](#privatesky)
    1. [Scramble](#scramble)
@@ -144,6 +145,16 @@ Currently, all the applications listed here load the data and javascript code fr
 Lavaboom is a new web-based mail provider from Germany using client-side encryption in the browser. No further details are available at this time.
 
 Lavaboom's name is a tribute to the shuttered Lavabit service, although Lavaboom has no affiliation or people in common with Lavabit.
+
+<a name="tutanota"></a>Tutanota
+-----------------------------------------------------------
+
+[tutanota.de](https://www.tutanota.de)
+
+Tutanota is an installable webclient and browser app from Germany that encrypts the entire email - subject, content, attachments - automatically. The encryption between users takes place with a standardized, hybrid method consisting of a symmetrical and an asymmetrical algorithm. You can encrypt emails to external recipients symmetrically. The recipient needs to visit the Tutanota website and enter a shared password.
+
+Keys: Private keys are generated in the browser app, encrypted with the user's password, and then stored on the server. The server never sees the user's password (password is hashed using bcrypt and SHA256 before being sent to the server during account creation and authentication).
+
 
 <a name="mega"></a>Mega
 -----------------------------------------------------------
