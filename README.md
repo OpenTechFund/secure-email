@@ -29,7 +29,7 @@ Contents:
    1. [Mail-in-a-box](#mail-in-a-box)
    1. [kinko](#kinko)
 1. [Email Infrastructure](#email-infrastructure)
-   1. [Dark Mail Alliance](#dark-mail-alliance)
+   1. [DIME](#dime)
    1. [LEAP Encryption Access Project](#leap)
    1. [Pixelated](#pixelated)
 1. [Post-email alternatives](#post-email-alternatives)
@@ -418,26 +418,19 @@ Despite the potential of this approach, there are several unknown factors that m
 * Where once there were many ISPs that offered email service, it is no longer clear if there is either the demand to sustain many email providers or the supply of providers interested in offering email as a service.
 * Users must download and install a custom application.
 
-<a name="dark-mail-alliance"></a>Dark Mail Alliance
+<a name="dime"></a>DIME
 -----------------------------------------------------------
 
 [darkmail.info](https://darkmail.info)
 
-The Dark Mail Alliance will include both a client application and server software. The plan is to support traditional encrypted email (both OpenPGP and S/MIME), a new federated email-like protocol adapted from SilentCircle's instant message protocol (SCIMP), and a pure peer-to-peer messaging protocol. Both the client and server will be made available as free software.
+The Dark Internet Mail Alliance (DIME) is a specification for a complete secure email-like communication system. It will include both a client application and server software.
 
-**Keys:** Key pairs will be generated on the user's device and uploaded to the service provider. [Certificate Transparency](http://certificate-transparency.org) will be used to automatically validate the service provider's endorsement of these public keys. Dark Mail additionally plans to support fingerprint confirmation, short authentication strings, and shared secret for manual key validation. Automatic discovery of public keys will happen using DNS, HTTPS, and via the messages themselves.
+**Keys:** Key pairs will be generated on the user's device and uploaded to the service provider. Keys, called "Signets," are validating using a system similar to DNSSec/DANE.
 
-**Routing:** The post-email messaging protocol promises to have forward secrecy and protection from metadata analysis (details have not yet been posted, and SCIMP does not currently support meta-data protection). Dark Mail Alliance plans to additionally support pure peer-to-peer messaging using a key fingerprint as the user identifier.
+**Routing:** Message routing is obfuscated using automatic aliases for addresses.
 
-**Infrastructure:** Dark Mail plans to support three types of architectures: traditional client/server, self-hosted, and pure peer-to-peer. No details yet on how these will work.
-
-**Application:** The client application will work with any existing MUA by exposing a local IMAP/SMTP server that the MUA can connect to.
-
-**Limitations:** Dark Mail has not yet released any code or design documents. However, they certainly have the resources to carry out their plans.
-
-* Written in: C
 * Source code: none yet
-* Design documentation: none yet
+* Design documentation: https://darkmail.info/downloads/dark-internet-mail-environment-december-2014.pdf
 * License: planned to be OSI-compatible
 * Platforms: initially Android and iOS, followed by Windows, OS X, Linux, and Windows Phone.
 * Contact: press@darkmail.info
