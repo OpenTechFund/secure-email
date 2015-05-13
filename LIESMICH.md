@@ -100,7 +100,7 @@ Bisher hat sich kein einheitlicher Standard etabliert, obwohl es SRP bereits rec
 
 Die meisten Nutzer sind vertraut mit dem unglauglichem Komfort, E-Mails im Browser zu lesen: von jedem Gerät ohne Sorge über Synchronisierung. Entwickler allerdings haben es schwer, diese System wirklich sicher zu machen. Diese Probleme sind überwindbar, aber nicht so einfach zu lösen.
 
-Zunächst wird die Anwendung jedes Mal von Webserver geladen und der Client könnte entweder durch den Anbieter oder auf dem Weg mit einer Hintertür  versehen werden. Um das zu verhindern, könnte der Code von einem vertrauenswürdigen Drittanbieter geladen werden. Dafür gibt es zwei Wege: 
+Zunächst wird die Anwendung jedes Mal von Webserver geladen und der Client könnte entweder durch den Anbieter oder auf dem Weg mit einer Hintertür  versehen werden. Um das zu verhindern, könnte der Code von einem vertrauenswürdigen Drittanbieter geladen werden. Dafür gibt es zwei Wege:
 
 1. App Store: Die meisten Browser unterstützen Erweiterungen in der Form von "Browser-Anwendungen". Diese werden aus einer zentralen Stelle geladen und auf dem Gerät installiert. In diesem Fall ist der Drittanbieter, der "App Store". Daher muss der Nutzer diesem Server vertrauen, dass die ausgelieferte Anwendung sicher ist. Das ist zum Beispiel der Ansatz von [cryptocat](https://crypto.cat).
 2. Drittanbieter: Es gibt zwei fortgeschrittene Mechanismen, um Webanwendungen von einer Seite zu laden und auf Daten von einer anderen zugreifen zu lassen. Eine ist CORS ([Cross-origin resource sharing](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)) und die andere ist der [window.postMessage command](https://developer.mozilla.org/en-US/docs/Web/API/window.postMessage) von HTML5. Mit jeder der beiden Methoden lässt sich die Anwendung von beliebiger Stelle laden, oder sie ist lokal wie bei [Unhosted](https://unhosted.org).
@@ -143,17 +143,17 @@ Scramble is a OpenPGP email application that can be loaded from a website (with 
 <a name="whiteout"></a>Whiteout
 -----------------------------------------------------------
 
-[whiteout.io](https://whiteout.io)
+Whiteout is an open source IMAP/SMTP client with integrated support for OpenPGP.
 
-Whiteout is a commercial service featuring an HTML5-based OpenPGP email client. 
+It can be run in three different ways:
 
-Whiteout offers its fully IMAP/SMTP-compatible mail client through multiple distribution channels that address different needs and threat models:
-
-1. App: The installation of an app is the default and most secure mode. We provide official builds for Chrome, Android and iOS (coming soon). There is no need to trust Whiteout when using these apps, as they are installed as signed apps from an App Store and the installed source code can be compared with tagged releases on GitHub.
-2. Self-hosted: In the self-hosted use case, you install Whiteout Mail to your own trusted web server and use it in the browser. Use cases could include your company's server or setting up your own self-hosted solution. Since users are getting the Javascript crypto code from the web server, there will be a trust relationship to that server. But if this is your own trusted server this is ok. The web server enforces CSP (Content Security Policy) and HSTS (HTTP Strict Transport Security) to mitigate cross site scripting and man-in-the-middle attacks.
-3. [Webmail](https://mail.whiteout.io): The third mode of operation is managed hosting by Whiteout. Due to the TLS connection from the browser to the IMAP server, the Whiteout proxy will never see any of your data. But you will be trusting the Whiteout web server to deliver the correct code to your browser in this mode. The threat model for this approach is discussed here and we will do our best to inform users in plain english about the security trade-off they are making.
+1. App: The installation of an app is the default and most secure mode. There are builds for for Chrome, Android and iOS (coming soon). The apps are installed from an App Store and the installed source code can be compared with tagged releases on GitHub.
+2. Self-hosted: In the self-hosted use case, you install Whiteout Mail to your own web server and use it in the browser. Use cases could include your company's server or setting up your own self-hosted solution. Since users are getting the Javascript crypto code from the web server, they must trust the web server.
+3. [Webmail](https://mail.whiteout.io): The third mode of operation is managed hosting by Whiteout. Due to the TLS connection from the browser to the IMAP server, the Whiteout proxy will never see any of your data. But you will be trusting the Whiteout web server to deliver the correct code to your browser in this mode.
 
 IMAP/SMTP logic is implemented completely in Javascript on the client. TCP traffic is proxied with the TLS session terminated in the user's browser using [socket.io](http://socket.io/) and a [Javascript TLS impelementation](https://github.com/digitalbazaar/forge). This means that the proxy on the web server will see only encrypted traffic and never any user data like IMAP/SMTP passwords or message contents.
+
+**Keys:** Key pairs are generated on the client, client-encrypted, and synchronized (via IMAP) among the various devices a user might be running Whiteout.
 
 * Written in: Javascript
 * Source code: https://github.com/whiteout-io/mail-html5
