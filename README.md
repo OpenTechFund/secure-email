@@ -73,8 +73,8 @@ Some of the major experimental approaches to solving the problem of public key d
 
 1. Inline: Many of the projects here plan to simply include the user's public key as an attachment to every outgoing email (or in a footer or SMTP header).
 1. DNS: Key distributed via DNSSEC, where a service provider adds a DNS entry for each user containing the user's public key or fingerprint.
-1. Append-only log: Proposal to modify Certificate Transparency to handle user accounts, where audits are performed against append-only logs.
-1. Network perspective: Validation by key endorsement (third party signatures), with audits performed via network perspective.
+1. Append-only log: key endorsers issue public append-only logs of their work, so that users and providers can audit all key endorsements. The leading design using this approach is [CONIKS](http://www.coniks.org/). This approach is similar to how Certificate Transparency works for TLS certs.
+1. Network perspective: Validation by key endorsement (third party signatures), with audits performed via network perspective. One design following this approach is [Nyms](http://nyms.io)
 1. Introductions: Discovery and validation of keys through acquaintance introduction.
 1. Mobile: Although too lengthy to manually transcribe, an app on a mobile device can be used to easily exchange keys in person (for example, via a QR code or bluetooth connection).
 
@@ -85,7 +85,9 @@ Traditional schemes for secure email have left metadata exposed. We now know tha
 
 Metadata protection, however, is **hard**. In order to protect metadata, the message routing protocol must hide the sender and recipient from all the intermediaries responsible for relaying the message. This is not possible with the traditional protocol for email transport, although it will probably be possible to piggyback additional (non-backward compatible) protocols on top of traditional email transport in order to achieve metadata protection.
 
-Alternately, some projects reject traditional email transport entirely. These decentralized peer-to-peer approaches to metadata protection generally fall into four camps: (1) directly relay the message from sender's device to recipients device; (2) relay messages through a network of friends; (3) broadcast messages to everyone; (4) relay messages through an anonymization network such as Tor. The first two approaches protect metadata, but at the expense of increasing vulnerability to traffic analysis that could reveal the same metadata. The third solution faces serious problems of scalability. Pond uses the fourth method, discussed below.
+Alternately, some projects reject traditional email transport entirely. These decentralized peer-to-peer approaches to metadata protection generally fall into four camps: (1) directly relay the message from sender's device to recipients device; (2) relay messages through a network of friends; (3) broadcast messages to everyone; (4) relay messages through an anonymization network. The first two approaches protect metadata, but at the expense of increasing vulnerability to traffic analysis that could reveal the same metadata. The third solution faces serious problems of scalability. Pond uses the fourth method, discussed below.
+
+The most advanced scheme in this area is the high-latency anonymizing mix-network PANORAMIX (forthcoming).
 
 All schemes for metadata protection face the prospect of increasing Spam (since one of the primary methods used to prevent Spam is analysis of metadata). This is why some schemes with strong metadata protection make it impossible to send or receive messages to anyone you are not already in contact with. This works brilliantly for reducing Spam, but is unlikely to be a viable long term strategy for entirely replacing the utility of email.
 
