@@ -681,12 +681,12 @@ End to end encrypted messaging that uses your mobile phone to directly route a m
 
 [tutanota.de](https://www.tutanota.de)
 
-Tutanota is an installable webclient and browser app. A message to another user on the system uses public-key encryption. Emails to users outside the system are symmetrically encrypted with a pre-shared secret (the message is viewable on the Tutanota website). There are plans to support end-to-end public-key encryption of messages sent to and received from other providers in the future.
+Tutanota is an open source installable webclient and includes apps for Android, iOS and web browsers. A message to another user on the system uses public-key encryption. Emails to users outside the system are symmetrically encrypted with a pre-shared secret (the message is viewable on the Tutanota website). There are plans to support end-to-end public-key encryption of messages sent to and received from other providers in the future.
 
 Keys: Private keys are generated in the browser app, encrypted with the user's password, and then stored on the server. The server never sees the user's password (password is hashed using bcrypt and SHA256 before being sent to the server during account creation and authentication).
 
-* Platforms: Web Browser
-* License: Proprietary
+* Platforms: Web Browser, Android, iOS
+* License: Open Source (GPLv3)
 
 <a name="related-works"></a>Related Works
 ===========================================================
