@@ -337,6 +337,31 @@ Parley is a desktop mail client with a UI written using HTML5 and Javascript, wi
 * Design documentation: https://parley.co/#how-it-works
 * License: BSD
 * Platforms: Windows, Mac, Linux (with Android and iOS planned).
+ 
+
+<a name="m"></a>M
+-----------------------------------------------------------
+
+[mynigma.org](https://mynigma.org)
+
+M is a suite of native email clients with built-in end-to-end encryption.
+
+**Infrastructure:** Keys are generated and stored locally. There is no central point of trust and no collection of user data.
+
+**Key discovery and validation:** Automatic key exchange even in unencrypted messages. Trust on first use with optional fingerprint validation.
+
+**Project status:** Apps for Mac & iOS ready. Outlook plugin in alpha, Android app planned.
+
+**Encryption format:** Implements custom Open Source encryption format. Provable CCA security. Removes SHA1 and other broken algorithms. Encrypts subject lines. Signing of other header info prevents replay attacks and surreptitious forwarding.
+
+**Limitations:** Requires download. No webmail support planned.
+
+* Contact: info@mynigma.org
+* Written in: Objective-C, C#, Java
+* Source code: https://github.com/Mynigma/M
+* License: GPL
+* Platforms: Windows, Mac, iOS, Android (more to come).
+
 
 <a name="self-hosted-email"></a>Self-Hosted Email
 ===========================================================
