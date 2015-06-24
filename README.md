@@ -348,13 +348,13 @@ M is a suite of native email clients with built-in end-to-end encryption.
 
 **Infrastructure:** Keys are generated and stored locally. There is no central point of trust and no collection of user data.
 
-**Key discovery and validation:** Automatic key exchange even in unencrypted messages. Trust on first use with optional fingerprint validation.
+**Key discovery and validation:** Public key transmitted automatically in X-Header. Trust on first use with optional fingerprint validation.
 
 **Project status:** Apps for Mac & iOS ready. Outlook plugin in alpha, Android app planned.
 
 **Encryption format:** Implements custom Open Source encryption format. Provable CCA security. Removes SHA1 and other broken algorithms. Encrypts subject lines. Signing of other header info prevents replay attacks and surreptitious forwarding.
 
-**Limitations:** Requires download. No webmail support planned.
+**Limitations:** Requires download. No webmail access. PGP and S/MIME support in development.
 
 * Contact: info@mynigma.org
 * Written in: Objective-C, C#, Java
