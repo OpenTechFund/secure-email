@@ -130,6 +130,7 @@ No consensus or standard has yet emerged, although SRP has been around a while.
 * http://csusbdt.github.io/pubs/email-p2pconf-final.pdf
 * http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=4578234&tag=1
 * http://link.springer.com/chapter/10.1007%2F978-3-540-30208-7_82#page-1
+* http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=6102750
 
 <a name="web-mail"></a>Web Mail
 ===========================================================
