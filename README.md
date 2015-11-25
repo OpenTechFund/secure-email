@@ -131,7 +131,6 @@ No consensus or standard has yet emerged, although SRP has been around a while.
 * http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=4578234&tag=1
 * http://link.springer.com/chapter/10.1007%2F978-3-540-30208-7_82#page-1
 * http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=6102750
-* http://www.researchgate.net/publication/221150810_POST_A_Secure_Resilient_Cooperative_Messaging_System
 
 <a name="web-mail"></a>Web Mail
 ===========================================================
@@ -654,7 +653,13 @@ The actual version is 2.4.8 from 2007 and no longer under active development.
 * Written in: Java
 * Source code: http://www.epostmail.org/code.html#source
 * License: BSD-like license
-* Publication: http://www.eecs.harvard.edu/~mema/courses/cs264/papers/epost-eurosys2006.pdf
+* Publication:
+   - http://www.eecs.harvard.edu/~mema/courses/cs264/papers/epost-eurosys2006.pdf
+   - http://www.epostmail.org/pubs/POST-Thesis.pdf
+   - http://www.epostmail.org/pubs/ePOST-EuroSys.pdf
+   - http://www.epostmail.org/pubs/glacier.pdf
+   - http://www.epostmail.org/pubs/Rings-IPTPS.pdf
+   - http://www.epostmail.org/pubs/POST-HotOS.pdf
 
 <a name="centralized-non-email"></a>Centralized Non-email
 ===========================================================
