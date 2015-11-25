@@ -43,6 +43,7 @@ Contents:
    1. [Goldbug](#goldbug)
    1. [Pond](#pond)
    1. [ePOST](#epost)
+   1. [DoDWAN](#dodwan)
 1. [Centralized non-email](#centralized-non-email)
    1. [Enlocked](#enlocked)
    1. [ProtonMail](#protonmail)
@@ -660,6 +661,21 @@ The actual version is 2.4.8 from 2007 and no longer under active development.
    - http://www.epostmail.org/pubs/glacier.pdf
    - http://www.epostmail.org/pubs/Rings-IPTPS.pdf
    - http://www.epostmail.org/pubs/POST-HotOS.pdf
+
+<a name="dodwan"></a>DoDWAN
+-----------------------------------------------------------
+
+[www-casa.irisa.fr/dodwan](https://www-casa.irisa.fr/dodwan/)
+
+DoDWAN is a middleware platform which has been used for the project [dodwan-expe](https://www-casa.irisa.fr/dodwan-expe/) to create e.g. a peer-to-peer Email service [MailWAN](https://www-casa.irisa.fr/dodwan-expe/mailwan/).
+
+* Written in: Java
+* Source code: https://www-casa.irisa.fr/dodwan/download/
+* License: GNU General Public License
+* Publication:
+   - http://extremecom2012.ee.ethz.ch/papers/1-extremecom2012-Maheo.pdf
+   - https://hal.archives-ouvertes.fr/hal-00502509/file/Sarah_mis10.pdf
+   - https://hal.archives-ouvertes.fr/hal-00341707/file/Sarah_ubicomm07a.pdf
 
 <a name="centralized-non-email"></a>Centralized Non-email
 ===========================================================
