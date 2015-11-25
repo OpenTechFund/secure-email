@@ -48,6 +48,7 @@ Contents:
    1. [ShazzleMail](#shazzlemail)
    1. [Tutanota](#tutanota)
 1. [Related Works](#related-works)
+1. [SUN MICROSYSTEMS](#SUN MICROSYSTEMS)
 
 <a name="common-problems"></a>Common Problems
 ===========================================================
@@ -710,3 +711,10 @@ There are many technologies that don't belong in this document because they eith
 * [OpenCom](http://opencom.io) is a secure email and email-like communication in the planning stages.
 * [Ubiquitous Encrypted Email](https://github.com/tomrittervg/uee) is a protocol draft for standards that could lead to universal adoption of encrypted email.
 * [Redecentralize](https://github.com/redecentralize/alternative-internet) has a list of decentralized networks, such as Tor.
+
+<a name="SUN MICROSYSTEMS"></a>SUN MICROSYSTEMS
+===========================================================
+
+[http://www.google.com/patents/US7849140](http://www.google.com/patents/US7849140)
+
+SUN MICROSYSTEMS is holding a patent "Peer-to-peer email messaging".
