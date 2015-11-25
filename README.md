@@ -8,6 +8,7 @@ Contents:
    1. [Forward Secrecy](#forward-secrecy)
    1. [Data Availability](#data-availability)
    1. [Secure Authentication](#secure-authentication)
+1. [Scientific Work](#scientific work)
 1. [Web Mail](#web-mail)
    1. [Lavaboom](#lavaboom)
    1. [Mega](#mega)
@@ -41,14 +42,14 @@ Contents:
    1. [FlowingMail](#flowingmail)
    1. [Goldbug](#goldbug)
    1. [Pond](#pond)
-   1. [ePOST](#ePOST)
+   1. [ePOST](#epost)
 1. [Centralized non-email](#centralized-non-email)
    1. [Enlocked](#enlocked)
    1. [ProtonMail](#protonmail)
    1. [ShazzleMail](#shazzlemail)
    1. [Tutanota](#tutanota)
 1. [Related Works](#related-works)
-1. [SUN MICROSYSTEMS](#SUN MICROSYSTEMS)
+1. [SUN MICROSYSTEMS](#sun microsystems)
 
 <a name="common-problems"></a>Common Problems
 ===========================================================
@@ -122,6 +123,12 @@ For those projects that make use of a service provider, one of the key problems 
 * Sign a challenge from the server with the user's private key. This has the advantage of being nearly impossible to brute force attack, but is vulnerable to impostor server providers and requires that the user's device has the private key.
 
 No consensus or standard has yet emerged, although SRP has been around a while.
+
+<a name="scientific work"></a>Scientific Work
+===========================================================
+
+* http://csusbdt.github.io/pubs/email-p2pconf-final.pdf
+* http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=4578234&tag=1
 
 <a name="web-mail"></a>Web Mail
 ===========================================================
@@ -503,8 +510,6 @@ The same limitions as described for LEAP also apply to Pixelated.
 * Design documentation: https://github.com/pixelated-project/pixelated-user-agent, https://github.com/pixelated-project/pixelated-dispatcher, https://github.com/pixelated-project/pixelated-platform
 * License: AGPL
 
-
-
 <a name="post-email-alternatives"></a>Post-email alternatives
 ===========================================================
 
@@ -635,7 +640,7 @@ Ultimately, Pond's unique design makes it a very strong candidate for incorporat
 * License: BSD
 * Platforms: anything you can compile Go on (for command line interface) or anything you can compile Go + Gtk (for GUI interface).
 
-<a name="ePOST"></a>ePOST
+<a name="epost"></a>ePOST
 -----------------------------------------------------------
 
 [www.epostmail.org](http://www.epostmail.org/index.html)
@@ -646,6 +651,7 @@ The actual version is 2.4.8 from 2007 and no longer under active development.
 * Written in: Java
 * Source code: http://www.epostmail.org/code.html#source
 * License: BSD-like license
+* Publication: http://www.eecs.harvard.edu/~mema/courses/cs264/papers/epost-eurosys2006.pdf
 
 <a name="centralized-non-email"></a>Centralized Non-email
 ===========================================================
@@ -712,7 +718,7 @@ There are many technologies that don't belong in this document because they eith
 * [Ubiquitous Encrypted Email](https://github.com/tomrittervg/uee) is a protocol draft for standards that could lead to universal adoption of encrypted email.
 * [Redecentralize](https://github.com/redecentralize/alternative-internet) has a list of decentralized networks, such as Tor.
 
-<a name="SUN MICROSYSTEMS"></a>SUN MICROSYSTEMS
+<a name="sun microsystems"></a>SUN MICROSYSTEMS
 ===========================================================
 
 [http://www.google.com/patents/US7849140](http://www.google.com/patents/US7849140)
