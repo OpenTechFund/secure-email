@@ -41,6 +41,7 @@ Contents:
    1. [FlowingMail](#flowingmail)
    1. [Goldbug](#goldbug)
    1. [Pond](#pond)
+   1. [ePOST](#ePOST)
 1. [Centralized non-email](#centralized-non-email)
    1. [Enlocked](#enlocked)
    1. [ProtonMail](#protonmail)
@@ -632,6 +633,18 @@ Ultimately, Pond's unique design makes it a very strong candidate for incorporat
 * Source code: https://github.com/agl/pond
 * License: BSD
 * Platforms: anything you can compile Go on (for command line interface) or anything you can compile Go + Gtk (for GUI interface).
+
+<a name="ePOST"></a>ePOST
+-----------------------------------------------------------
+
+[www.epostmail.org](http://www.epostmail.org/index.html)
+
+ePOST is a cooperative, serverless email system.
+The actual version is 2.4.8 from 2007 and no longer under active development.
+
+* Written in: Java
+* Source code: http://www.epostmail.org/code.html#source
+* License: BSD-like license
 
 <a name="centralized-non-email"></a>Centralized Non-email
 ===========================================================
