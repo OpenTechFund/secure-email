@@ -45,6 +45,7 @@ Contents:
    1. [FlowingMail](#flowingmail)
    1. [Goldbug](#goldbug)
    1. [Pond](#pond)
+   1. [P2PE](#p2pe)
 1. [Centralized non-email](#centralized-non-email)
    1. [Enlocked](#enlocked)
    1. [ProtonMail](#protonmail)
@@ -680,6 +681,15 @@ Ultimately, Pond's unique design makes it a very strong candidate for incorporat
 * Source code: https://github.com/agl/pond
 * License: BSD
 * Platforms: anything you can compile Go on (for command line interface) or anything you can compile Go + Gtk (for GUI interface).
+
+<a name="p2pe"></a>P2PE
+-----------------------------------------------------------
+
+[www.p2pexplorer.com/more](http://www.p2pexplorer.com/more)
+
+P2PE is a self distributed server software running on local device allowing to communicate directly. Among others it will include an e-mail like service.
+
+This project is still in a fundraising phase ([www.kickstarter.com](https://www.kickstarter.com/projects/65109946/p2pexplorer-100-decentralized-peer-to-peer-network, [www.getacoder.com](http://www.getacoder.com/projects/peer_to_peer_full_email_system_167449.html).
 
 <a name="centralized-non-email"></a>Centralized Non-email
 ===========================================================
