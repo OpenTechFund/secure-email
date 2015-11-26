@@ -9,6 +9,9 @@ Contents:
    1. [Data Availability](#data-availability)
    1. [Secure Authentication](#secure-authentication)
 1. [Scientific Work](#scientific work)
+   1. [Publications](#publications)
+   1. [ePOST](#epost)
+   1. [DoDWAN](#dodwan)
 1. [Web Mail](#web-mail)
    1. [Lavaboom](#lavaboom)
    1. [Mega](#mega)
@@ -42,8 +45,6 @@ Contents:
    1. [FlowingMail](#flowingmail)
    1. [Goldbug](#goldbug)
    1. [Pond](#pond)
-   1. [ePOST](#epost)
-   1. [DoDWAN](#dodwan)
 1. [Centralized non-email](#centralized-non-email)
    1. [Enlocked](#enlocked)
    1. [ProtonMail](#protonmail)
@@ -128,10 +129,47 @@ No consensus or standard has yet emerged, although SRP has been around a while.
 <a name="scientific work"></a>Scientific Work
 ===========================================================
 
+<a name="publications"></a>Publications
+-----------------------------------------------------------
+
 * http://csusbdt.github.io/pubs/email-p2pconf-final.pdf
 * http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=4578234&tag=1
 * http://link.springer.com/chapter/10.1007%2F978-3-540-30208-7_82#page-1
 * http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=6102750
+
+<a name="epost"></a>ePOST
+-----------------------------------------------------------
+
+[www.epostmail.org](http://www.epostmail.org/index.html)
+
+ePOST is a cooperative, serverless email system.
+The actual version is 2.4.8 from 2007 and no longer under active development.
+
+* Written in: Java
+* Source code: http://www.epostmail.org/code.html#source
+* License: BSD-like license
+* Publication:
+   - http://www.eecs.harvard.edu/~mema/courses/cs264/papers/epost-eurosys2006.pdf
+   - http://www.epostmail.org/pubs/POST-Thesis.pdf
+   - http://www.epostmail.org/pubs/ePOST-EuroSys.pdf
+   - http://www.epostmail.org/pubs/glacier.pdf
+   - http://www.epostmail.org/pubs/Rings-IPTPS.pdf
+   - http://www.epostmail.org/pubs/POST-HotOS.pdf
+
+<a name="dodwan"></a>DoDWAN
+-----------------------------------------------------------
+
+[www-casa.irisa.fr/dodwan](https://www-casa.irisa.fr/dodwan/)
+
+DoDWAN is a middleware platform which has been used for the project [dodwan-expe](https://www-casa.irisa.fr/dodwan-expe/) to create e.g. a peer-to-peer Email service [MailWAN](https://www-casa.irisa.fr/dodwan-expe/mailwan/).
+
+* Written in: Java
+* Source code: https://www-casa.irisa.fr/dodwan/download/
+* License: GNU General Public License
+* Publication:
+   - http://extremecom2012.ee.ethz.ch/papers/1-extremecom2012-Maheo.pdf
+   - https://hal.archives-ouvertes.fr/hal-00502509/file/Sarah_mis10.pdf
+   - https://hal.archives-ouvertes.fr/hal-00341707/file/Sarah_ubicomm07a.pdf
 
 <a name="web-mail"></a>Web Mail
 ===========================================================
@@ -642,40 +680,6 @@ Ultimately, Pond's unique design makes it a very strong candidate for incorporat
 * Source code: https://github.com/agl/pond
 * License: BSD
 * Platforms: anything you can compile Go on (for command line interface) or anything you can compile Go + Gtk (for GUI interface).
-
-<a name="epost"></a>ePOST
------------------------------------------------------------
-
-[www.epostmail.org](http://www.epostmail.org/index.html)
-
-ePOST is a cooperative, serverless email system.
-The actual version is 2.4.8 from 2007 and no longer under active development.
-
-* Written in: Java
-* Source code: http://www.epostmail.org/code.html#source
-* License: BSD-like license
-* Publication:
-   - http://www.eecs.harvard.edu/~mema/courses/cs264/papers/epost-eurosys2006.pdf
-   - http://www.epostmail.org/pubs/POST-Thesis.pdf
-   - http://www.epostmail.org/pubs/ePOST-EuroSys.pdf
-   - http://www.epostmail.org/pubs/glacier.pdf
-   - http://www.epostmail.org/pubs/Rings-IPTPS.pdf
-   - http://www.epostmail.org/pubs/POST-HotOS.pdf
-
-<a name="dodwan"></a>DoDWAN
------------------------------------------------------------
-
-[www-casa.irisa.fr/dodwan](https://www-casa.irisa.fr/dodwan/)
-
-DoDWAN is a middleware platform which has been used for the project [dodwan-expe](https://www-casa.irisa.fr/dodwan-expe/) to create e.g. a peer-to-peer Email service [MailWAN](https://www-casa.irisa.fr/dodwan-expe/mailwan/).
-
-* Written in: Java
-* Source code: https://www-casa.irisa.fr/dodwan/download/
-* License: GNU General Public License
-* Publication:
-   - http://extremecom2012.ee.ethz.ch/papers/1-extremecom2012-Maheo.pdf
-   - https://hal.archives-ouvertes.fr/hal-00502509/file/Sarah_mis10.pdf
-   - https://hal.archives-ouvertes.fr/hal-00341707/file/Sarah_ubicomm07a.pdf
 
 <a name="centralized-non-email"></a>Centralized Non-email
 ===========================================================
