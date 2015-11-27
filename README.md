@@ -26,6 +26,7 @@ Contents:
    1. [Bitmail](#bitmail)
    1. [Mailpile](#mailpile)
    1. [Parley](#parley)
+   1. [ByteMail] (#bytemail)
 1. [Self-Hosted Email](#self-hosted-email)
    1. [Dark Mail Alliance](#self-hosted-dark-mail)
    1. [FreedomBox](#freedombox)
@@ -388,6 +389,14 @@ Parley is a desktop mail client with a UI written using HTML5 and Javascript, wi
 * Design documentation: https://parley.co/#how-it-works
 * License: BSD
 * Platforms: Windows, Mac, Linux (with Android and iOS planned).
+
+<a name="bytemail"></a>ByteMail
+-----------------------------------------------------------
+
+[github.com/ByteMail](https://github.com/ByteMail/ByteMail)
+
+A Peer-to-peer Email Protocol.
+   
 
 <a name="self-hosted-email"></a>Self-Hosted Email
 ===========================================================
