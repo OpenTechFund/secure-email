@@ -52,7 +52,7 @@ Contents:
    1. [ShazzleMail](#shazzlemail)
    1. [Tutanota](#tutanota)
 1. [Related Works](#related-works)
-1. [SUN MICROSYSTEMS](#sun microsystems)
+1. [Oracle](#oracle)
 
 <a name="common-problems"></a>Common Problems
 ===========================================================
@@ -756,9 +756,9 @@ There are many technologies that don't belong in this document because they eith
 * [Ubiquitous Encrypted Email](https://github.com/tomrittervg/uee) is a protocol draft for standards that could lead to universal adoption of encrypted email.
 * [Redecentralize](https://github.com/redecentralize/alternative-internet) has a list of decentralized networks, such as Tor.
 
-<a name="sun microsystems"></a>SUN MICROSYSTEMS
+<a name="oracle"></a>Oracle
 ===========================================================
 
 [http://www.google.com/patents/US7849140](http://www.google.com/patents/US7849140)
 
-SUN MICROSYSTEMS is holding a patent "Peer-to-peer email messaging".
+Oracle America, Inc. is holding a patent "Peer-to-peer email messaging".
