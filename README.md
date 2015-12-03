@@ -37,6 +37,7 @@ Contents:
    1. [DIME](#dime)
    1. [LEAP Encryption Access Project](#leap)
    1. [Pixelated](#pixelated)
+   1. [Walnut](#walnut)
 1. [Post-email alternatives](#post-email-alternatives)
    1. [Bitmessage](#bitmessage)
    1. [Bote mail](#bote-mail)
@@ -531,7 +532,6 @@ LEAP includes both a client application and turn-key system to automate the proc
 * Design documentation: https://leap.se/docs
 * License: mostly GPL v3, some MIT and AGPL.
 
-
 <a name="pixelated"></a>Pixelated
 -----------------------------------------------------------
 [pixelated-project.org](https://pixelated-project.org/)
@@ -561,6 +561,12 @@ The same limitions as described for LEAP also apply to Pixelated.
 * Source code: https://github.com/pixelated-project
 * Design documentation: https://github.com/pixelated-project/pixelated-user-agent, https://github.com/pixelated-project/pixelated-dispatcher, https://github.com/pixelated-project/pixelated-platform
 * License: AGPL
+
+<a name="walnut"></a>Walnut
+-----------------------------------------------------------
+[www.loment.net/walnut.html](http://www.loment.net/walnut.html)
+
+Walnut is a proprietary p2p secure e-mail application.
 
 <a name="post-email-alternatives"></a>Post-email alternatives
 ===========================================================
