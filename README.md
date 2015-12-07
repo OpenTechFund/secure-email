@@ -140,6 +140,7 @@ No consensus or standard has yet emerged, although SRP has been around a while.
 * [E-Mail Services on Hybrid P2P Networks](http://link.springer.com/chapter/10.1007%2F978-3-540-30208-7_82#page-1)
 * [Distributed Mailing System](http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=6102750)
 * [Implicit group messaging in peer-to-peer networks](http://sydney.edu.au/engineering/it/~dcutting/papers/tr583.pdf)
+* [P2P email encryption by an identity-based one-way group key agreement protocol](http://www.computer.org/csdl/proceedings/icpads/2014/7615/00/07097879.pdf)
 
 <a name="epost"></a>ePOST
 -----------------------------------------------------------
