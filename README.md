@@ -27,6 +27,7 @@ Contents:
    1. [Mailpile](#mailpile)
    1. [Parley](#parley)
    1. [ByteMail] (#bytemail)
+   1. [ShazzleMail] (#shazzlemail)
 1. [Self-Hosted Email](#self-hosted-email)
    1. [Dark Mail Alliance](#self-hosted-dark-mail)
    1. [FreedomBox](#freedombox)
@@ -402,6 +403,15 @@ Parley is a desktop mail client with a UI written using HTML5 and Javascript, wi
 
 A Peer-to-peer Email Protocol.
    
+<a name="shazzlemail"></a>ShazzleMail
+-----------------------------------------------------------
+
+[shazzlemail.com/](https://shazzlemail.com/)
+
+ShazzleMail sends encrypted through randomly selected relays, further obfuscating any sending patterns. It turns a smartphone into a mail server by creating a direct connection from sender to receiver. Since ShazzleMail merely connects sender and receiver and does not store or forward any messages it has no access to the contents of an email and therefore cannot read or mine any data.
+
+* License: proprietary
+* Platforms: iOS, Android, ShazzleConnect for Windows and Mac
 
 <a name="self-hosted-email"></a>Self-Hosted Email
 ===========================================================
