@@ -750,9 +750,9 @@ Enlocked uses OpenPGP, but does not use public key cryptography: sent messages a
 
 ProtonMail is a web-based mail provider from Switzerland using client-side encryption in the browser. It uses two separate passwords: one to authenticate and one to unlock encryption secrets. Emails sent to and from other ProtonMail users are end to end encrypted. You can encrypt emails to other users using a custom symmetric encryption scheme that requires the recipient to visit the ProtonMail website and to know a shared secret.
 
-The way ProtonMail describes itself on the website raises some concerns: they promote the service as being secure because of its location and because the people behind it have worked at MIT and CERN. These are typical strategies used to promote snake oil products, although there is no evidence that ProtonMail is snake oil.
+The developers promote their service as being secure because of its location in Switzerland and therefore user data are protected by strict Swiss privacy laws.
 
-* License: proprietary
+* License: [Open Source](https://protonmail.com/blog/protonmail-secure-email-open-source/) on [Github](https://github.com/ProtonMail)
 
 <a name="shazzlemail"></a>ShazzleMail
 -----------------------------------------------------------
