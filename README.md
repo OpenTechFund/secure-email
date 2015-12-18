@@ -142,6 +142,7 @@ No consensus or standard has yet emerged, although SRP has been around a while.
 * [Distributed Mailing System](http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=6102750)
 * [Implicit group messaging in peer-to-peer networks](http://sydney.edu.au/engineering/it/~dcutting/papers/tr583.pdf)
 * [P2P email encryption by an identity-based one-way group key agreement protocol](http://www.computer.org/csdl/proceedings/icpads/2014/7615/00/07097879.pdf)
+* [Peer to Peer Support for Distributed Mail Transfer Mechanism](http://www.iis.sinica.edu.tw/~khyang/papers/mime/C04.pdf)
 
 <a name="epost"></a>ePOST
 -----------------------------------------------------------
