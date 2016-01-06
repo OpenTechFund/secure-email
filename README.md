@@ -41,6 +41,7 @@ Contents:
    1. [Walnut](#walnut)
 1. [Post-email alternatives](#post-email-alternatives)
    1. [Bitmessage](#bitmessage)
+   1. [ZeroMail](#zeromail)
    1. [Bote mail](#bote-mail)
    1. [Cables](#cables)
    1. [Dark Mail Alliance](#p2p-dark-mail-alliance)
@@ -622,6 +623,17 @@ Disadvantages:
 * unsolved scaling issues: all messages are broadcast to everyone
 * because there is no forward secrecy, it is especially problematic that anyone can grab an encrypted copy of any message in the system. This means if the private key is ever compromised, then all the past messages can be decrypted easily by anyone using the system.
 * relies on proof of work for spam prevention, which is probably not actually that preventative (spammers often steal CPU anyway).
+
+<a name="zeromail"></a>ZeroMail
+-----------------------------------------------------------
+
+[zeronet.io](https://zeronet.io/)
+
+ZeroMail is a p2p email-like communication protocol using Bitcoin cryptography and the BitTorrent network. It is part of ZeroNet which includes e.g. p2p web, Talk, and Board.
+
+* Written in: php
+* Source: https://github.com/HelloZeroNet/ZeroNet
+* License: GNU GENERAL PUBLIC LICENSE
 
 <a name="bote-mail"></a>Bote mail
 -----------------------------------------------------------
