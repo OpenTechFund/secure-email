@@ -53,6 +53,8 @@ Contents:
    1. [Pond](#pond)
    1. [RetroShare](#retroshare)
    1. [P2PE](#p2pe)
+   1. [CryptaMail](#cryptamail)
+   1. [McAfee SwiftMail](#mcafee-SwiftMail)
 1. [Centralized non-email](#centralized-non-email)
    1. [Enlocked](#enlocked)
    1. [ProtonMail](#protonmail)
@@ -766,6 +768,20 @@ RetroShare is a free and open source, Friend-2-Friend and secure decentralised c
 P2PE is a self distributed server software running on local device allowing to communicate directly. Among others it will include an e-mail like service.
 
 This project is still in a fundraising phase ([www.kickstarter.com](https://www.kickstarter.com/projects/65109946/p2pexplorer-100-decentralized-peer-to-peer-network, [www.getacoder.com](http://www.getacoder.com/projects/peer_to_peer_full_email_system_167449.html).
+
+<a name="cryptamail"></a>CryptaMail
+-----------------------------------------------------------
+
+[www.cryptamail.com/#cryptamail](http://www.cryptamail.com/#cryptamail)
+
+Decentralized Email using NxtCoin's Blockchain.
+
+<a name="mcafee-SwiftMail"></a>McAfee SwiftMail
+-----------------------------------------------------------
+
+[www.cryptamail.com/#cryptamail](http://www.johnmcafeeswiftmail.com/)
+
+The block chain confirms that your mail is genuine and your sent mail was received at the other end.
 
 <a name="centralized-non-email"></a>Centralized Non-email
 ===========================================================
