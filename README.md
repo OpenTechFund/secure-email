@@ -779,7 +779,7 @@ Decentralized Email using NxtCoin's Blockchain.
 <a name="mcafee-SwiftMail"></a>McAfee SwiftMail
 -----------------------------------------------------------
 
-[www.cryptamail.com/#cryptamail](http://www.johnmcafeeswiftmail.com/)
+[www.johnmcafeeswiftmail.com](http://www.johnmcafeeswiftmail.com/)
 
 The block chain confirms that your mail is genuine and your sent mail was received at the other end.
 
