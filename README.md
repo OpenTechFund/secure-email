@@ -12,6 +12,8 @@ Contents:
    1. [Publications](#publications)
    1. [ePOST](#epost)
    1. [DoDWAN](#dodwan)
+1. [Libraries](#libraries)
+   1. [SwiftMailer](#swiftmailer)
 1. [Web Mail](#web-mail)
    1. [Lavaboom](#lavaboom)
    1. [Mega](#mega)
@@ -180,6 +182,27 @@ DoDWAN is a middleware platform which has been used for the project [dodwan-expe
    - https://hal.archives-ouvertes.fr/hal-00502509/file/Sarah_mis10.pdf
    - https://hal.archives-ouvertes.fr/hal-00341707/file/Sarah_ubicomm07a.pdf
 
+<a name="libraries"></a>Libraries
+===========================================================
+
+<a name="swiftmailer"></a>SwiftMailer
+-----------------------------------------------------------
+
+[swiftmailer.org](http://swiftmailer.org/)
+
+Swift Mailer integrates into any web app written in PHP 5, offering a flexible and elegant object-oriented approach to sending emails with a multitude of features.
+
+- Send emails using SMTP, sendmail, postfix or a custom Transport implementation of your own
+- Support servers that require username & password and/or encryption
+- Protect from header injection attacks without stripping request data content
+- Send MIME compliant HTML/multipart emails
+- Use event-driven plugins to customize the library
+- Handle large attachments and inline/embedded images with low memory use
+
+* Written in: PHP
+* Source code: https://github.com/swiftmailer/swiftmailer
+* License: MIT license
+   
 <a name="web-mail"></a>Web Mail
 ===========================================================
 
