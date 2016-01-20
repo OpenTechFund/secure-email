@@ -215,6 +215,8 @@ Scramble is an OpenPGP email application that can be loaded from a website (with
 
 **Application:** Currently, Scramble is a traditional HTML5 javascript application loaded from the website. In the future, Scramble will also be an installable browser app.
 
+**Limitations:** Currently, attachments are not supported.
+
 * Written in: Go, Javascript
 * Source code: https://github.com/dcposch/scramble
 * Design documentation: https://github.com/dcposch/scramble/wiki/Scramble-Protocol
