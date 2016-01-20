@@ -28,7 +28,6 @@ Contents:
 1. [Self-Hosted Email](#self-hosted-email)
    1. [Dark Mail Alliance](#self-hosted-dark-mail)
    1. [FreedomBox](#freedombox)
-   1. [kinko](#kinko)
    1. [Mailpile](#self-hosted-mailpile)
    1. [Mail-in-a-box](#mail-in-a-box)
 1. [Email Infrastructure](#email-infrastructure)
@@ -377,30 +376,6 @@ The Dark Mail Alliance has said they want to support self-hosting for the server
 [freedomboxfoundation.org](https://freedomboxfoundation.org)
 
 From its early conception, part of FreedomBox was "email and telecommunications that protects privacy and resists eavesdropping". Email, however, is not currently being worked on as part of FreedomBox. (as far as I can tell).
-
-<a name="kinko"></a>kinko
------------------------------------------------------------
-
-[kinko](https://kinko.me) implements an en/decrypting SMTP- and IMAP-proxy on ARM-class hardware, the kinko box. Emails are synced from the users' email accounts via IMAP to the box and are stored in plaintext in a secure storage area on the box. The kinko box also includes a webmailer to be able to use email with the browser.
-
-Connections to the kinko box are secured by TLS using a private key only known to the box itself. Furthermore, the kinko box is tunnelled to a public internet location. Consequently, users can access secure email from everywhere, using IMAP compatible email clients and/or browsers, including mobile clients.
-
-kinko uses GnuPG for encryption, with the addition of encrypting the email subject. Further additions should allow "Post-email alternatives" (a la bitmessage) to be used with the email clients that users are using today already. Other, privacy-related additions are planned as well.
-
-**Key discovery and validation:** Users can upload existing PGP keyrings. PGP keys are discovered via email
-addresses, email content, and PGP key servers. Keys are trusted on first use (but this policy can be changed
-to explicit fingerprint validation.)
-
-**Project status:** An alpha prototype exists. We are preparing for the release of a beta package in Q2/2014.
-
-**Languages:** The kinko base system is implemented in ruby and shell, with minor portions in native code.
-Applications can be implemented in more or less any language.
-
-**Webmail:** The currently included webmail application is roundcube webmail. That might change in the future.
-
-**Licenses:** All portions of the kinko system will be released under the AGPL license. (Included 3rd party
-applications will use their respective open source licenses). The hardware is open sourced as
-per [olimex](https://www.olimex.com/wiki/A10-OLinuXino-LIME).
 
 <a name="self-hosted-mailpile"></a>Mailpile
 -----------------------------------------------------------
@@ -806,6 +781,7 @@ Proposed ideas:
 * [Ubiquitous Encrypted Email](https://github.com/tomrittervg/uee) is a protocol draft for standards that could lead to universal adoption of encrypted email.
 * [www.p2pexplorer.com/](http://www.p2pexplorer.com/): P2PE is a self distributed server software running on local device allowing to communicate directly. Among others it will include an e-mail like service. This project is still in a fundraising phase.
 * [OpenCom](http://opencom.io) is a secure email and email-like communication in the planning stages.
+* [kinko](http://kinko.me) was planned to be an encrypting SMTP and IMAP proxy that runs on a dedicated ARM device. It would support regular OpenPGP email and user's can connect via IMAP or webmail to the device. The project is current on hold.
 
 Other links:
 
