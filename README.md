@@ -20,9 +20,11 @@ Contents:
    2. [End-to-End](#end-to-end)
 1. [Mail Clients](#mail-clients)
    1. [Bitmail](#bitmail)
+   1. [ByteMail] (#bytemail)
+   1. [M](#m)
    1. [Mailpile](#mailpile)
    1. [Parley](#parley)
-   1. [M](#m)
+   1. [ShazzleMail] (#shazzlemail)
 1. [Self-Hosted Email](#self-hosted-email)
    1. [Dark Mail Alliance](#self-hosted-dark-mail)
    1. [FreedomBox](#freedombox)
@@ -33,8 +35,10 @@ Contents:
    1. [DIME](#dime)
    1. [LEAP Encryption Access Project](#leap)
    1. [Pixelated](#pixelated)
+   1. [Walnut](#walnut)
 1. [Post-email alternatives](#post-email-alternatives)
    1. [Bitmessage](#bitmessage)
+   1. [ZeroMail](#zeromail)
    1. [Bote mail](#bote-mail)
    1. [Cables](#cables)
    1. [Dark Mail Alliance](#p2p-dark-mail-alliance)
@@ -43,12 +47,17 @@ Contents:
    1. [Goldbug](#goldbug)
    1. [Pond](#pond)
    1. [RetroShare](#retroshare)
+   1. [P2PE](#p2pe)
+   1. [CryptaMail](#cryptamail)
+   1. [McAfee SwiftMail](#mcafee-SwiftMail)
 1. [Centralized non-email](#centralized-non-email)
    1. [Enlocked](#enlocked)
    1. [ProtonMail](#protonmail)
    1. [ShazzleMail](#shazzlemail)
    1. [Tutanota](#tutanota)
-1. [Related Works](#related-works)
+1. [Appendix](#appendix)
+   1. [Related Works](#related-works)
+   1. [Publications](#publications)
 
 <a name="common-problems"></a>Common Problems
 ===========================================================
@@ -339,31 +348,6 @@ Parley is a desktop mail client with a UI written using HTML5 and Javascript, wi
 * Design documentation: https://parley.co/#how-it-works
 * License: BSD
 * Platforms: Windows, Mac, Linux (with Android and iOS planned).
- 
-
-<a name="m"></a>M
------------------------------------------------------------
-
-[mynigma.org](https://mynigma.org)
-
-M is a suite of native email clients with built-in end-to-end encryption.
-
-**Infrastructure:** Keys are generated and stored locally. There is no central point of trust and no collection of user data.
-
-**Key discovery and validation:** Public key transmitted automatically in X-Header. Trust on first use with optional fingerprint validation.
-
-**Project status:** Apps for Mac & iOS ready. Outlook plugin in alpha, Android app planned.
-
-**Encryption format:** Implements custom Open Source encryption format. Provable CCA security. Removes SHA1 and other broken algorithms. Encrypts subject lines. Signing of other header info prevents replay attacks and surreptitious forwarding.
-
-**Limitations:** Requires download. No webmail access. PGP and S/MIME support in development.
-
-* Contact: info@mynigma.org
-* Written in: Objective-C, C#, Java
-* Source code: https://github.com/Mynigma/M
-* License: GPL
-* Platforms: Windows, Mac, iOS, Android (more to come).
-
 
 <a name="self-hosted-email"></a>Self-Hosted Email
 ===========================================================
@@ -528,7 +512,11 @@ The same limitions as described for LEAP also apply to Pixelated.
 * Design documentation: https://github.com/pixelated-project/pixelated-user-agent, https://github.com/pixelated-project/pixelated-dispatcher, https://github.com/pixelated-project/pixelated-platform
 * License: AGPL
 
+<a name="walnut"></a>Walnut
+-----------------------------------------------------------
+[www.loment.net/walnut.html](http://www.loment.net/walnut.html)
 
+Walnut is a proprietary p2p secure e-mail application.
 
 <a name="post-email-alternatives"></a>Post-email alternatives
 ===========================================================
@@ -572,6 +560,17 @@ Disadvantages:
 * because there is no forward secrecy, it is especially problematic that anyone can grab an encrypted copy of any message in the system. This means if the private key is ever compromised, then all the past messages can be decrypted easily by anyone using the system.
 * relies on proof of work for spam prevention, which is probably not actually that preventative (spammers often steal CPU anyway).
 
+<a name="zeromail"></a>ZeroMail
+-----------------------------------------------------------
+
+[zeronet.io](https://zeronet.io/)
+
+ZeroMail is a p2p email-like communication protocol using Bitcoin cryptography and the BitTorrent network. It is part of ZeroNet which includes e.g. p2p web, Talk, and Board.
+
+* Written in: php
+* Source: https://github.com/HelloZeroNet/ZeroNet
+* License: GNU GENERAL PUBLIC LICENSE
+
 <a name="bote-mail"></a>Bote mail
 -----------------------------------------------------------
 
@@ -599,6 +598,22 @@ Bote mail (aka [IMail](https://en.wikipedia.org/wiki/IMail)) is an email-like co
 
 The Dark Mail Alliance plans to incorporate traditional email, a federated email alternative, and a second email alternative that is pure peer-to-peer. Details are not yet forthwith.
 
+<a name="dodwan"></a>DoDWAN
+-----------------------------------------------------------
+
+[www-casa.irisa.fr/dodwan](https://www-casa.irisa.fr/dodwan/)
+
+DoDWAN is a middleware platform which has been used for the project [dodwan-expe](https://www-casa.irisa.fr/dodwan-expe/) to create e.g. a peer-to-peer Email service [MailWAN](https://www-casa.irisa.fr/dodwan-expe/mailwan/).
+
+* Written in: Java
+* Source code: https://www-casa.irisa.fr/dodwan/download/
+* License: GNU General Public License
+* Publication:
+   - http://extremecom2012.ee.ethz.ch/papers/1-extremecom2012-Maheo.pdf
+   - https://hal.archives-ouvertes.fr/hal-00502509/file/Sarah_mis10.pdf
+   - https://hal.archives-ouvertes.fr/hal-00341707/file/Sarah_ubicomm07a.pdf
+   
+
 <a name="enigmabox"></a>Enigmabox
 -----------------------------------------------------------
 
@@ -609,6 +624,26 @@ Enigmabox is a device that you install on your local network between your comput
 Data is routed peer-to-peer directly from one enigmabox to another using cjdns, a system of virtual mesh networking in which IP addresses are derived from public keys. End to end encryption of messages is provided entirely by the cjdns transport layer.
 
 With this scheme, message are forward secret, but not entirely asynchronous. At some point, both the sender and recipient must have their enigmaboxes online at the same time.
+
+<a name="epost"></a>ePOST
+-----------------------------------------------------------
+
+[www.epostmail.org](http://www.epostmail.org/index.html)
+
+ePOST is a cooperative, serverless email system.
+The actual version is 2.4.8 from 2007 and no longer under active development.
+
+* Written in: Java
+* Source code: http://www.epostmail.org/code.html#source
+* License: BSD-like license
+* Publication:
+   - http://www.eecs.harvard.edu/~mema/courses/cs264/papers/epost-eurosys2006.pdf
+   - http://www.epostmail.org/pubs/POST-Thesis.pdf
+   - http://www.epostmail.org/pubs/ePOST-EuroSys.pdf
+   - http://www.epostmail.org/pubs/glacier.pdf
+   - http://www.epostmail.org/pubs/Rings-IPTPS.pdf
+   - http://www.epostmail.org/pubs/POST-HotOS.pdf
+
 
 <a name="flowingmail"></a>FlowingMail
 -----------------------------------------------------------
@@ -672,6 +707,29 @@ RetroShare is a free and open source, Friend-2-Friend and secure decentralised c
 * License: GPL
 * Platforms: Windows, Mac, GNU/Linux
 
+<a name="p2pe"></a>P2PE
+-----------------------------------------------------------
+
+[www.p2pexplorer.com/more](http://www.p2pexplorer.com/more)
+
+P2PE is a self distributed server software running on local device allowing to communicate directly. Among others it will include an e-mail like service.
+
+This project is still in a fundraising phase ([www.kickstarter.com](https://www.kickstarter.com/projects/65109946/p2pexplorer-100-decentralized-peer-to-peer-network, [www.getacoder.com](http://www.getacoder.com/projects/peer_to_peer_full_email_system_167449.html).
+
+<a name="cryptamail"></a>CryptaMail
+-----------------------------------------------------------
+
+[www.cryptamail.com/#cryptamail](http://www.cryptamail.com/#cryptamail)
+
+Decentralized Email using NxtCoin's Blockchain.
+
+<a name="mcafee-swiftmail"></a>McAfee SwiftMail
+-----------------------------------------------------------
+
+[www.johnmcafeeswiftmail.com](http://www.johnmcafeeswiftmail.com/)
+
+The block chain confirms that your mail is genuine and your sent mail was received at the other end.
+
 <a name="centralized-non-email"></a>Centralized Non-email
 ===========================================================
 
@@ -701,9 +759,9 @@ Enlocked uses OpenPGP, but does not use public key cryptography: sent messages a
 
 ProtonMail is a web-based mail provider from Switzerland using client-side encryption in the browser. It uses two separate passwords: one to authenticate and one to unlock encryption secrets. Emails sent to and from other ProtonMail users are end to end encrypted. You can encrypt emails to other users using a custom symmetric encryption scheme that requires the recipient to visit the ProtonMail website and to know a shared secret.
 
-The way ProtonMail describes itself on the website raises some concerns: they promote the service as being secure because of its location and because the people behind it have worked at MIT and CERN. These are typical strategies used to promote snake oil products, although there is no evidence that ProtonMail is snake oil.
+The developers promote their service as being secure because of its location in Switzerland and therefore user data are protected by strict Swiss privacy laws.
 
-* License: proprietary
+* License: [Open Source](https://protonmail.com/blog/protonmail-secure-email-open-source/) on [Github](https://github.com/ProtonMail)
 
 <a name="shazzlemail"></a>ShazzleMail
 -----------------------------------------------------------
@@ -727,8 +785,11 @@ Keys: Private keys are generated in the browser app, encrypted with the user's p
 * Platforms: Web Browser, Android, iOS
 * License: Open Source (GPLv3)
 
-<a name="related-works"></a>Related Works
+<a name="appendix"></a>Appendix
 ===========================================================
+
+<a name="related-works"></a>Related Works
+-----------------------------------------------------------
 
 There are many technologies that don't belong in this document because they either (a) are not trying to make encrypted email-like communication easier, (b) use some kind of weird proprietary escrow system, or (c) we just don't know enough about them yet. Here is a place to store links to such projects.
 
@@ -736,3 +797,15 @@ There are many technologies that don't belong in this document because they eith
 * [OpenCom](http://opencom.io) is a secure email and email-like communication in the planning stages.
 * [Ubiquitous Encrypted Email](https://github.com/tomrittervg/uee) is a protocol draft for standards that could lead to universal adoption of encrypted email.
 * [Redecentralize](https://github.com/redecentralize/alternative-internet) has a list of decentralized networks, such as Tor.
+
+<a name="publications"></a>Publications
+-----------------------------------------------------------
+
+* [Secure and Resilient Peer-to-Peer E-Mail: Design and Implementation](http://csusbdt.github.io/pubs/email-p2pconf-final.pdf)
+* [An experimental peer-to-peer e-mail system](http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=4578234&tag=1)
+* [E-Mail Services on Hybrid P2P Networks](http://link.springer.com/chapter/10.1007%2F978-3-540-30208-7_82#page-1)
+* [Distributed Mailing System](http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=6102750)
+* [Implicit group messaging in peer-to-peer networks](http://sydney.edu.au/engineering/it/~dcutting/papers/tr583.pdf)
+* [P2P email encryption by an identity-based one-way group key agreement protocol](http://www.computer.org/csdl/proceedings/icpads/2014/7615/00/07097879.pdf)
+* [Peer to Peer Support for Distributed Mail Transfer Mechanism](http://www.iis.sinica.edu.tw/~khyang/papers/mime/C04.pdf)
+
