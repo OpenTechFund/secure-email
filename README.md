@@ -209,6 +209,8 @@ Scramble is an OpenPGP email application that can be loaded from a website (with
 <a name="whiteout"></a>Whiteout
 -----------------------------------------------------------
 
+STATUS: Whiteout is currently no longer in business, but the server code might get open sourced in the future.
+
 [whiteout.io](https://whiteout.io)
 
 Whiteout is an open source IMAP/SMTP client with integrated support for OpenPGP.
