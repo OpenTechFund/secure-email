@@ -42,6 +42,7 @@ Contents:
    1. [FlowingMail](#flowingmail)
    1. [Goldbug](#goldbug)
    1. [Pond](#pond)
+   1. [RetroShare](#retroshare)
 1. [Centralized non-email](#centralized-non-email)
    1. [Enlocked](#enlocked)
    1. [ProtonMail](#protonmail)
@@ -658,6 +659,18 @@ Ultimately, Pond's unique design makes it a very strong candidate for incorporat
 * Source code: https://github.com/agl/pond
 * License: BSD
 * Platforms: anything you can compile Go on (for command line interface) or anything you can compile Go + Gtk (for GUI interface).
+
+<a name="retroshare"></a>RetroShare
+-----------------------------------------------------------
+
+[retroshare.org](http://retroshare.org/)
+
+RetroShare is a free and open source, Friend-2-Friend and secure decentralised communication platform that offers chat and file sharing features.
+
+* Written in: C++, Qt
+* Source code: https://github.com/RetroShare/RetroShare
+* License: GPL
+* Platforms: Windows, Mac, GNU/Linux
 
 <a name="centralized-non-email"></a>Centralized Non-email
 ===========================================================
