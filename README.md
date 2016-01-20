@@ -22,6 +22,7 @@ Contents:
    1. [Bitmail](#bitmail)
    1. [Mailpile](#mailpile)
    1. [Parley](#parley)
+   1. [M](#m)
 1. [Self-Hosted Email](#self-hosted-email)
    1. [Dark Mail Alliance](#self-hosted-dark-mail)
    1. [FreedomBox](#freedombox)
