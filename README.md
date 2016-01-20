@@ -28,33 +28,32 @@ Contents:
 1. [Self-Hosted Email](#self-hosted-email)
    1. [Dark Mail Alliance](#self-hosted-dark-mail)
    1. [FreedomBox](#freedombox)
+   1. [kinko](#kinko)
    1. [Mailpile](#self-hosted-mailpile)
    1. [Mail-in-a-box](#mail-in-a-box)
-   1. [kinko](#kinko)
 1. [Email Infrastructure](#email-infrastructure)
    1. [DIME](#dime)
    1. [LEAP Encryption Access Project](#leap)
    1. [Pixelated](#pixelated)
-   1. [Walnut](#walnut)
 1. [Post-email alternatives](#post-email-alternatives)
    1. [Bitmessage](#bitmessage)
-   1. [ZeroMail](#zeromail)
    1. [Bote mail](#bote-mail)
    1. [Cables](#cables)
+   1. [CryptaMail](#cryptamail)
    1. [Dark Mail Alliance](#p2p-dark-mail-alliance)
    1. [Enigmabox](#enigmabox)
    1. [FlowingMail](#flowingmail)
    1. [Goldbug](#goldbug)
+   1. [McAfee SwiftMail](#mcafee-SwiftMail)
    1. [Pond](#pond)
    1. [RetroShare](#retroshare)
-   1. [P2PE](#p2pe)
-   1. [CryptaMail](#cryptamail)
-   1. [McAfee SwiftMail](#mcafee-SwiftMail)
+   1. [ZeroMail](#zeromail)
 1. [Centralized non-email](#centralized-non-email)
    1. [Enlocked](#enlocked)
    1. [ProtonMail](#protonmail)
    1. [ShazzleMail](#shazzlemail)
    1. [Tutanota](#tutanota)
+   1. [Walnut](#walnut)
 1. [Appendix](#appendix)
    1. [Related Works](#related-works)
    1. [Publications](#publications)
@@ -378,28 +377,6 @@ The Dark Mail Alliance has said they want to support self-hosting for the server
 
 From its early conception, part of FreedomBox was "email and telecommunications that protects privacy and resists eavesdropping". Email, however, is not currently being worked on as part of FreedomBox. (as far as I can tell).
 
-<a name="self-hosted-mailpile"></a>Mailpile
------------------------------------------------------------
-
-Although Mailpile is primarily a mail client, the background Python component can read the Maildir format for email. This means you could install Mailpile on your own server running a Mail Transfer Agent (MTA) like postfix or qmail. You would then access your mail remotely by connecting to your server via a web browser.
-
-<a name="Mail-in-a-box"></a>Mail-in-a-box
------------------------------------------------------------
-
-<a href="https://github.com/JoshData/mailinabox">github.com/JoshData/mailinabox</a>
-
-Mail-in-a-box helps people set up their own email address, on a server they own or lease. It turns any machine running the latest version of Ubuntu into a functioning email server, using modern email protocols and encryption (IMAP, SMTP, greylisting, DKIM, SPF, and DNSSEC). It includes a rudimentary webmail interface (Roundcube), and helps you set up an SSL certificate for web and email.
-
-The project has a [website](https://mailinabox.email/), [setup guide](https://mailinabox.email/guide.html), and [discussion forum](https://discourse.mailinabox.email/).
-
-**Advantages:** For a simple, one-server setup, someone with some command line experience (or a willingness to learn), it's pretty straightforward to get an email address working quickly.
-
-**Limitations:** Setting up an email server is the easy part, maintaining the service over time can be tricky. There still aren't well-developed tools to help troubleshoot and resolve problems (for example, a broken spam detector, or overloaded memory).
-
-* Written in: Bash, Python
-* Source code: https://github.com/JoshData/mailinabox
-* License: CC0 1.0 Universal (public domain)
-
 <a name="kinko"></a>kinko
 -----------------------------------------------------------
 
@@ -423,6 +400,28 @@ Applications can be implemented in more or less any language.
 **Licenses:** All portions of the kinko system will be released under the AGPL license. (Included 3rd party
 applications will use their respective open source licenses). The hardware is open sourced as
 per [olimex](https://www.olimex.com/wiki/A10-OLinuXino-LIME).
+
+<a name="self-hosted-mailpile"></a>Mailpile
+-----------------------------------------------------------
+
+Although Mailpile is primarily a mail client, the background Python component can read the Maildir format for email. This means you could install Mailpile on your own server running a Mail Transfer Agent (MTA) like postfix or qmail. You would then access your mail remotely by connecting to your server via a web browser.
+
+<a name="Mail-in-a-box"></a>Mail-in-a-box
+-----------------------------------------------------------
+
+<a href="https://github.com/JoshData/mailinabox">github.com/JoshData/mailinabox</a>
+
+Mail-in-a-box helps people set up their own email address, on a server they own or lease. It turns any machine running the latest version of Ubuntu into a functioning email server, using modern email protocols and encryption (IMAP, SMTP, greylisting, DKIM, SPF, and DNSSEC). It includes a rudimentary webmail interface (Roundcube), and helps you set up an SSL certificate for web and email.
+
+The project has a [website](https://mailinabox.email/), [setup guide](https://mailinabox.email/guide.html), and [discussion forum](https://discourse.mailinabox.email/).
+
+**Advantages:** For a simple, one-server setup, someone with some command line experience (or a willingness to learn), it's pretty straightforward to get an email address working quickly.
+
+**Limitations:** Setting up an email server is the easy part, maintaining the service over time can be tricky. There still aren't well-developed tools to help troubleshoot and resolve problems (for example, a broken spam detector, or overloaded memory).
+
+* Written in: Bash, Python
+* Source code: https://github.com/JoshData/mailinabox
+* License: CC0 1.0 Universal (public domain)
 
 <a name="email-infrastructure"></a>Email Infrastructure
 ===========================================================
@@ -512,12 +511,6 @@ The same limitions as described for LEAP also apply to Pixelated.
 * Design documentation: https://github.com/pixelated-project/pixelated-user-agent, https://github.com/pixelated-project/pixelated-dispatcher, https://github.com/pixelated-project/pixelated-platform
 * License: AGPL
 
-<a name="walnut"></a>Walnut
------------------------------------------------------------
-[www.loment.net/walnut.html](http://www.loment.net/walnut.html)
-
-Walnut is a proprietary p2p secure e-mail application.
-
 <a name="post-email-alternatives"></a>Post-email alternatives
 ===========================================================
 
@@ -560,17 +553,6 @@ Disadvantages:
 * because there is no forward secrecy, it is especially problematic that anyone can grab an encrypted copy of any message in the system. This means if the private key is ever compromised, then all the past messages can be decrypted easily by anyone using the system.
 * relies on proof of work for spam prevention, which is probably not actually that preventative (spammers often steal CPU anyway).
 
-<a name="zeromail"></a>ZeroMail
------------------------------------------------------------
-
-[zeronet.io](https://zeronet.io/)
-
-ZeroMail is a p2p email-like communication protocol using Bitcoin cryptography and the BitTorrent network. It is part of ZeroNet which includes e.g. p2p web, Talk, and Board.
-
-* Written in: php
-* Source: https://github.com/HelloZeroNet/ZeroNet
-* License: GNU GENERAL PUBLIC LICENSE
-
 <a name="bote-mail"></a>Bote mail
 -----------------------------------------------------------
 
@@ -593,6 +575,17 @@ Bote mail (aka [IMail](https://en.wikipedia.org/wiki/IMail)) is an email-like co
 * Written in: C, Bash
 * License: GPL v2
 
+<a name="cryptamail"></a>CryptaMail
+-----------------------------------------------------------
+
+[cryptamail.com](http://www.cryptamail.com)
+
+* Storage: decentralized email storage using NxtCoin's proof-of-work transaction ledger (they call it a blockchain).
+* Spam prevention: to send a message costs 1 NxtCoin.
+* Identity: uses a namecoin-like system to reserve human memorable handles in the form @username.
+* Keys: secrets are stored in your NxtCoin wallet.
+
+
 <a name="p2p-dark-mail-alliance"></a>Dark Mail Alliance
 -----------------------------------------------------------
 
@@ -612,7 +605,7 @@ DoDWAN is a middleware platform which has been used for the project [dodwan-expe
    - http://extremecom2012.ee.ethz.ch/papers/1-extremecom2012-Maheo.pdf
    - https://hal.archives-ouvertes.fr/hal-00502509/file/Sarah_mis10.pdf
    - https://hal.archives-ouvertes.fr/hal-00341707/file/Sarah_ubicomm07a.pdf
-   
+
 
 <a name="enigmabox"></a>Enigmabox
 -----------------------------------------------------------
@@ -660,6 +653,13 @@ P2P secure, encrypted email system.
 * Written in: C++, Qt
 * License: BSD
 
+<a name="mcafee-swiftmail"></a>McAfee SwiftMail
+-----------------------------------------------------------
+
+[www.johnmcafeeswiftmail.com](http://www.johnmcafeeswiftmail.com/)
+
+The block chain confirms that your mail is genuine and your sent mail was received at the other end.
+
 <a name="pond"></a>Pond
 -----------------------------------------------------------
 
@@ -702,41 +702,35 @@ Ultimately, Pond's unique design makes it a very strong candidate for incorporat
 
 RetroShare is a free and open source, Friend-2-Friend and secure decentralised communication platform that offers chat and file sharing features.
 
+* Routing: connections are direct IP to IP (exposing metadata to network observer), unless otherwise used in combination with a network anonymizing tool (such as Tor).
+* Key validation: messages may be sent to your pre-arranged friends, and to their friends.
+
 * Written in: C++, Qt
 * Source code: https://github.com/RetroShare/RetroShare
 * License: GPL
 * Platforms: Windows, Mac, GNU/Linux
 
-<a name="p2pe"></a>P2PE
+<a name="zeromail"></a>ZeroMail
 -----------------------------------------------------------
 
-[www.p2pexplorer.com/more](http://www.p2pexplorer.com/more)
+[zeronet.io](https://zeronet.io/)
 
-P2PE is a self distributed server software running on local device allowing to communicate directly. Among others it will include an e-mail like service.
+ZeroMail is a p2p email-like communication protocol using Bitcoin cryptography and the BitTorrent network. It is part of ZeroNet which includes e.g. p2p web, Talk, and Board.
 
-This project is still in a fundraising phase ([www.kickstarter.com](https://www.kickstarter.com/projects/65109946/p2pexplorer-100-decentralized-peer-to-peer-network, [www.getacoder.com](http://www.getacoder.com/projects/peer_to_peer_full_email_system_167449.html).
-
-<a name="cryptamail"></a>CryptaMail
------------------------------------------------------------
-
-[www.cryptamail.com/#cryptamail](http://www.cryptamail.com/#cryptamail)
-
-Decentralized Email using NxtCoin's Blockchain.
-
-<a name="mcafee-swiftmail"></a>McAfee SwiftMail
------------------------------------------------------------
-
-[www.johnmcafeeswiftmail.com](http://www.johnmcafeeswiftmail.com/)
-
-The block chain confirms that your mail is genuine and your sent mail was received at the other end.
+* Written in: php
+* Source: https://github.com/HelloZeroNet/ZeroNet
+* License: GPL
 
 <a name="centralized-non-email"></a>Centralized Non-email
 ===========================================================
 
-There are many projects that take the following approach:
+There are many projects that are centralized email-like messaging platforms. They take one of three forms:
 
-* If you send an email to someone else using the same system, it is end-to-end encrypted.
-* If you send an email outside the system, then the recipient gets a URL they can use to view the message. Often, the message is symmetrically encrypted using a shared secret.
+1. Closed system: you can only send to other users on the same provider.
+1. Semi-closed system: you can communicate outside the system, but it is troublesome to do so.
+  * If you send an email to someone else using the same system, it is end-to-end encrypted.
+  * If you send an email outside the system, then the recipient gets a URL they can use to view the message. Often, the message is symmetrically encrypted using a shared secret.
+1. Semi-closed system, with no encryption: just like above, but emails outside the system have no encryption.
 
 These systems are not strictly "secure email," even if they look and smell like email, because you cannot actually send a secure message to an email user on another system. You can send them a message that they can read after visiting another site, but this is not really email. Also, there is no way for someone using an external email account to send a secure email to a user of one of these systems.
 
@@ -785,6 +779,15 @@ Keys: Private keys are generated in the browser app, encrypted with the user's p
 * Platforms: Web Browser, Android, iOS
 * License: Open Source (GPLv3)
 
+<a name="walnut"></a>Walnut
+-----------------------------------------------------------
+
+[www.loment.net/walnut.html](http://www.loment.net/walnut.html)
+
+Walnut is a proprietary secure email-like messaging application. You can also use it as an email client, but emails sent and received from/to non-walnut users are not end-to-end encrypted.
+
+* Platforms: iOS, Android.
+
 <a name="appendix"></a>Appendix
 ===========================================================
 
@@ -793,9 +796,18 @@ Keys: Private keys are generated in the browser app, encrypted with the user's p
 
 There are many technologies that don't belong in this document because they either (a) are not trying to make encrypted email-like communication easier, (b) use some kind of weird proprietary escrow system, or (c) we just don't know enough about them yet. Here is a place to store links to such projects.
 
+Key escrow:
+
 * [Virtru](https://www.virtru.com) has a secure email product that relies on a centralized key escrow. For details, see [here](http://www.theregister.co.uk/Print/2014/01/24/ex_nsa_cloud_guru_email_privacy_startup) and [here](https://www.virtru.com/how-virtru-works).
-* [OpenCom](http://opencom.io) is a secure email and email-like communication in the planning stages.
+
+Proposed ideas:
+
 * [Ubiquitous Encrypted Email](https://github.com/tomrittervg/uee) is a protocol draft for standards that could lead to universal adoption of encrypted email.
+* [www.p2pexplorer.com/](http://www.p2pexplorer.com/): P2PE is a self distributed server software running on local device allowing to communicate directly. Among others it will include an e-mail like service. This project is still in a fundraising phase.
+* [OpenCom](http://opencom.io) is a secure email and email-like communication in the planning stages.
+
+Other links:
+
 * [Redecentralize](https://github.com/redecentralize/alternative-internet) has a list of decentralized networks, such as Tor.
 
 <a name="publications"></a>Publications
