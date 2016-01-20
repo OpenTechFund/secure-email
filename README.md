@@ -151,6 +151,8 @@ Currently, all the applications listed here load the data and javascript code fr
 <a name="lavaboom"></a>Lavaboom
 -----------------------------------------------------------
 
+STATUS: lavaboom is no longer being developed.
+
 [lavaboom.com](https://www.lavaboom.com)
 
 Lavaboom is a web-based email provider from Germany using client-side encryption in the browser.
