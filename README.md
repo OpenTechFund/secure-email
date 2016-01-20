@@ -330,7 +330,9 @@ Mailpile is an email client designed to quickly handle large amounts of email an
 <a name="parley"></a>Parley
 -----------------------------------------------------------
 
-[parley.co](https://parley.co)
+[github.com/blackchair/parley](https://github.com/blackchair/parley)
+
+NOTE: discontinued, not under active development.
 
 Parley is a desktop mail client with a UI written using HTML5 and Javascript, with a local backend written in Python.
 
@@ -344,7 +346,6 @@ Parley is a desktop mail client with a UI written using HTML5 and Javascript, wi
 
 * Written in: Python, Javascript
 * Source code: https://github.com/blackchair/parley
-* Design documentation: https://parley.co/#how-it-works
 * License: BSD
 * Platforms: Windows, Mac, Linux (with Android and iOS planned).
 
