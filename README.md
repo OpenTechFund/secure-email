@@ -148,6 +148,19 @@ These challenges to do not apply to downloaded mail clients that happen to use H
 
 Currently, all the applications listed here load the data and javascript code from the same origin. This means that the user is entirely trusting the server for their security, which is in many ways not that much different than what users already do with gmail or hotmail. The difference is that the window of attack is narrowed (the user must login in order for the service to gain cleartext access). For those services that allow sending compatible OpenPGP or S/MIME emails to other users outside the service, there is an arguable benefit for being able to conveniently communicate with other users of secure email, albeit at the cost of trusting the provider.
 
+<a name="ghostmail"></a>GhostMail
+-----------------------------------------------------------
+
+[ghostmail.com](https://ghostmail.com)
+
+Ghostmail is a web-based email provider using client-side encryption in the browser.
+
+**Keys**: Key validation relies on trusting the provider.
+
+* Source code: https://github.com/ghostmail/GhostMailWeb
+* License: Apache
+
+
 <a name="lavaboom"></a>Lavaboom
 -----------------------------------------------------------
 
