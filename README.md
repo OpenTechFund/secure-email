@@ -763,13 +763,13 @@ End to end encrypted messaging that uses your mobile phone to directly route a m
 * License: Proprietary
 
 <a name="tutanota"></a>Tutanota
------------------------------------------------------------
+----------------------------------------  -------------------
 
 [tutanota.de](https://www.tutanota.de)
 
-Tutanota is an open source installable webclient and includes apps for Android, iOS and web browsers. A message to another user on the system uses public-key encryption. Emails to users outside the system are symmetrically encrypted with a pre-shared secret (the message is viewable on the Tutanota website). There are plans to support end-to-end public-key encryption of messages sent to and received from other providers in the future.
+Tutanota is an open source installable webclient and includes apps for Android, iOS and web browsers. A message to another user on the system uses public-key encryption. Emails to users outside the system are symmetrically encrypted with a pre-shared secret (the message is viewable on the Tutanota website).
 
-Keys: Private keys are generated in the browser app, encrypted with the user's password, and then stored on the server. The server never sees the user's password (password is hashed using bcrypt and SHA256 before being sent to the server during account creation and authentication).
+**Keys**: Private keys are generated in the browser app, encrypted with the user's password, and then stored on the server. The server never sees the user's password. Key validation requires trusting the Tutanota server.
 
 * Platforms: Web Browser, Android, iOS
 * License: Open Source (GPLv3)
