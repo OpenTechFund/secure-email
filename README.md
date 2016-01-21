@@ -763,7 +763,7 @@ End to end encrypted messaging that uses your mobile phone to directly route a m
 * License: Proprietary
 
 <a name="tutanota"></a>Tutanota
-----------------------------------------  -------------------
+-----------------------------------------------------------
 
 [tutanota.de](https://www.tutanota.de)
 
