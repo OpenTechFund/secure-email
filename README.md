@@ -10,6 +10,7 @@ Contents:
    1. [Secure Authentication](#secure-authentication)
 1. [Web Mail](#web-mail)
    1. [Lavaboom](#lavaboom)
+   1. [Mailfence](#mailfence)
    1. [Mega](#mega)
    1. [PrivateSky](#privatesky)
    1. [Scramble](#scramble)
@@ -172,6 +173,21 @@ Lavaboom's name is a tribute to the shuttered Lavabit service, although Lavaboom
 
 * Source code: https://github.com/lavab
 * License: MIT
+
+<a name="mailfence"></a>Mailfence
+-----------------------------------------------------------
+
+[mailfence.com](https://www.mailfence.com)
+
+Mailfence is a web-based email provider from Belgium that provides OpenPGP based end-to-end en(de)cryption and digital signing in the client-browser and uses open-source implementation ([openpgpjs.org](https://openpgpjs.org/) library) of RFC-4880.
+
+**Key storage and an integrated key-store:** Private keys are generated in the client-browser, encrypted with the user's passphrase, and then stored on the server. The server never sees the user's passphrase (encrypted via AES256 and iterated, salted string-to-key specifier). An integrated key-store for each account (without requiring any third party plugin/add-on) is also provided - where users can manage their generated (or externally imported) key-pairs and can export, modify, revoke (with/without revocation certificate), delete, publish/import PGP public keys from public key servers. This gives users full control over their key management and freedom to use as many PGP key-pairs as they want.
+
+**Application:** The service uses open standards and does not restrict users to communicate securely only with-in their platform, and allows their users to either send plain-text, plain-text and signed, signed and end-to-end encrypted emails to any external PGP compatible provider. They also provide a rich collaborative email-suite along with POP/IMAP support.
+
+**Market positioning** The project came into existence after snowden revelations and holds a strong online privacy-oriented philosophy. The service donates 15% of their annual Pro-plan revenue to [Electronic Frontier Foundation](https://www.eff.org/) (EFF) and [Electronic Digital Rights](https://edri.org/) (EDRi) to support their fight for online privacy and digital freedom.
+
+* License: Proprietary
 
 <a name="mega"></a>Mega
 -----------------------------------------------------------
