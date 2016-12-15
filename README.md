@@ -21,7 +21,7 @@ Contents:
    2. [End-to-End](#end-to-end)
 1. [Mail Clients](#mail-clients)
    1. [Bitmail](#bitmail)
-   1. [M](#m)
+   1. [Mynigma](#mynigma)
    1. [Mailpile](#mailpile)
    1. [Parley](#parley)
 1. [Self-Hosted Email](#self-hosted-email)
@@ -339,7 +339,7 @@ There are also plans to include a Bitmail MUA extension.
 
 Note: I am unclear which of the previous features are planned and which are currently working.
 
-<a name="m"></a>M
+<a name="mynigma"></a>Mynigma
 -----------------------------------------------------------
 
 [mynigma.org](https://mynigma.org)
@@ -354,7 +354,7 @@ M is a suite of native email clients with built-in end-to-end encryption.
 
 **Encryption format:** Implements custom Open Source encryption format. Provable CCA security. Removes SHA1 and other broken algorithms. Encrypts subject lines. Signing of other header info prevents replay attacks and surreptitious forwarding.
 
-**Limitations:** Requires download. No webmail access. PGP and S/MIME support in development.
+**Limitations:** Requires download. No webmail access. PGP and S/MIME support in development. Other MUAs need to parse the X-Myn-PK header.
 
 * Contact: info@mynigma.org
 * Written in: Objective-C, C#, Java
