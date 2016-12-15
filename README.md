@@ -401,7 +401,7 @@ Parley is a desktop mail client with a UI written using HTML5 and Javascript, wi
 
 * Written in: Python, Javascript
 * Source code: https://github.com/blackchair/parley
-* License: BSD
+* License: <span title="Simplified BSD License (2-clause)">BSD</span>
 * Platforms: Windows, Mac, Linux (with Android and iOS planned).
 
 <a name="self-hosted-email"></a>Self-Hosted Email
@@ -432,6 +432,8 @@ The Dark Mail Alliance has said they want to support self-hosting for the server
 [freedomboxfoundation.org](https://freedomboxfoundation.org)
 
 From its early conception, part of FreedomBox was "email and telecommunications that protects privacy and resists eavesdropping". Email, however, is not currently being worked on as part of FreedomBox. (as far as I can tell).
+
+* License: AGPLv3
 
 <a name="self-hosted-mailpile"></a>Mailpile
 -----------------------------------------------------------
@@ -585,6 +587,10 @@ Disadvantages:
 * because there is no forward secrecy, it is especially problematic that anyone can grab an encrypted copy of any message in the system. This means if the private key is ever compromised, then all the past messages can be decrypted easily by anyone using the system.
 * relies on proof of work for spam prevention, which is probably not actually that preventative (spammers often steal CPU anyway).
 
+[PyBitmessage](https://github.com/Bitmessage/PyBitmessage):
+
+* License: MIT
+
 <a name="bote-mail"></a>Bote mail
 -----------------------------------------------------------
 
@@ -724,7 +730,7 @@ Ultimately, Pond's unique design makes it a very strong candidate for incorporat
 
 * Written in: Go
 * Source code: https://github.com/agl/pond
-* License: BSD
+* License: <span title="Revised BSD License (3-clause)">BSD</span>
 * Platforms: anything you can compile Go on (for command line interface) or anything you can compile Go + Gtk (for GUI interface).
 
 <a name="retroshare"></a>RetroShare
@@ -787,7 +793,8 @@ ProtonMail is a web-based mail provider from Switzerland using client-side encry
 
 The developers promote their service as being secure because of its location in Switzerland and therefore user data are protected by strict Swiss privacy laws.
 
-* License: [Open Source](https://protonmail.com/blog/protonmail-secure-email-open-source/) on [Github](https://github.com/ProtonMail)
+* License: MIT [(Open Source)](https://protonmail.com/blog/protonmail-secure-email-open-source/)
+* Source Code: on [Github](https://github.com/ProtonMail)
 
 <a name="shazzlemail"></a>ShazzleMail
 -----------------------------------------------------------
@@ -809,7 +816,7 @@ Tutanota is an open source installable webclient and includes apps for Android, 
 **Keys**: Private keys are generated in the browser app, encrypted with the user's password, and then stored on the server. The server never sees the user's password. Key validation requires trusting the Tutanota server.
 
 * Platforms: Web Browser, Android, iOS
-* License: Open Source (GPLv3)
+* License: GPLv3
 
 <a name="walnut"></a>Walnut
 -----------------------------------------------------------
@@ -853,4 +860,3 @@ Other links:
 * [Implicit group messaging in peer-to-peer networks](http://sydney.edu.au/engineering/it/~dcutting/papers/tr583.pdf)
 * [P2P email encryption by an identity-based one-way group key agreement protocol](http://www.computer.org/csdl/proceedings/icpads/2014/7615/00/07097879.pdf)
 * [Peer to Peer Support for Distributed Mail Transfer Mechanism](http://www.iis.sinica.edu.tw/~khyang/papers/mime/C04.pdf)
-
