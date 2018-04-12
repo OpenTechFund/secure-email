@@ -701,9 +701,10 @@ The block chain confirms that your mail is genuine and your sent mail was receiv
 <a name="pond"></a>Pond
 -----------------------------------------------------------
 
-[pond.imperialviolet.org](https://pond.imperialviolet.org/)
+[github.com/agl/pond](https://github.com/agl/pond)
 
-Pond is an email-like messaging application with several unique architectural and cryptographic features that make it stand out in the field.
+Pond is an email-like messaging application with several unique architectural and cryptographic features that make it stand out in the field. Note that Adam Langley has updated to state that the project is
+in stasis, and has been so for several years. As of September 2017, the project website is down.
 
 **Message Encryption**: Pond uses [Axolotl](https://github.com/trevp/axolotl/wiki) for asynchronous forward secret messages where the key is frequently ratcheted (akin to OTR, but more robust).
 
@@ -715,7 +716,7 @@ Pond's advantages include:
 
 * Very high security: forward secrecy, metadata protection, resistant to traffic analysis.
 * Pond hybrid federated and peer-to-peer approach is cool and holds a lot of promise.
-* Written in Go, and thus probably has many fewer security flaws than programs written in C or C++.
+* Written in Go, and thus probably has fewer security flaws than programs written in C or C++.
 * Pond is written by Adam Langley, an extremely well respected crypto-engineer.
 
 Pond's disadvantages include:
